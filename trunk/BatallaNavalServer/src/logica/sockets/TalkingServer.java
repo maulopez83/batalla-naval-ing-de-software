@@ -1,8 +1,13 @@
-package Otras;
+package logica.sockets;
 
 	import java.io.*;
 import java.net.*;
 
+/*
+ * TALKING SERVER
+ * NO ESTA IMPLEMENTADO TODAVIA, POR AHORA SOLO ENVIA
+ * "HolaCliente!" hacia el ListeningClient
+ */
 	public class TalkingServer implements Runnable {
 		private String frase;
 		private String resultado;
