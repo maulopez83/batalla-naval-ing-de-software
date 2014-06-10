@@ -1,6 +1,6 @@
-package Observer;
+package observer;
 
-import mensajesServer.*;
+import logica.mensajes.*;
 
 public interface Observer {
 	void update(Mensaje m);
