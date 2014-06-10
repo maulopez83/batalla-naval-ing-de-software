@@ -8,7 +8,6 @@ import Otras.DelayThread;
 public class MsgHandler implements Runnable,Serializable {
 	private static final long serialVersionUID = 1L;
 	public Queue <Mensaje> MsgQ;
-	Data GameData;
 	Decodificacion decoder;
 	public MsgHandler(){
 		MsgQ= new LinkedList<Mensaje>();

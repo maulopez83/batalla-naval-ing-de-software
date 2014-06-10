@@ -13,19 +13,19 @@ public class ListeningClient implements Runnable {
 	public void run() {
 		while (true){
 			try{
-		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-			Socket connection = new Socket(host, port);
-			BufferedReader br = new BufferedReader(new 	InputStreamReader(connection.getInputStream()));
-			String devolucion= br.readLine();
-			System.out.println("Recibi" + devolucion);
+				BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+				Socket connection = new Socket(host, port);
+				BufferedReader br = new BufferedReader(new 	InputStreamReader(connection.getInputStream()));
+				String devolucion= br.readLine();
+				System.out.println("Recibi" + devolucion);
 			
-			br.close();
-			connection.close();
-			Thread.sleep(100);
-			if(exit){
-				break;
-			}
-		  }catch(Exception e){};
+				br.close();
+				connection.close();
+				Thread.sleep(100);
+				if(exit){
+					break;
+				}
+			}catch(Exception e){};
 			
 		}
 	}
