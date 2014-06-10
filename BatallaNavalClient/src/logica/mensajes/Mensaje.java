@@ -2,7 +2,7 @@ package logica.mensajes;
 import java.io.Serializable;
 
 /*
- * Mensaje - implements Serializable
+ * abstract Mensaje - implements Serializable
  * Clase que permite almacenar los datos de juego que deben ser
  * enviados entre el cliente y el servidor. Puede enviarse a través de un
  * Socket mediante la funcion ObjectOutputStream.writeObject() 
