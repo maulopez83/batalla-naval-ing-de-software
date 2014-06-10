@@ -2,6 +2,10 @@ package mensajesServer;
 
 import java.io.Serializable;
 
+/*
+ * Mensaje Colocar extends Mensaje
+ * Subtipo de mensaje, se decodifica con Colocar.decodificar()
+ */
 public class MensajeColocar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
