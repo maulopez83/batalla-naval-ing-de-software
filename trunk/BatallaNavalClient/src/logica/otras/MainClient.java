@@ -1,5 +1,11 @@
-package Otras;
-import mensajesServer.*;
+package logica.otras;
+import logica.*;
+import logica.mensajes.MensajeColocar;
+import logica.mensajes.MensajeConectar;
+import logica.mensajes.MensajeDesconectar;
+import logica.mensajes.MensajeDisparo;
+import logica.sockets.ListeningClient;
+import logica.sockets.TalkingClientGUIObserver;
 
 
 public class MainClient {

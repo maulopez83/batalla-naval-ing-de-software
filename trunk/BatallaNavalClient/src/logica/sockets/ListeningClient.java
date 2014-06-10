@@ -1,6 +1,9 @@
-package Otras;
+package logica.sockets;
 import java.io.*;
 import java.net.*;
+
+import logica.otras.DelayThread;
+
 
 /*
  * Listening Client:

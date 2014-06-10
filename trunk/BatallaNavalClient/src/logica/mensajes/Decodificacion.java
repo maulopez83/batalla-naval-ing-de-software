@@ -1,4 +1,4 @@
-package mensajesServer;
+package logica.mensajes;
 
 import java.io.Serializable;
 
