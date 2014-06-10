@@ -8,6 +8,11 @@ import mensajesServer.*;
 import Observer.Observer;
 import Observer.Subject;
 
+/*
+ * GUI Subject
+ * no implementada
+ * Debería obtener los cambios en la GUI, crear un mensaje y avisarle a TalkingClientGUIObserver
+ */
 public class GUISubject implements Subject{
 	ArrayList<Observer> clientList;
 	private Mensaje msg;

@@ -1,7 +1,13 @@
 package Otras;
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
+
+/*
+ * Listening Client:
+ * no implementada aun
+ * por ahora se encarga de recibir mensajes string enviados por el talkingServer
+ */
+
 public class ListeningClient implements Runnable {
 	boolean exit;
 	private String host;
@@ -13,7 +19,6 @@ public class ListeningClient implements Runnable {
 	public void run() {
 		while (true){
 			try{
-				BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 				Socket connection = new Socket(host, port);
 				BufferedReader br = new BufferedReader(new 	InputStreamReader(connection.getInputStream()));
 				String devolucion= br.readLine();
@@ -21,10 +26,8 @@ public class ListeningClient implements Runnable {
 			
 				br.close();
 				connection.close();
-				Thread.sleep(100);
-				if(exit){
-					break;
-				}
+				DelayThread.delay(100);
+				
 			}catch(Exception e){};
 			
 		}
