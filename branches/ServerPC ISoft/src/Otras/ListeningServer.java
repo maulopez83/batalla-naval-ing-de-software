@@ -7,60 +7,44 @@ import mensajesServer.*;
 
 public class ListeningServer implements Runnable {
 	private MsgHandler handler;
-	private Mensaje msg;
+	private Thread handlerThread;
 	private ServerSocket serverSocket;
 	public ListeningServer(int port,String frase,MsgHandler mh) throws IOException {
 		serverSocket = new ServerSocket(port);
-		handler=mh;
+		handler=new MsgHandler();
+		handlerThread=new Thread(handler);
+		handlerThread.start();
 	}
 	
-	public Mensaje getMsg() {
-		return msg;
-	}
-
-
-	public void setMsg(Mensaje msg) {
-		if (msg!=null){
-			this.msg = msg;
-		}
-	}
-
 	private void EscucharClientes()  {
 			
-			Socket connection;
+	Socket connection;
 	try {
-				connection = serverSocket.accept();
+		connection = serverSocket.accept();
 			
-			ObjectInputStream inFromClient = new ObjectInputStream(connection.getInputStream());
+		ObjectInputStream inFromClient = new ObjectInputStream(connection.getInputStream());
 			
-			Mensaje mens;
-	try {
-			mens = (Mensaje) inFromClient.readObject();
-			
-			setMsg(mens);
-			if(mens!=null){
-					handler.addMsg(getMsg());
+		Mensaje msg;
+		try {
+			msg = (Mensaje) inFromClient.readObject();
+			if(msg!=null){
+					handler.addMsg(msg);
 					System.out.println("Se añadio un mensaje a la cola");
 			}
-		} catch (ClassNotFoundException e) {
+			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-			}
+				}
 			inFromClient.close();
 			connection.close();
-		} catch (IOException e) {
+	} catch (IOException e) {
 				e.printStackTrace();
-			}
-
-		
+	  }
+	
 	}
 	public void run() {
 		while(true){
 			EscucharClientes();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			DelayThread.delay(250);
 		}	
 	}
 }

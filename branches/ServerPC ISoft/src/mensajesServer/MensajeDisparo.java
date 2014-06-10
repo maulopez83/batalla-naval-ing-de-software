@@ -8,7 +8,7 @@ public class MensajeDisparo extends Mensaje implements Serializable{
 
 	public MensajeDisparo(String msg,int senderID) {
 		super(msg,senderID);
-		typeofMessage=new Disparo();
+		setType(new Disparo());
 	}
 
 }
