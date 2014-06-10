@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="ing.de.software.batallanaval.visual.comunicacion.HilodeEnvio" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/comunicacion/HilodeEnvio.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="215" x="1537" y="743"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="ing.de.software.batallanaval.visual.animacion.Animaciones" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/animacion/Animaciones.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="200" x="397" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="ing.de.software.batallanaval.visual.animacion.FinalizaPartida" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/animacion/FinalizaPartida.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="200" x="157" y="339"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ing.de.software.batallanaval.visual.animacion.ComienzaPartida" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/animacion/ComienzaPartida.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="200" x="397" y="339"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ing.de.software.batallanaval.visual.sonido.ComienzaPartida" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/ComienzaPartida.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="637" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ing.de.software.batallanaval.visual.imagen.Fondo" project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/imagen/Fondo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="188" x="169" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ing.de.software.batallanaval.visual.sonido.DisparoFallido" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/DisparoFallido.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="862" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="ing.de.software.batallanaval.visual.imagen.Imagenes" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/imagen/Imagenes.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="188" x="853" y="743"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="9" language="java" name="ing.de.software.batallanaval.visual.animacion.DisparoExitoso" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/animacion/DisparoExitoso.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="200" x="637" y="339"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="ing.de.software.batallanaval.visual.animacion.DisparoFallido" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/animacion/DisparoFallido.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="200" x="877" y="339"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="ing.de.software.batallanaval.visual.InterfazGrafica" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/InterfazGrafica.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="196" x="1537" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ing.de.software.batallanaval.visual.comunicacion.HilodeEscucha" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/comunicacion/HilodeEscucha.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="215" x="1537" y="339"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ing.de.software.batallanaval.visual.sonido.DisparoExitoso" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/DisparoExitoso.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="1087" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ing.de.software.batallanaval.visual.sonido.FinalizaPartida" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/FinalizaPartida.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="1312" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="ing.de.software.batallanaval.visual.sonido.Ambiente" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/Ambiente.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="1773" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="16" language="java" name="ing.de.software.batallanaval.visual.sonido.Sonidos" 
+    project="Batalla Naval [0.1]" 
+    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/visual/sonido/Sonidos.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="185" x="1202" y="743"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <association id="17">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="18" name="ventana"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="21" name="hiloenvio"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="23">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <realization id="24">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="25">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="26">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <realization id="27">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="28">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="29">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="30" name="hiloescucha"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="32">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <realization id="33">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="34">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="35" name="sonidoamb"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="37">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="38">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="39" name="fondo"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="41">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
