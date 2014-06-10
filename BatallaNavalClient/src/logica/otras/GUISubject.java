@@ -1,12 +1,14 @@
-package Otras;
+package logica.otras;
 
 
 import java.util.ArrayList;
 
-import mensajesServer.*;
+import observer.Observer;
+import observer.Subject;
 
-import Observer.Observer;
-import Observer.Subject;
+import logica.*;
+import logica.mensajes.Mensaje;
+
 
 /*
  * GUI Subject

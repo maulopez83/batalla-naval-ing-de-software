@@ -1,10 +1,13 @@
-package Otras;
+package logica.sockets;
 import java.io.*;
 import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
-import mensajesServer.*;
-import Observer.*;
+
+import observer.*;
+
+import logica.*;
+import logica.mensajes.Mensaje;
 
 /*
  * TalkingClientGUIObserver implements Observer

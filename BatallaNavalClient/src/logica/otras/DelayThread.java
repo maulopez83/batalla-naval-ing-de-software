@@ -1,4 +1,4 @@
-package Otras;
+package logica.otras;
 
 /*
  * DelayThread
