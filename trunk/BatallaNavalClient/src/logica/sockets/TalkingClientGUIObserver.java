@@ -7,7 +7,8 @@ import java.util.Queue;
 import observer.*;
 
 import logica.*;
-import logica.mensajes.Mensaje;
+import logica.mensajes.*;
+
 
 /*
  * TalkingClientGUIObserver implements Observer
