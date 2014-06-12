@@ -5,20 +5,29 @@ import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import presentacion.cliente.visual.*;
 import negocio.logica.comunicacion.mensajes.Mensaje;
 
 /*
- * TALKING SERVER
- * NO ESTA IMPLEMENTADO TODAVIA, POR AHORA SOLO ENVIA
- * "HolaCliente!" hacia el ListeningClient
+ * Talking Server implements Subject
+ * Presenta un patron Observer junto con el MsgHandler del Servidor, que es sujeto.
+ * El MsgHandler del Servidor recibe los mensajes desde el socket de escucha del servidor
+ * y una vez obtenidos llama a su función decodificar, la cual realiza cambios en los datos
+ * del juego y elabora otro mensaje de respuesta. Ese mensaje de repuesta es visto por el
+ * mismo MsgHandler, del cual TalkingServer es un Observer. Por lo tanto cuando recibe la
+ * respuesta el MsgHandler comprueba que el mensaje no sea nulo y 
+ * se lo envía al TalkingServer, quien luego lo envía por Socket hacia el Cliente.
  */
-	public class TalkingServer {
+	public class TalkingServer implements Observer{
 		private Queue<Mensaje> OutputMsg;
 		private ServerSocket serverSocket;
-		public TalkingServer(int port) throws IOException {
+		
+		public TalkingServer(int port,Subject MsgGrabber) throws IOException {
 			serverSocket = new ServerSocket(port);
 			OutputMsg = new LinkedList<Mensaje>();
+			MsgGrabber.register(this);
 		}
+		
 		public void update(Mensaje m) {
 			addMsg(m);
 			sendMsg();

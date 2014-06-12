@@ -10,7 +10,7 @@ import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.logica.comunicacion.ListeningClient;
 import presentacion.cliente.logica.comunicacion.TalkingClientGUIObserver;
 import presentacion.cliente.logica.*;
-import presentacion.cliente.visual.animacion.Ventana;
+import presentacion.cliente.visual.Ventana;
 
 
 

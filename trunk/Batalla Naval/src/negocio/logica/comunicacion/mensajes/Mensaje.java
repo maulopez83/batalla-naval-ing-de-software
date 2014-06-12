@@ -58,7 +58,7 @@ public abstract class Mensaje implements Serializable{
 	 * el tipo de mensaje que es. Para ello implementa un patron
 	 * Strategy, llamando a decodificar del campo Decodificacion typeOfMessage
 	 */
-	public String decodificar(){
+	public Mensaje decodificar(){
 		return getType().decodificar(this);
 	}
 	

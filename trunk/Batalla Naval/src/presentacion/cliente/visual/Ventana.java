@@ -1,4 +1,4 @@
-package presentacion.cliente.visual.animacion;
+package presentacion.cliente.visual;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -12,7 +12,6 @@ import datos.server.datos.DataSingleton;
 
 import negocio.logica.comunicacion.mensajes.*;
 
-import presentacion.cliente.visual.GUISubject;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -57,18 +56,15 @@ public class Ventana {
 		frame.getContentPane().add(Fondo);
 		
 		final JLabel Tablero1 = new JLabel("");
+		/*
+		 * Si hago un click en el tablero, se crea un mensaje de disparo con 
+		 * el punto que contiene las coordenadas en pixeles relativas al tablero.
+		 */
 		Tablero1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Mensaje msg= new MensajeDisparo(e.getPoint(),1);
-				guiSubject.sendMessage(msg);
-				JLabel newl= new JLabel("");
-				int Xpos= (int)(e.getX()/50)*50+Tablero1.getX();
-				int Ypos= (int)(e.getY()/50)*50+Tablero1.getY();
-				newl.setIcon(new ImageIcon(Ventana.class.getResource("/presentacion/cliente/visual/imagen/Cruz Averiado.png")));
-				newl.setBounds(Xpos,Ypos,50,50);
-				frame.getContentPane().add(newl,0);
-				frame.repaint();
+				guiSubject.sendMsg(msg);
 			}
 		});
 		Tablero1.setBounds(150, 100, 500, 500);
