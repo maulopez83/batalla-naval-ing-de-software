@@ -14,8 +14,6 @@ import negocio.logica.comunicacion.mensajes.MensajeLabel;
 import negocio.server.logica.comunicacion.ListeningServer;
 import negocio.server.logica.comunicacion.TalkingServer;
 
-
-
 public class MainServer {
 
 	public static void main(String args[]) throws IOException{
@@ -42,7 +40,7 @@ public class MainServer {
 
 			Point pos= new Point(50*i, 50*k);
 			Point wh= new Point(50, 50);
-			tserver.update(new MensajeLabel("/presentacion/cliente/visual/imagen/Agua.png",pos,wh));
+			tserver.update(new MensajeLabel("src/datos/server/datos/imagenes/Agua.png",pos,wh));
 		}
 	  }
 	}

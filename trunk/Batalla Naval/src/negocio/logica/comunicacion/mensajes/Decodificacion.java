@@ -125,7 +125,7 @@ class MLabel implements Decodificacion{
 			Ventana GameWindow = Ventana.getInstance();
 			JLabel label= new JLabel();
 			MensajeLabel msg= (MensajeLabel) m;
-			label.setIcon(new ImageIcon(msg.getImageloc()));
+			label.setIcon(msg.getImage());
 			int Xpos=(int)msg.getPosition().getX();
 			int Ypos=(int)msg.getPosition().getY();
 			int Width=(int)msg.getWidHeig().getX();

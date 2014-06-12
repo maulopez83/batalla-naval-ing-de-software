@@ -1,8 +1,12 @@
 package negocio.logica.comunicacion.mensajes;
 
 import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class MensajeLabel extends Mensaje implements Serializable{
@@ -10,18 +14,23 @@ public class MensajeLabel extends Mensaje implements Serializable{
 	private String imageloc;
 	private Point position;
 	private Point WidHeig;
-	
+	private ImageIcon imagen;
 	public MensajeLabel(String imageloc, Point position, Point WidHeig ){
 		super();
-		this.imageloc=imageloc;
+		try {
+			imagen= new ImageIcon(ImageIO.read(new File(imageloc)));
+			System.out.println("imagen cargada");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		this.WidHeig=WidHeig;
 		this.position=position;
 		setType(new MLabel());
 		setID("LABEL");
 	}
 
-	public String getImageloc() {
-		return imageloc;
+	public ImageIcon getImage() {
+		return imagen;
 	}
 
 	public Point getPosition() {
