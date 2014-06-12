@@ -4,7 +4,8 @@ import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import presentacion.cliente.logica.comunicacion.mensajes.*;
+import negocio.logica.comunicacion.mensajes.*;
+
 import presentacion.cliente.visual.*;
 
 /*
@@ -17,16 +18,17 @@ public class TalkingClientGUIObserver implements Observer {
 	private int port;
 	private Queue<Mensaje> OutputMsg;
 	private Socket connection;
-	
+
 	/*
 	 * Constructor
 	 * params: String host, int port
 	 * Inicializa los valores de host y port para crear el socket
 	 * Inicializa OutputMsg como una nueva Cola del tipo LinkedList<Mensaje>
 	 */
-	public TalkingClientGUIObserver(String host, int port) throws IOException {
+	public TalkingClientGUIObserver(String host, int port,Subject guiSubject) throws IOException {
 		this.host = host; this.port = port;
 		OutputMsg = new LinkedList<Mensaje>();
+		guiSubject.register(this);
 	}
 	/*
 	 * addMsg()

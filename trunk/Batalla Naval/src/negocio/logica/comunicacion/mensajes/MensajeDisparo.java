@@ -1,6 +1,6 @@
-package negocio.server.logica.comunicacion.mensajes;
+package negocio.logica.comunicacion.mensajes;
 
-import java.io.Serializable;
+import java.awt.Point;
 import java.io.Serializable;
 /*
  * Mensaje Disparo extends Mensaje
@@ -9,10 +9,18 @@ import java.io.Serializable;
 public class MensajeDisparo extends Mensaje implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
-	public MensajeDisparo(String msg,int senderID) {
-		super(msg,senderID);
+	private	Point p;
+	private int fromTab;
+	public MensajeDisparo(Point p, int fromTab) {
+		super();
+		this.p=p;
+		this.fromTab=fromTab;
 		setType(new Disparo());
 	}
-
+	
+	public Point getPoint() {
+		return p;
+	}
+	
+	
 }

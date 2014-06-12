@@ -1,12 +1,15 @@
 package negocio.server.main;
+
 import java.io.IOException;
+
 
 import negocio.server.logica.comunicacion.ListeningServer;
 import negocio.server.logica.comunicacion.TalkingServer;
 
 
+
 public class MainServer {
-	
+
 	public static void main(String args[]) throws IOException{
 	/*Creo un nuevo ListeningServer en el puerto 2344
 	 *Inicio su metodo run()

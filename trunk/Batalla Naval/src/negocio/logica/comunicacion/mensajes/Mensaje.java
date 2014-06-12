@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.comunicacion.mensajes;
+package negocio.logica.comunicacion.mensajes;
 import java.io.Serializable;
 
 /*
@@ -14,9 +14,8 @@ public abstract class Mensaje implements Serializable{
 	public  Decodificacion typeofMessage;
 	private String msg;
 	private int senderID;
-	public	Mensaje(String msg,int senderID){
-		this.msg=msg;
-		this.senderID=senderID;
+	public	Mensaje(){
+		
 	}
 	
 	

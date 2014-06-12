@@ -2,8 +2,8 @@ package negocio.server.logica.comunicacion;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import negocio.logica.comunicacion.mensajes.*;
 import negocio.server.logica.comunicacion.DelayThread;
-import negocio.server.logica.comunicacion.mensajes.Mensaje;
 
 /*
  * MsgHandler -implements Runnable
