@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import negocio.logica.comunicacion.mensajes.Mensaje;
 
-
-
 /*
  * GUI Subject
- * no implementada
- * Debería obtener los cambios en la GUI, crear un mensaje y avisarle a TalkingClientGUIObserver
+ * Cuando ocurre un evento en la GUI, se crea un mensaje
+ * que se le entrega al GUI Subject, quien a su vez se encarga
+ * de enviarselo a TalkingClientGUIObserver mediante el metodo sendMsg().
+ * Esta última clase posee el socket para enviar el mensaje al Server.
  */
 public class GUISubject implements Subject{
 	ArrayList<Observer> clientList;
@@ -38,7 +38,7 @@ public class GUISubject implements Subject{
 		this.msg = msg;
 	}	
 	
-	public void sendMessage(Mensaje msg){
+	public void sendMsg(Mensaje msg){
 		setMsg(msg);
 		notifyObservers();
 	}

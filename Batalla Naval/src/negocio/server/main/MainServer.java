@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import presentacion.cliente.logica.comunicacion.DelayThread;
-import presentacion.cliente.visual.animacion.Ventana;
+import presentacion.cliente.visual.Ventana;
 
 
 import negocio.logica.comunicacion.mensajes.MensajeLabel;
@@ -33,16 +33,7 @@ public class MainServer {
 	port = 2343;
 	if(args.length == 1)
 		port = Integer.parseInt(args[0]);		
-	TalkingServer tserver = new TalkingServer(port);
-	for (int k=0; k<10;k++){
-		for (int i=0; i<10;i++){
-			DelayThread.delay(1000);
-
-			Point pos= new Point(50*i, 50*k);
-			Point wh= new Point(50, 50);
-			tserver.update(new MensajeLabel("src/datos/server/datos/imagenes/Agua.png",pos,wh));
-		}
-	  }
+	TalkingServer tserver = new TalkingServer(port,lserver.getHandler());
+		
 	}
-	
 }

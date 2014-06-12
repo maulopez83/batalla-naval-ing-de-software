@@ -32,6 +32,10 @@ public class ListeningServer implements Runnable {
 		handlerThread.start();
 	}
 	
+	public MsgHandler getHandler() {
+		return handler;
+	}
+
 	/*
 	 * EscucharClientes()
 	 * returns: void

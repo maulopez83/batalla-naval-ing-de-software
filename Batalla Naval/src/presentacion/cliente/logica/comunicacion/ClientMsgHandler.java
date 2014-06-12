@@ -6,9 +6,9 @@ import negocio.logica.comunicacion.mensajes.*;
 import negocio.server.logica.comunicacion.DelayThread;
 
 /*
- * MsgHandler -implements Runnable
+ * ClientMsgHandler -implements Runnable
  * Clase que recibe mensajes en una cola de entrada MsgQ
- * y se encarga de implementar su funcion de decodificación
+ * y se encarga de implementar su funcion de decodificación en el cliente
  */
 
 public class ClientMsgHandler implements Runnable {
