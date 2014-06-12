@@ -1,4 +1,4 @@
-package presentacion.cliente.visual;
+package presentacion.cliente.logica.comunicacion;
 
 public interface Subject {
 	void register(Observer o);

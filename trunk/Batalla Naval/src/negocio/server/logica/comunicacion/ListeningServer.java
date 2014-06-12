@@ -14,7 +14,7 @@ import negocio.logica.comunicacion.mensajes.*;
  */
 
 public class ListeningServer implements Runnable {
-	private MsgHandler handler;
+	private MsgHandlerRespSubject handler;
 	private Thread handlerThread;
 	private ServerSocket serverSocket;
 	
@@ -27,12 +27,12 @@ public class ListeningServer implements Runnable {
 	 */
 	public ListeningServer(int port) throws IOException {
 		serverSocket = new ServerSocket(port);
-		handler=new MsgHandler();
+		handler=new MsgHandlerRespSubject();
 		handlerThread=new Thread(handler);
 		handlerThread.start();
 	}
 	
-	public MsgHandler getHandler() {
+	public MsgHandlerRespSubject getHandler() {
 		return handler;
 	}
 

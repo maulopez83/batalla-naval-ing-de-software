@@ -17,6 +17,7 @@ public class ListeningClient implements Runnable {
 	private Thread handlerThread;
 	private String host;
 	private int port;
+	private Socket connection;
 	public ListeningClient(String host, int port) throws IOException {
 		this.host = host; this.port = port;
 		handler=new ClientMsgHandler();
@@ -26,7 +27,7 @@ public class ListeningClient implements Runnable {
 	
 	public void EscucharServer() {
 			try{
-				Socket connection = new Socket(host, port);
+			    connection = new Socket(host, port);
 				ObjectInputStream inFromServer = new ObjectInputStream(connection.getInputStream());
 				Mensaje msg;
 				try {

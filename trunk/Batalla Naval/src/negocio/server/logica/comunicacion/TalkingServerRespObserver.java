@@ -4,8 +4,6 @@ package negocio.server.logica.comunicacion;
 import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import presentacion.cliente.visual.*;
 import negocio.logica.comunicacion.mensajes.Mensaje;
 
 /*
@@ -18,11 +16,11 @@ import negocio.logica.comunicacion.mensajes.Mensaje;
  * respuesta el MsgHandler comprueba que el mensaje no sea nulo y 
  * se lo envía al TalkingServer, quien luego lo envía por Socket hacia el Cliente.
  */
-	public class TalkingServer implements Observer{
+	public class TalkingServerRespObserver implements Observer{
 		private Queue<Mensaje> OutputMsg;
 		private ServerSocket serverSocket;
 		
-		public TalkingServer(int port,Subject MsgGrabber) throws IOException {
+		public TalkingServerRespObserver(int port,Subject MsgGrabber) throws IOException {
 			serverSocket = new ServerSocket(port);
 			OutputMsg = new LinkedList<Mensaje>();
 			MsgGrabber.register(this);
