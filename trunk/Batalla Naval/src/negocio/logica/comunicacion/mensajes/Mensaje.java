@@ -14,11 +14,22 @@ public abstract class Mensaje implements Serializable{
 	public  Decodificacion typeofMessage;
 	private String msg;
 	private int senderID;
+	private String ID;
 	public	Mensaje(){
 		
 	}
 	
 	
+	public String getID() {
+		return ID;
+	}
+
+
+	public void setID(String iD) {
+		ID = iD;
+	}
+
+
 	public void setType(Decodificacion type){
 		typeofMessage=type;
 	}

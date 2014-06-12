@@ -3,6 +3,11 @@ package negocio.logica.comunicacion.mensajes;
 import java.awt.Point;
 import java.io.Serializable;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import presentacion.cliente.visual.animacion.Ventana;
+
 import negocio.logica.comunicacion.mensajes.*;
 
 
@@ -108,3 +113,26 @@ class Colocar implements Decodificacion{
 		return "Es Colocar";
 	}
 }
+class MLabel implements Decodificacion{
+		private static final long serialVersionUID = 1L;
+		/*
+		 * decodificar()
+		 * returns: String? (deberia ser void capaz dsp lo vemos)
+		 * params: Mensaje m
+		 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE COLOCAR, FALTA IMPLEMENTAR BIEN 
+		 */
+		public String decodificar(Mensaje m){
+			Ventana GameWindow = Ventana.getInstance();
+			JLabel label= new JLabel();
+			MensajeLabel msg= (MensajeLabel) m;
+			label.setIcon(new ImageIcon(msg.getImageloc()));
+			int Xpos=(int)msg.getPosition().getX();
+			int Ypos=(int)msg.getPosition().getY();
+			int Width=(int)msg.getWidHeig().getX();
+			int Height=(int)msg.getWidHeig().getY();
+			label.setBounds(Xpos,Ypos,Width,Height);
+			GameWindow.getFrame().getContentPane().add(label,0);
+			GameWindow.getFrame().repaint();
+			return "Es Label";
+		}
+	}

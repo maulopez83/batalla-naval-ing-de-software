@@ -2,6 +2,9 @@ package presentacion.cliente.logica.comunicacion;
 import java.io.*;
 import java.net.*;
 
+import negocio.logica.comunicacion.mensajes.Mensaje;
+import negocio.server.logica.comunicacion.DelayThread;
+
 
 /*
  * Listening Client:
@@ -10,27 +13,39 @@ import java.net.*;
  */
 
 public class ListeningClient implements Runnable {
-	boolean exit;
+	private ClientMsgHandler handler;
+	private Thread handlerThread;
 	private String host;
 	private int port;
 	public ListeningClient(String host, int port) throws IOException {
-		exit=false;
 		this.host = host; this.port = port;
+		handler=new ClientMsgHandler();
+		handlerThread=new Thread(handler);
+		handlerThread.start();
 	}
-	public void run() {
-		while (true){
+	
+	public void EscucharServer() {
 			try{
 				Socket connection = new Socket(host, port);
-				BufferedReader br = new BufferedReader(new 	InputStreamReader(connection.getInputStream()));
-				String devolucion= br.readLine();
-				System.out.println("Recibi" + devolucion);
-			
-				br.close();
+				ObjectInputStream inFromServer = new ObjectInputStream(connection.getInputStream());
+				Mensaje msg;
+				try {
+					msg = (Mensaje) inFromServer.readObject();
+					if(msg!=null){
+							handler.addMsg(msg);
+							System.out.println("Se añadio un mensaje a la cola");
+					}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+						}
 				connection.close();
-				DelayThread.delay(100);
-				
 			}catch(Exception e){};
 			
 		}
+	public void run() {
+		while(true){
+			EscucharServer();
+			DelayThread.delay(250);
+		}	
 	}
 }

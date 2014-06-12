@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
+import datos.server.datos.DataSingleton;
+
 import negocio.logica.comunicacion.mensajes.*;
 
 import presentacion.cliente.visual.GUISubject;
@@ -16,19 +18,21 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Ventana {
-	
+	private static Ventana GameWindow;
 	private JFrame frame;
 	private GUISubject guiSubject;
 	/**
-	 * Launch the application.
-	 */
-
-	/**
 	 * Create the application.
 	 */
-	public Ventana() {
+	private Ventana() {
 		guiSubject= new GUISubject();
 		initialize();
+	}
+	public static Ventana getInstance(){
+		if (GameWindow == null){
+			GameWindow= new Ventana();
+		}
+		return GameWindow;
 	}
 	public JFrame getFrame(){
 	return frame;

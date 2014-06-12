@@ -20,8 +20,7 @@ public class MainClient {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ventana window = new Ventana();
-					window.getFrame().setVisible(true);
+					Ventana.getInstance().getFrame().setVisible(true);
 					/*
 					 * Inicio un listening client que escuche a mi computadora JUANJO-PC 
 					 * en el puerto 2343 donde corro el server
@@ -38,7 +37,7 @@ public class MainClient {
 					 * 
 					 */
 					remotePort = 2344;
-					TalkingClientGUIObserver tclient = new TalkingClientGUIObserver(remoteHost, remotePort,window.getGuiSubject());
+					TalkingClientGUIObserver tclient = new TalkingClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
 					
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -2,41 +2,50 @@ package negocio.server.logica.comunicacion;
 
 	import java.io.*;
 import java.net.*;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import negocio.logica.comunicacion.mensajes.Mensaje;
 
 /*
  * TALKING SERVER
  * NO ESTA IMPLEMENTADO TODAVIA, POR AHORA SOLO ENVIA
  * "HolaCliente!" hacia el ListeningClient
  */
-	public class TalkingServer implements Runnable {
-
+	public class TalkingServer {
+		private Queue<Mensaje> OutputMsg;
 		private ServerSocket serverSocket;
 		public TalkingServer(int port) throws IOException {
 			serverSocket = new ServerSocket(port);
+			OutputMsg = new LinkedList<Mensaje>();
 		}
-		public void run() {
-			while(true){
-				try {
-					String mensaje="Hola Cliente!";
-					Socket connection;
-					connection = serverSocket.accept();
-					PrintWriter pw = new PrintWriter(connection.getOutputStream());
-					pw.println(mensaje);
-					pw.close();//si no se cierra primero, hay que hacer flush
-					connection.close();
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+		public void update(Mensaje m) {
+			addMsg(m);
+			sendMsg();
+		}
+		
+		private void addMsg(Mensaje msg) {
+			OutputMsg.add(msg);
+		}
+		
+		private void sendMsg() {
+			try{
+			Socket connection;
+			connection = serverSocket.accept();	
+			ObjectOutputStream outToServer = new ObjectOutputStream(connection.getOutputStream());
+			Mensaje msgToSend=OutputMsg.poll();
+			System.out.println(msgToSend.getID());
+			if(msgToSend!=null){
+				outToServer.writeObject(msgToSend);
+				outToServer.flush();
+				System.out.println("Envie");
 
+	
 			}
-			
-		}
+			outToServer.close();
+			connection.close();
+			System.out.println("Sali");
+		  }catch(Exception e){ };	
+	}
 	}
 
