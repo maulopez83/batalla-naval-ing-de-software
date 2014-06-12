@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.comunicacion.mensajes;
+package negocio.logica.comunicacion.mensajes;
 
 import java.io.Serializable;
 /*
@@ -9,8 +9,8 @@ public class MensajeDesconectar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public MensajeDesconectar(String msg,int senderID) {
-		super(msg,senderID);
+	public MensajeDesconectar() {
+		super();
 		setType(new Desconectar());
 	}
 }

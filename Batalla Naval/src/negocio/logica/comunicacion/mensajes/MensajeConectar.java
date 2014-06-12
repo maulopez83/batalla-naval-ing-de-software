@@ -1,4 +1,4 @@
-package negocio.server.logica.comunicacion.mensajes;
+package negocio.logica.comunicacion.mensajes;
 
 import java.io.Serializable;
 /*
@@ -8,8 +8,8 @@ import java.io.Serializable;
 public class MensajeConectar extends Mensaje implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public MensajeConectar(String msg,int senderID) {
-		super(msg,senderID);
+	public MensajeConectar() {
+		super();
 		setType(new Conectar());
 	}
 }

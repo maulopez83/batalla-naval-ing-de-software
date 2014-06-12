@@ -3,7 +3,8 @@ package presentacion.cliente.visual;
 
 import java.util.ArrayList;
 
-import presentacion.cliente.logica.comunicacion.mensajes.Mensaje;
+import negocio.logica.comunicacion.mensajes.Mensaje;
+
 
 
 /*
@@ -41,5 +42,5 @@ public class GUISubject implements Subject{
 		setMsg(msg);
 		notifyObservers();
 	}
-
+	
 }

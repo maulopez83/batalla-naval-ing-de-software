@@ -1,7 +1,7 @@
 package presentacion.cliente.visual;
 
+import negocio.logica.comunicacion.mensajes.Mensaje;
 import presentacion.cliente.logica.comunicacion.*;
-import presentacion.cliente.logica.comunicacion.mensajes.Mensaje;
 
 
 public interface Observer {

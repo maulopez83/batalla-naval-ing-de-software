@@ -2,7 +2,8 @@ package negocio.server.logica.comunicacion;
 import java.io.*;
 import java.net.*;
 
-import negocio.server.logica.comunicacion.mensajes.Mensaje;
+import negocio.logica.comunicacion.mensajes.*;
+
 
 
 /*

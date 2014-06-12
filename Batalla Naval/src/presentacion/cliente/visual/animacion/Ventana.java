@@ -7,36 +7,37 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
+
+import negocio.logica.comunicacion.mensajes.*;
+
+import presentacion.cliente.visual.GUISubject;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Ventana {
-
-	private JFrame frame;
 	
+	private JFrame frame;
+	private GUISubject guiSubject;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana window = new Ventana();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public Ventana() {
+		guiSubject= new GUISubject();
 		initialize();
 	}
-
+	public JFrame getFrame(){
+	return frame;
+	}
+	
+	
+	public GUISubject getGuiSubject() {
+		return guiSubject;
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -55,10 +56,12 @@ public class Ventana {
 		Tablero1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Mensaje msg= new MensajeDisparo(e.getPoint(),1);
+				guiSubject.sendMessage(msg);
 				JLabel newl= new JLabel("");
-				newl.setIcon(new ImageIcon(Ventana.class.getResource("/presentacion/cliente/visual/imagen/Cruz Averiado.png")));
 				int Xpos= (int)(e.getX()/50)*50+Tablero1.getX();
 				int Ypos= (int)(e.getY()/50)*50+Tablero1.getY();
+				newl.setIcon(new ImageIcon(Ventana.class.getResource("/presentacion/cliente/visual/imagen/Cruz Averiado.png")));
 				newl.setBounds(Xpos,Ypos,50,50);
 				frame.getContentPane().add(newl,0);
 				frame.repaint();
