@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
+import presentacion.cliente.logica.comunicacion.GUISubject;
+
 import datos.server.datos.DataSingleton;
 
 import negocio.logica.comunicacion.mensajes.*;

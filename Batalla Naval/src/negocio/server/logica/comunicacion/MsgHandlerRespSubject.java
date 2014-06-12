@@ -2,10 +2,6 @@ package negocio.server.logica.comunicacion;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import presentacion.cliente.visual.Observer;
-import presentacion.cliente.visual.Subject;
-
 import negocio.logica.comunicacion.mensajes.*;
 import negocio.server.logica.comunicacion.DelayThread;
 
@@ -22,7 +18,7 @@ import negocio.server.logica.comunicacion.DelayThread;
  * finalmente enviará el mensaje a través de un socket al cliente.
  */
 
-public class MsgHandler implements Runnable,Subject {
+public class MsgHandlerRespSubject implements Runnable,Subject {
 	private static final long serialVersionUID = 1L;
 	public Queue <Mensaje> InMsgQ;
 	public Queue <Mensaje> OutMsgQ;
@@ -31,7 +27,7 @@ public class MsgHandler implements Runnable,Subject {
 	 * Constructor:
 	 * Inicializa la cola de entrada MsgQ como una nueva LinkedList<Mensaje>
 	 */
-	public MsgHandler(){
+	public MsgHandlerRespSubject(){
 		InMsgQ= new LinkedList<Mensaje>();
 		OutMsgQ= new LinkedList<Mensaje>();
 		SendersList= new ArrayList<Observer>();

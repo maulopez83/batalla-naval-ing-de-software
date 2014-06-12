@@ -12,7 +12,7 @@ import presentacion.cliente.visual.Ventana;
 
 import negocio.logica.comunicacion.mensajes.MensajeLabel;
 import negocio.server.logica.comunicacion.ListeningServer;
-import negocio.server.logica.comunicacion.TalkingServer;
+import negocio.server.logica.comunicacion.TalkingServerRespObserver;
 
 public class MainServer {
 
@@ -33,7 +33,7 @@ public class MainServer {
 	port = 2343;
 	if(args.length == 1)
 		port = Integer.parseInt(args[0]);		
-	TalkingServer tserver = new TalkingServer(port,lserver.getHandler());
+	TalkingServerRespObserver tserver = new TalkingServerRespObserver(port,lserver.getHandler());
 		
 	}
 }
