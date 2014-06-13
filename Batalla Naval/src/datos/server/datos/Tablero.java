@@ -1,8 +1,10 @@
 package datos.server.datos;
+import java.awt.Point;
+
 import negocio.server.logica.*;
 
-public interface Tablero{
-	
-	abstract void setDato();
+public abstract class Tablero{
+
+	public abstract ElementosTableros get(Point coordenada);
 	
 }

@@ -1,6 +1,6 @@
 package negocio.server.logica.comunicacion;
 
-import negocio.logica.comunicacion.mensajes.Mensaje;
+import negocio.server.logica.comunicacion.mensajes.Mensaje;
 import presentacion.cliente.logica.comunicacion.*;
 
 

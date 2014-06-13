@@ -5,15 +5,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.ImageIcon;
 
 import presentacion.cliente.logica.comunicacion.GUISubject;
-
 import datos.server.datos.DataSingleton;
 
-import negocio.logica.comunicacion.mensajes.*;
 
+import negocio.server.logica.comunicacion.mensajes.*;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

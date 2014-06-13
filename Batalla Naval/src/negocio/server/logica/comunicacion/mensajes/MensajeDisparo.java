@@ -1,4 +1,4 @@
-package negocio.logica.comunicacion.mensajes;
+package negocio.server.logica.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;

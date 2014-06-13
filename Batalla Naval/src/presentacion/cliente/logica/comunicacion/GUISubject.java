@@ -3,7 +3,7 @@ package presentacion.cliente.logica.comunicacion;
 
 import java.util.ArrayList;
 
-import negocio.logica.comunicacion.mensajes.Mensaje;
+import negocio.server.logica.comunicacion.mensajes.Mensaje;
 
 /*
  * GUI Subject

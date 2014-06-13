@@ -1,4 +1,4 @@
-package negocio.logica.comunicacion.mensajes;
+package negocio.server.logica.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;
@@ -8,9 +8,8 @@ import javax.swing.JLabel;
 
 import presentacion.cliente.visual.Ventana;
 
-import negocio.logica.comunicacion.mensajes.*;
 
-
+import negocio.server.logica.comunicacion.mensajes.*;
 import datos.server.datos.*;
 
 /*

@@ -1,11 +1,10 @@
 package presentacion.cliente.main;
 import java.awt.EventQueue;
 
-import negocio.logica.comunicacion.mensajes.MensajeColocar;
-import negocio.logica.comunicacion.mensajes.MensajeConectar;
-import negocio.logica.comunicacion.mensajes.MensajeDesconectar;
-import negocio.logica.comunicacion.mensajes.MensajeDisparo;
-
+import negocio.server.logica.comunicacion.mensajes.MensajeColocar;
+import negocio.server.logica.comunicacion.mensajes.MensajeConectar;
+import negocio.server.logica.comunicacion.mensajes.MensajeDesconectar;
+import negocio.server.logica.comunicacion.mensajes.MensajeDisparo;
 import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.logica.comunicacion.ListeningClient;
 import presentacion.cliente.logica.comunicacion.TalkingClientGUIObserver;
