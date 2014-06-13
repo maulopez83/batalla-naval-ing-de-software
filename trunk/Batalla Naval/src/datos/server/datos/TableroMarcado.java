@@ -3,7 +3,7 @@ package datos.server.datos;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class TableroMarcado extends Tablero{
+public class TableroMarcado implements Tablero{
 	
 	private ArrayList<ArrayList<ElementosTableros>> tablero= new ArrayList<ArrayList<ElementosTableros>>();
 	

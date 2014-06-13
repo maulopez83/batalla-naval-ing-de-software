@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import negocio.server.logica.*;
 
-public class TableroBarcos extends Tablero{
+public class TableroBarcos implements Tablero{
 	
 	private ArrayList<ArrayList<ElementosTableros>> tablero= new ArrayList<ArrayList<ElementosTableros>>();
 	
