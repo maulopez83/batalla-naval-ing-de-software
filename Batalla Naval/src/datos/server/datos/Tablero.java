@@ -3,7 +3,7 @@ import java.awt.Point;
 
 import negocio.server.logica.*;
 
-public abstract class Tablero{
+public interface Tablero{
 
 	public abstract ElementosTableros get(Point coordenada);
 	
