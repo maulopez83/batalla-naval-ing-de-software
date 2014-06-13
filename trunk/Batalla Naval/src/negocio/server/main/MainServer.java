@@ -10,9 +10,9 @@ import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.visual.Ventana;
 
 
-import negocio.logica.comunicacion.mensajes.MensajeLabel;
 import negocio.server.logica.comunicacion.ListeningServer;
 import negocio.server.logica.comunicacion.TalkingServerRespObserver;
+import negocio.server.logica.comunicacion.mensajes.MensajeLabel;
 
 public class MainServer {
 

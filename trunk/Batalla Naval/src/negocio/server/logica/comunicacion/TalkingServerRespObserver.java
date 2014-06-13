@@ -4,7 +4,8 @@ package negocio.server.logica.comunicacion;
 import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
-import negocio.logica.comunicacion.mensajes.Mensaje;
+
+import negocio.server.logica.comunicacion.mensajes.Mensaje;
 
 /*
  * Talking Server implements Subject

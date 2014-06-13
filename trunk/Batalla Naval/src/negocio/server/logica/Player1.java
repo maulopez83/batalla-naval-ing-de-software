@@ -7,8 +7,8 @@ public class Player1 implements Players{
 	private Tablero tablero2;
 	
 	public Player1(){
-		tablero1=new TableroTradicional();
-		tablero2=new TableroTradicional();
+		tablero1=new TableroBarcos();
+		tablero2=new TableroBarcos();
 	}
 	
 	public int getNumeroJugador() {
@@ -17,12 +17,10 @@ public class Player1 implements Players{
 	}
 
 	public void setDatoTablero1() {
-		tablero1.setDato();
 		
 	}
 	
 	public void setDatoTablero2() {
-		tablero2.setDato();
 		
 	}
 
