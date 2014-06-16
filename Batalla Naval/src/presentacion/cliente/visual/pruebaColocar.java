@@ -56,18 +56,18 @@ public class pruebaColocar {
 			private int tamCasilla;
 			private int casillasAncho;
 			private int casillasAlto;
-			ArrayList<Point> tabOcup;
+			ArrayList<ArrayList<Point> >tabOcup;
 			ArrayList<Point> posBarco;
 			private boolean orientacion;
 			private ImageIcon Vert;
 			private ImageIcon Horiz;
 			public BarcosMouseAdapter(JLabel tablero, int tamCasilla,int casillasAncho,
-							int casillasAlto, ArrayList<Point> ocupados, ImageIcon Vert,ImageIcon Horiz){
+							int casillasAlto, ArrayList<ArrayList<Point>> tabOcupado, ImageIcon Vert,ImageIcon Horiz){
 				this.tablero=tablero;
 				this.tamCasilla=tamCasilla;
 				this.casillasAncho=casillasAncho;
 				this.casillasAlto=casillasAlto;
-				this.tabOcup=ocupados;
+				this.tabOcup=tabOcupado;
 				this.posBarco= new ArrayList<Point>();
 				this.orientacion=true;
 				this.Vert=Vert;
@@ -96,9 +96,8 @@ public class pruebaColocar {
 			public void mouseClicked (MouseEvent e){
 				int CLICKDERECHO=3;
 				if (e.getButton()==CLICKDERECHO){
-					for (Point p: posBarco){
-						tabOcup.remove(p);
-					}
+					
+						tabOcup.remove(posBarco);
 					
 					int casillaX;
 					int casillaY;
@@ -135,9 +134,8 @@ public class pruebaColocar {
 						}
 					}
 					
-					for(Point p: posBarco){
-						tabOcup.add(p);
-					}
+						tabOcup.add(posBarco);
+					
 				}
 			}
 			
@@ -154,11 +152,9 @@ public class pruebaColocar {
 				int TYs=(int)(tablero.getLocation().getY())+tablero.getHeight();
 				
 				if(X>TX && Y>TY && Xs<TXs && Ys <TYs){
-					for (Point p: posBarco){
-						tabOcup.remove(p);
-					}
-					
-					
+
+						tabOcup.remove(posBarco);
+										
 					double aux=(source.getLocation().getX()-TX)/tamCasilla;
 					if ((aux%1)> 0.5){ aux++;}
 					int casillaX=(int)aux;
@@ -181,9 +177,8 @@ public class pruebaColocar {
 						else {
 							source.setLocation(initialX, initialY);
 						}
-						for(Point p: posBarco){
-							tabOcup.add(p);
-						}
+
+							tabOcup.add(posBarco);
 				}
 				else{
 					source.setLocation(initialX, initialY);
@@ -195,9 +190,11 @@ public class pruebaColocar {
 				boolean posiblePos=true;		
 				for (int i=0; i<Ancho ; i++){
 					for(int k=0; k<Alto; k++){
-						for(Point p: tabOcup){
-							if((int)p.getX() == X+i && (int)p.getY() == Y+k){
-								posiblePos=false;
+						for(ArrayList<Point> l: tabOcup){
+							for(Point p: l){
+								if((int)p.getX() == X+i && (int)p.getY() == Y+k){
+									posiblePos=false;
+								}
 							}
 						}
 					}
@@ -208,20 +205,21 @@ public class pruebaColocar {
 		}
 		
 		class BotonJugarMouseAdapter extends MouseAdapter{
-			ArrayList<Point> tablero;
-			int cantPosicAOcupar;
-			public BotonJugarMouseAdapter(ArrayList<Point> tablero, int cantPosicAOcupar){
+			ArrayList<ArrayList<Point>> tablero;
+			int cantBarcos;
+			public BotonJugarMouseAdapter(ArrayList<ArrayList<Point>> tablero, int cantBarcos){
 				this.tablero=tablero;
-				this.cantPosicAOcupar=cantPosicAOcupar;
+				this.cantBarcos=cantBarcos;
 			}
 			@Override
 			public void mouseClicked (MouseEvent e){
-				if(tablero.size()==cantPosicAOcupar){
-					for (Point p : tablero){
+				if(tablero.size()==cantBarcos){
+					for (ArrayList<Point> l : tablero){
+						for(Point p: l){
 						System.out.println("Posicion : (" + (int)p.getX()+ ", " + (int)p.getY()+ ")" );
-
-						frame.dispose();
+						}						
 					}
+					frame.dispose();
 				}
 				else{
 					new Thread(new Runnable(){
@@ -258,9 +256,9 @@ public class pruebaColocar {
 		final int ALTO_DESTRUCTOR=3;
 		final int TAMAÑO_CASILLA=25;
 		final int CANT_DESTRUCTORES=2;
-		ArrayList<Point> posicionesBarcos= new ArrayList<Point>();
+		ArrayList<ArrayList<Point>> posicionesBarcos= new ArrayList<ArrayList<Point>>();
 		
-		int CANTIDAD_POSICIONES= CANT_DESTRUCTORES*ALTO_DESTRUCTOR*ANCHO_DESTRUCTOR;
+		int CANTIDAD_BARCOS= CANT_DESTRUCTORES;
 		
 		
 		JLabel Fondo = new JLabel("");
@@ -300,7 +298,7 @@ public class pruebaColocar {
 		Barco2.addMouseMotionListener(B2Listener);		
 		Barco2.addMouseListener(B2Listener);
 
-		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,CANTIDAD_POSICIONES);
+		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,CANTIDAD_BARCOS);
 		BotonJugar.addMouseListener(BJListener);
 		
 		
