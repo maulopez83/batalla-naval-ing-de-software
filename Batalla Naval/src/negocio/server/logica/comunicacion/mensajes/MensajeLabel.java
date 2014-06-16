@@ -7,41 +7,28 @@ import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import presentacion.cliente.visual.Ventana;
 
 public class MensajeLabel extends Mensaje implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String imageloc;
-	private Point position;
-	private Point WidHeig;
-	private ImageIcon imagen;
-	public MensajeLabel(String imageloc, Point position, Point WidHeig ){
+	private Runnable function;
+
+	public MensajeLabel(Runnable function){
 		super();
-		try {
-			imagen= new ImageIcon(ImageIO.read(new File(imageloc)));
-			System.out.println("imagen cargada");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		this.WidHeig=WidHeig;
-		this.position=position;
 		setType(new MLabel());
-		setID("LABEL");
+		this.function=function;
 	}
 
-	public ImageIcon getImage() {
-		return imagen;
+	public Runnable getFunction() {
+		return function;
 	}
 
-	public Point getPosition() {
-		return position;
+	public void setFunction(Runnable function) {
+		this.function = function;
 	}
-
-	public Point getWidHeig() {
-		return WidHeig;
-	}
-
-	
-	
 	
 }
