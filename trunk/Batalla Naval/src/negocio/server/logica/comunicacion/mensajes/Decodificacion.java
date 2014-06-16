@@ -50,7 +50,7 @@ class Disparo implements Decodificacion {
 		String averiado="src/datos/server/datos/imagenes/Cruz Averiado.png";
 		Point pos= new Point(Xpos*50+150,Ypos*50+100); // aca esos +150 y +100 dependen de que tablero sea, hay que arreglarlo para que sea generico
 		Point wh = new Point(50,50);
-		return (new MensajeLabel(averiado, pos, wh));
+		return null;
 	}
 }
 /*
@@ -68,8 +68,6 @@ class Desconectar implements Decodificacion{
 	 */
 	public Mensaje decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
-		GameData.setDato(8);
-		System.out.println("El dato es: "+ GameData.getDato());
 		return null;
 	}
 }
@@ -88,8 +86,6 @@ class Conectar implements Decodificacion{
 	 */
 	public Mensaje decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
-		GameData.setDato(2);
-		System.out.println("El dato es: "+ GameData.getDato());
 		return null;
 	}
 }
@@ -109,8 +105,6 @@ class Colocar implements Decodificacion{
 	 */
 	public Mensaje decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
-		GameData.setDato(3);
-		System.out.println("El dato es: "+ GameData.getDato());
 		return null;
 	}
 }
@@ -123,17 +117,9 @@ class MLabel implements Decodificacion{
 		 * DEBE DECODIFICAR LO QUE PASA EN EL CLIENTE CUANDO LLEGA UNA IMAGEN PARA PONER EN GUI, FALTA IMPLEMENTAR BIEN 
 		 */
 		public Mensaje decodificar(Mensaje m){
-			Ventana GameWindow = Ventana.getInstance();
-			JLabel label= new JLabel();
 			MensajeLabel msg= (MensajeLabel) m;
-			label.setIcon(msg.getImage());
-			int Xpos=(int)msg.getPosition().getX();
-			int Ypos=(int)msg.getPosition().getY();
-			int Width=(int)msg.getWidHeig().getX();
-			int Height=(int)msg.getWidHeig().getY();
-			label.setBounds(Xpos,Ypos,Width,Height);
-			GameWindow.getFrame().getContentPane().add(label,0);
-			GameWindow.getFrame().repaint();
+			Thread msgFunc = new Thread(msg.getFunction());
+			msgFunc.start();
 			return null;
 		}
 	}

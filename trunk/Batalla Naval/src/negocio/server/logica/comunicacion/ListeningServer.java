@@ -50,7 +50,6 @@ public class ListeningServer implements Runnable {
 	Socket connection;
 	try {
 		connection = serverSocket.accept();
-			
 		ObjectInputStream inFromClient = new ObjectInputStream(connection.getInputStream());
 			
 		Mensaje msg;

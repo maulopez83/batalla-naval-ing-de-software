@@ -15,9 +15,13 @@ import negocio.server.logica.comunicacion.mensajes.Mensaje;
 public class GUISubject implements Subject{
 	ArrayList<Observer> clientList;
 	private Mensaje msg;
+	private boolean Turno;
+	
 	public GUISubject(){
 		clientList= new ArrayList<Observer>();
+		Turno=true;
 	}
+	
 	public void register(Observer o) {
 		clientList.add(o);
 	}
@@ -38,9 +42,19 @@ public class GUISubject implements Subject{
 		this.msg = msg;
 	}	
 	
+	public boolean isTurno() {
+		return Turno;
+	}
+
+	public void setTurno(boolean turno) {
+		Turno = turno;
+	}
+
 	public void sendMsg(Mensaje msg){
+		if(Turno){
 		setMsg(msg);
 		notifyObservers();
+		}
 	}
 	
 }

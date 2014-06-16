@@ -1,5 +1,8 @@
 package datos.server.datos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * DataSingleton
  * FALTA IMPLEMENTARLA BIEN
@@ -7,25 +10,22 @@ package datos.server.datos;
  * Se accede de forma estática a la hora de decodificar mensajes
  */
 public class DataSingleton {
-	private static DataSingleton GameData;
-	
-	private int Dato;
+	private static DataSingleton ServerData;
+	private MapaPartidas Datos;
+
 	private DataSingleton(){
-		Dato=0;
+		Datos= new MapaPartidas();
 	}
 	
 	public static DataSingleton getInstance(){
-		if (GameData == null){
-			GameData= new DataSingleton();
+		if (ServerData == null){
+			ServerData= new DataSingleton();
 		}
-		return GameData;
+		return ServerData;
 	}
 	
-	public int getDato(){
-		return getInstance().Dato;
-	}
-	public void setDato(int d){
-		getInstance().Dato=d;
+	public DataPartida getDataPartida(String player){
+		return Datos.getDataPartida(player);
 	}
 
 }
