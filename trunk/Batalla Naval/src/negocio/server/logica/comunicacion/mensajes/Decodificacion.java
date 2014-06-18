@@ -40,17 +40,15 @@ class Disparo implements Decodificacion {
 	public Mensaje decodificar(Mensaje m){
 		MensajeDisparo msg=(MensajeDisparo) m;
 		Point p= msg.getPoint();
-		int Xpos= (int)(p.getX()/50);
-		int Ypos= (int)(p.getY()/50);
+		int Xpos= (int)(p.getX());
+		int Ypos= (int)(p.getY());
 		
 		DataSingleton GameData = DataSingleton.getInstance();
 		System.out.println("Se presiono: ");
 		System.out.println("X: "+Xpos);
 		System.out.println("Y: "+Ypos);
-		String averiado="src/datos/server/datos/imagenes/Cruz Averiado.png";
-		Point pos= new Point(Xpos*50+150,Ypos*50+100); // aca esos +150 y +100 dependen de que tablero sea, hay que arreglarlo para que sea generico
-		Point wh = new Point(50,50);
-		return null;
+		
+		return new MensajeColocar("Te respondo un String pedorro. ");
 	}
 }
 /*
@@ -105,6 +103,8 @@ class Colocar implements Decodificacion{
 	 */
 	public Mensaje decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
+		MensajeColocar msg = (MensajeColocar) m;
+		System.out.println(msg.getPedorro());
 		return null;
 	}
 }

@@ -1,5 +1,6 @@
 package presentacion.cliente.main;
 import java.awt.EventQueue;
+import java.awt.Point;
 
 import negocio.server.logica.comunicacion.mensajes.MensajeColocar;
 import negocio.server.logica.comunicacion.mensajes.MensajeConectar;
@@ -37,6 +38,8 @@ public class MainClient {
 					 */
 					remotePort = 2344;
 					TalkingClientGUIObserver tclient = new TalkingClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
+					MensajeDisparo disparo = new MensajeDisparo(new Point(5,4), 1);
+					tclient.update(disparo);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
