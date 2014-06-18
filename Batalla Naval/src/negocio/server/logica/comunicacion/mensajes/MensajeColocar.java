@@ -11,10 +11,19 @@ import javax.swing.JLabel;
 public class MensajeColocar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	public MensajeColocar() {
+	private String pedorro;
+	public MensajeColocar(String pedorro) {
 		super();
 		setType(new Colocar());
+		this.pedorro=pedorro;
 	}
-
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	public String getPedorro() {
+		return pedorro;
+	}
+	
+	
 	
 }
