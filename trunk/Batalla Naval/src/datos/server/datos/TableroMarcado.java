@@ -3,35 +3,25 @@ package datos.server.datos;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class TableroMarcado implements Tablero{
+public class TableroMarcado{
 	
-	private ArrayList<ArrayList<ElementosTableros>> tablero= new ArrayList<ArrayList<ElementosTableros>>();
+	private ArrayList<Point> disparosEnTablero;
 	
 	public TableroMarcado(){
-		for (int fil=0; fil<10; fil++){//inicializo las 10 filas de arrays
-			tablero.add(new ArrayList<ElementosTableros>());
-		}
-		
-		for (int fil=0; fil<10; fil++){
-			for (int col=0; col<10; col++){
-				tablero.get(fil).add(null);//relleno el array de cada fila con null(NO BARCOS).
-			}
-		}
+		disparosEnTablero= new ArrayList<Point>();
 	}
 	
-	public void setDisparoHecho(Point disparo, TableroBarcos taboponente){
+	public void setDisparo(Point disparo, TableroBarcos tabOponente){
 	
-		if(get(disparo)==null){//verifico si el disparo en esa posicion no fue hecho todavia
-			if(taboponente.setDisparoRecibido(disparo)){//si hay un barco en la posicion pasada, cargo un barco de tipo desconocido
-				ArrayList<Point> coordenada = new ArrayList<Point>();
-				coordenada.add(disparo);
-				TipoDesconocido barco= new TipoDesconocido(coordenada);
-				tablero.get((int)disparo.getX()).add((int)disparo.getY(), barco);
+		if(!disparosEnTablero.contains(disparo)){//verifico si el disparo en esa posicion no fue hecho todavia
+			disparosEnTablero.add(disparo);
+			Barcos b=tabOponente.get(disparo); // pido si existe un barco en el tablero oponente. Si no hay b=null.
+			if(b!=null){//si hay un barco en la posicion disparada.
+				System.out.println(b.disparar(disparo));
 			}
 		
 			else{//si no hay barco cargo un elemento AGUA en el tablero
-				Agua fallido= new Agua();
-				tablero.get((int)disparo.getX()).add((int)disparo.getY(), fallido);//agrego el elemento agua
+				System.out.println("Agua");
 			}
 		}
 		else{
@@ -39,9 +29,7 @@ public class TableroMarcado implements Tablero{
 		}
 	}
 	
-	public ElementosTableros get(Point coordenada){//devuelve el contenido del tablero en la coordenada pasada
-		return tablero.get((int)coordenada.getX()).get((int)coordenada.getY());
-	}
+
 	
 	
 }

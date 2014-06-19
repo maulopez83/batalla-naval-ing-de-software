@@ -24,7 +24,7 @@ public class MapaPartidas {
 	}
 	
 	public void setDataPartida(String Player1,String Player2){
-		searchByPlayer1.put(Player1, new DataPartida());
+		searchByPlayer1.put(Player1, new DataPartida(Player1,Player2));
 		searchByPlayer2.put(Player2, Player1);
 	}
 }

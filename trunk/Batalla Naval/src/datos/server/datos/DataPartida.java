@@ -1,23 +1,58 @@
 package datos.server.datos;
 
 public class DataPartida {
-	private Tablero tabBarcos;
-	private Tablero tabJuego;
-	public DataPartida(){
-		tabBarcos= new TableroBarcos();
-		tabJuego = new TableroMarcado();
+	private TableroBarcos tabBarcosP1;
+	private TableroMarcado tabJuegoP1;
+	private TableroBarcos tabBarcosP2;
+	private TableroMarcado tabJuegoP2;
+	private String Player2;
+	private String Player1;
+	
+	public DataPartida(String Player1,String Player2){
+		tabBarcosP1= new TableroBarcos();
+		tabJuegoP1 = new TableroMarcado();
+		tabBarcosP2= new TableroBarcos();
+		tabJuegoP2 = new TableroMarcado();
+		this.Player1=Player1;
+		this.Player2=Player2;
 	}
-	public Tablero getTabBarcos() {
-		return tabBarcos;
+	
+	public TableroBarcos getTableroBarcos(String Player){
+		if(Player.equalsIgnoreCase(Player1)){
+			return tabBarcosP1;
+		}
+		else if (Player.equalsIgnoreCase(Player2)){
+			return tabBarcosP2;
+		}
+		else{
+			return null;
+		}
 	}
-	public void setTabBarcos(Tablero tabBarcos) {
-		this.tabBarcos = tabBarcos;
+	
+	public TableroMarcado getTableroJuego(String Player){
+		if(Player.equalsIgnoreCase(Player1)){
+			return tabJuegoP1;
+		}
+		else if (Player.equalsIgnoreCase(Player2)){
+			return tabJuegoP2;
+		}
+		else{
+			return null;
+		}
 	}
-	public Tablero getTabJuego() {
-		return tabJuego;
+	
+	public TableroBarcos getTableroBarcosOponente(String Player){
+		if(Player.equalsIgnoreCase(Player1)){
+			return tabBarcosP2;
+		}
+		else if (Player.equalsIgnoreCase(Player2)){
+			return tabBarcosP1;
+		}
+		else{
+			return null;
+		}
 	}
-	public void setTabJuego(Tablero tabJuego) {
-		this.tabJuego = tabJuego;
-	}
+
+
 	
 }
