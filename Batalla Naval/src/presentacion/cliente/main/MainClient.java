@@ -20,7 +20,6 @@ public class MainClient {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ventana.getInstance().getFrame().setVisible(true);
 					/*
 					 * Inicio un listening client que escuche a mi computadora JUANJO-PC 
 					 * en el puerto 2343 donde corro el server

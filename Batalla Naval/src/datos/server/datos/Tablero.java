@@ -5,6 +5,6 @@ import negocio.server.logica.*;
 
 public interface Tablero{
 
-	public abstract ElementosTableros get(Point coordenada);
+	public abstract Barcos get(Point coordenada);
 	
 }

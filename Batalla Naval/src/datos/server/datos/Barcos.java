@@ -2,24 +2,20 @@ package datos.server.datos;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public abstract class Barcos implements ElementosTableros{
+public class Barcos{
 	
-	private ArrayList<Point> posiciones=new ArrayList<Point>();
+	private ArrayList<Point> posiciones;
 	private int large;
-	private ArrayList<Boolean> disparado;
+	private ArrayList<Point> disparado;
 	
 	public Barcos(ArrayList<Point> posiciones){
 		this.posiciones=posiciones;
 		this.large=posiciones.size();
-		
-		for(int i=0; i<large; i++){
-			disparado.add(null);//en principio no va a estar disparado ninguna posicion del barco
-		}
+		disparado= new ArrayList<Point>();
 	}
+
 	
-	public abstract void MensajeHundido();
-	
-	public ArrayList<Point> getPosicion(){
+	public ArrayList<Point> getPosiciones(){
 		return this.posiciones;
 	}
 	
@@ -27,42 +23,21 @@ public abstract class Barcos implements ElementosTableros{
 		return large;
 	}
 	
-	public void marcar(Point posicion){
-		
-		boolean HayBarco=false;
-		
-		for(int i=0; i<posiciones.size(); i++){//voy recorriendo el array de posiciones del barco
-			if(posiciones.get(i).equals(posicion)){//
-				HayBarco=true;
-				if(!disparado.get(i)){
-					disparado.add(i,true);
-					if(hundido()){
-						MensajeHundido();
-					}
-					else{
-						System.out.println("El barco fue disparado pero todavia no está hundido!");
-					}
-					break;
-				}
-				else{
-					System.out.println("Un disparo ya fue hecho en esta posicion");
-					break;
-				}
-			}	
-		}
-		
-		if(!HayBarco){//SI NO HAY BARCO EN LA POSICION PASADA ALGO ANDA MAL PORQUE VERIFIQUE AL LLAMAR A ESTE METODO QUE SI HABIA UN BARCO...
-			System.out.println("ERROR, no se encuentra el barco para marcarlo");
-		}
-	}
 	
-	public boolean hundido(){
-		for(boolean averiado: disparado){
-			if (averiado==false){
-				return false;//si hay una posicion del barco aún no disparada retorna "false" (no hundido)
+	public String disparar (Point posicion){
+	
+		if(posiciones.contains(posicion)){
+			int index = posiciones.indexOf(posicion);
+			disparado.add(posiciones.get(index));
+			posiciones.remove(index);
+			if(!posiciones.isEmpty()){
+				return "Averiado";
 			}
-		}
-	return true;//si no entra nunca en el if anterior es porque está hundido el barco.
+			else{
+				return "Hundido";
+			}
+		}		
+		return null;	
 	}
 	
 }
