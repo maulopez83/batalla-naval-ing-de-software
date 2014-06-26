@@ -1,16 +1,20 @@
-package negocio.server.logica.comunicacion.mensajes;
+package negocio.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import presentacion.cliente.visual.Ventana;
 
 
-import negocio.server.logica.comunicacion.mensajes.*;
+import negocio.comunicacion.elementosgraficos.ElementoGUI;
+import negocio.comunicacion.mensajes.*;
 import datos.server.datos.*;
+import datos.server.datos.guiconfigs.PlantillaVentanaColocar;
 
 /*
  * Patron Strategy:
@@ -47,7 +51,6 @@ class Disparo implements Decodificacion {
 		System.out.println("Se presiono: ");
 		System.out.println("X: "+Xpos);
 		System.out.println("Y: "+Ypos);
-		
 		return new MensajeColocar("Te respondo un String pedorro. ");
 	}
 }
@@ -83,8 +86,19 @@ class Conectar implements Decodificacion{
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE CONECTAR, FALTA IMPLEMENTAR BIEN 
 	 */
 	public Mensaje decodificar(Mensaje m){
+		MensajeConectar msg = (MensajeConectar) m;
 		DataSingleton GameData = DataSingleton.getInstance();
-		return null;
+		
+		if(msg.getVersion().equals(GameData.getCurrentVersion())){
+			GameData.addClient(msg.getClientID());
+			System.out.println("Se agrego el cliente: " + msg.getClientID());
+		}
+		
+		else{
+			
+		}
+		PlantillaVentanaColocar p = new PlantillaVentanaColocar();
+		return p.create();
 	}
 }
 
@@ -108,7 +122,7 @@ class Colocar implements Decodificacion{
 		return null;
 	}
 }
-class MLabel implements Decodificacion{
+class MGUI implements Decodificacion{
 		private static final long serialVersionUID = 1L;
 		/*
 		 * decodificar()
@@ -117,9 +131,52 @@ class MLabel implements Decodificacion{
 		 * DEBE DECODIFICAR LO QUE PASA EN EL CLIENTE CUANDO LLEGA UNA IMAGEN PARA PONER EN GUI, FALTA IMPLEMENTAR BIEN 
 		 */
 		public Mensaje decodificar(Mensaje m){
-			MensajeLabel msg= (MensajeLabel) m;
-			Thread msgFunc = new Thread(msg.getFunction());
-			msgFunc.start();
+			MensajeGUI msg= (MensajeGUI) m;
+			Ventana GameWindow = Ventana.getInstance();
+			if(msg.getFrameBounds()!=null){
+				GameWindow.getFrame().dispose();
+				JFrame frame= new JFrame();
+				frame.setResizable(false);
+				frame.setBounds(msg.getFrameBounds());
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.getContentPane().setLayout(null);
+				GameWindow.setFrame(frame);
+				GameWindow.getFrame().setVisible(true);
+			}
+			
+			for(ElementoGUI eg : msg.getElementos()){
+				GameWindow.getFrame().add(createLabel(eg),0);
+			}
+				
 			return null;
+			}
+		
+		public JLabel createLabel(ElementoGUI eg){
+			JLabel newLabel= new JLabel();
+			newLabel.setText(eg.getText());
+			newLabel.setBounds(eg.getBounds());
+			newLabel.setIcon(eg.getIcon());
+			if (eg.getAdapter()!=null){
+				newLabel.addMouseListener(eg.getAdapter());
+				newLabel.addMouseMotionListener(eg.getAdapter());
+			}
+			return newLabel;
 		}
+}
+class MFrame implements Decodificacion{
+			private static final long serialVersionUID = 1L;
+			/*
+			 * decodificar()
+			 * returns: String? (deberia ser void capaz dsp lo vemos)
+			 * params: Mensaje m	
+			 */
+			public Mensaje decodificar(Mensaje m){
+				MensajeFrame msg= (MensajeFrame) m;
+				Ventana GameWindow= Ventana.getInstance();
+				GameWindow.getFrame().dispose();
+				GameWindow.setFrame(msg.getFrame());
+				GameWindow.getFrame().setVisible(true);
+				GameWindow.setGridSize(msg.getGridSize());
+				return null;
+			}
 	}

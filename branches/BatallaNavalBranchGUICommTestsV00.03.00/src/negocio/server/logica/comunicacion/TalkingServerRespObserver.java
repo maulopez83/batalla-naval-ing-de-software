@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import negocio.server.logica.comunicacion.mensajes.Mensaje;
+import negocio.comunicacion.mensajes.Mensaje;
 
 /*
  * Talking Server implements Subject
@@ -28,6 +28,8 @@ import negocio.server.logica.comunicacion.mensajes.Mensaje;
 		}
 		
 		public void update(Mensaje m) {
+			System.out.println("Se recibio el mensaje de resultado en talking server");
+			if(m==null){System.out.println("es nulo");}
 			addMsg(m);
 			sendMsg();
 		}
@@ -40,16 +42,16 @@ import negocio.server.logica.comunicacion.mensajes.Mensaje;
 			try{
 			Socket connection;
 			connection = serverSocket.accept();	
+			System.out.println("Entre aca1");
 			ObjectOutputStream outToServer = new ObjectOutputStream(connection.getOutputStream());
 			Mensaje msgToSend=OutputMsg.poll();
-			System.out.println(msgToSend.getID());
 			if(msgToSend!=null){
+				System.out.println("Entre aca2");
 				outToServer.writeObject(msgToSend);
 				outToServer.flush();
 				System.out.println("Envie");
-
-	
 			}
+			
 			outToServer.close();
 			connection.close();
 			System.out.println("Sali");

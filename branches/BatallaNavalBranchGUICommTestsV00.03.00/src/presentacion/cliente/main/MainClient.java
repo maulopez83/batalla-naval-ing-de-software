@@ -2,10 +2,10 @@ package presentacion.cliente.main;
 import java.awt.EventQueue;
 import java.awt.Point;
 
-import negocio.server.logica.comunicacion.mensajes.MensajeColocar;
-import negocio.server.logica.comunicacion.mensajes.MensajeConectar;
-import negocio.server.logica.comunicacion.mensajes.MensajeDesconectar;
-import negocio.server.logica.comunicacion.mensajes.MensajeDisparo;
+import negocio.comunicacion.mensajes.MensajeColocar;
+import negocio.comunicacion.mensajes.MensajeConectar;
+import negocio.comunicacion.mensajes.MensajeDesconectar;
+import negocio.comunicacion.mensajes.MensajeDisparo;
 import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.logica.comunicacion.ListeningClient;
 import presentacion.cliente.logica.comunicacion.TalkingClientGUIObserver;
@@ -45,6 +45,14 @@ public class MainClient {
 				}
 			}
 		});
+		/*
+		 * Codigo que se corre antes de finalizar el programa
+		 */
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+			System.out.println("Shutdown Hook is running !");
+			}
+			});
 	}	
 	
 }

@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import negocio.server.logica.comunicacion.mensajes.Mensaje;
-import negocio.server.logica.comunicacion.mensajes.MensajeDisparo;
+import negocio.comunicacion.mensajes.Mensaje;
+import negocio.comunicacion.mensajes.MensajeDisparo;
 import presentacion.cliente.visual.Ventana;
 
 public class guiTablero implements Runnable {
