@@ -46,9 +46,12 @@ public class MsgHandlerRespSubject implements Runnable,Subject {
 		while (true){
 			while(!InMsgQ.isEmpty()){
 			Mensaje m=InMsgQ.remove(); //remove devuelve el mensaje en la cabeza de la cola, y lo elimina de la cola.
-			Mensaje Result=m.decodificar(); //llamada a decodificar
+			ArrayList<Mensaje> Result=m.decodificar(); //llamada a decodificar
 			System.out.println("Se decodifico el mensaje");
-			sendMsg(Result);
+			try{
+				for(Mensaje mResult : Result){sendMsg(mResult);}
+			} catch (Exception e){e.printStackTrace();};
+			
 			DelayThread.delay(100);
 			}
 			DelayThread.delay(100);

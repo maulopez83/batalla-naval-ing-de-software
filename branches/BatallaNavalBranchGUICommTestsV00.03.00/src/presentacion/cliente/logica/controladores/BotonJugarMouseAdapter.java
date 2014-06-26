@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 
 import presentacion.cliente.visual.Ventana;
 
+import negocio.comunicacion.mensajes.MensajeColocar;
 import negocio.server.logica.comunicacion.DelayThread;
 
 public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable{
@@ -31,6 +32,8 @@ public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable
 				System.out.println("Posicion : (" + (int)p.getX()+ ", " + (int)p.getY()+ ")" );
 				}						
 			}
+			MensajeColocar msg= new MensajeColocar(tablero,Ventana.getInstance().getClientID());
+			Ventana.getInstance().getGuiSubject().sendMsg(msg);	
 			frame.dispose();
 		}
 		else{

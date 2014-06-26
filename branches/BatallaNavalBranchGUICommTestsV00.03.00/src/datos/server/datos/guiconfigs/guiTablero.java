@@ -36,7 +36,7 @@ public class guiTablero implements Runnable {
 			Tablero1.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					Mensaje msg= new MensajeDisparo(e.getPoint(),1);
+					Mensaje msg= new MensajeDisparo(e.getPoint(),Ventana.getInstance().getClientID());
 					Ventana.getInstance().getGuiSubject().sendMsg(msg);
 				}
 			});

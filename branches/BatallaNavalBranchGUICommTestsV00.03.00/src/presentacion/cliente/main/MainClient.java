@@ -37,8 +37,8 @@ public class MainClient {
 					 */
 					remotePort = 2344;
 					TalkingClientGUIObserver tclient = new TalkingClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
-					MensajeDisparo disparo = new MensajeDisparo(new Point(5,4), 1);
-					tclient.update(disparo);
+					MensajeConectar connectMsg = new MensajeConectar("V1.0",Ventana.getInstance().getClientID());
+					tclient.update(connectMsg);
 					
 				} catch (Exception e) {
 					e.printStackTrace();

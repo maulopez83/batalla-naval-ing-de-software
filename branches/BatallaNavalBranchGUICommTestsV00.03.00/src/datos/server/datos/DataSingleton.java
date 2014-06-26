@@ -54,8 +54,13 @@ public class DataSingleton {
 	public void setDisparo(String PlayerID,Point disparo){
 		getTableroJuego(PlayerID).setDisparo(disparo, getTableroBarcosOponente(PlayerID));
 	}
-	
-	public void addClient(String ClientID){
+	public String getOponentID(String PlayerID){
+		return getDataPartida(PlayerID).getOponentID(PlayerID);
+	}
+	public boolean addClient(String ClientID){
+		//Prueba un solo cliente:
+		//Datos.setDataPartida(ClientID, ClientID);
+		
 		WaitingClients.add(ClientID);
 		System.out.println("Se agrego: " + ClientID + ". Ahora espera.");
 		if(WaitingClients.size()%2==0){
@@ -63,6 +68,9 @@ public class DataSingleton {
 				Datos.setDataPartida(WaitingClients.poll(), WaitingClients.poll());
 				System.out.println("Cree nuevos datos de partida");
 			}
+			return true;
 		}
+		else{return false;}
+		
 	}
 }
