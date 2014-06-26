@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="datos.server.datos.Destructor" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/Destructor.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="negocio.comunicacion.elementosgraficos.Destructor" project="Batalla Naval Final" 
+    file="/Batalla Naval Final/src/negocio/comunicacion/elementosgraficos/Destructor.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="121" y="871" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +11,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="datos.server.datos.Submarino" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/Submarino.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="negocio.comunicacion.elementosgraficos.Submarino" project="Batalla Naval Final" 
+    file="/Batalla Naval Final/src/negocio/comunicacion/elementosgraficos/Submarino.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="326" y="871" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -28,16 +30,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="datos.server.datos.Agua" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/Agua.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position x="385" y="407" width="-1" height="-1"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="datos.server.datos.TableroBarcos" project="Batalla Naval Final" 
+  <class id="4" language="java" name="datos.server.datos.TableroBarcos" project="Batalla Naval Final" 
     file="/Batalla Naval Final/src/datos/server/datos/TableroBarcos.java" binary="false" corner="BOTTOM_RIGHT">    
     <position x="919" y="638" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -46,8 +39,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="datos.server.datos.Acorazado" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/Acorazado.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="negocio.comunicacion.elementosgraficos.Acorazado" project="Batalla Naval Final" 
+    file="/Batalla Naval Final/src/negocio/comunicacion/elementosgraficos/Acorazado.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="770" y="871" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -55,16 +49,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="7" language="java" name="datos.server.datos.ElementosTablero" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/ElementosTablero.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position x="88" y="537" width="-1" height="-1"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="8" language="java" name="datos.server.datos.TableroMarcado" project="Batalla Naval Final" 
+  <class id="6" language="java" name="datos.server.datos.TableroMarcado" project="Batalla Naval Final" 
     file="/Batalla Naval Final/src/datos/server/datos/TableroMarcado.java" binary="false" corner="BOTTOM_RIGHT">    
     <position x="716" y="410" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -73,8 +58,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="datos.server.datos.Crucero" project="Batalla Naval Final" 
-    file="/Batalla Naval Final/src/datos/server/datos/Crucero.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="negocio.comunicacion.elementosgraficos.Crucero" project="Batalla Naval Final" 
+    file="/Batalla Naval Final/src/negocio/comunicacion/elementosgraficos/Crucero.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position x="970" y="871" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -82,7 +68,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="datos.server.datos.Barcos" project="Batalla Naval Final" 
+  <class id="8" language="java" name="datos.server.datos.Barcos" project="Batalla Naval Final" 
     file="/Batalla Naval Final/src/datos/server/datos/Barcos.java" binary="false" corner="BOTTOM_RIGHT">    
     <position x="450" y="669" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -91,7 +77,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="11" language="java" name="datos.server.datos.Tablero" project="Batalla Naval Final" 
+  <interface id="9" language="java" name="datos.server.datos.Tablero" project="Batalla Naval Final" 
     file="/Batalla Naval Final/src/datos/server/datos/Tablero.java" binary="false" corner="BOTTOM_RIGHT">    
     <position x="923" y="254" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -100,37 +86,29 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <generalization id="12">    
+  <dependency id="10">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="13">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="4"/>  
   </dependency>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <generalization id="13">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
   <generalization id="14">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
   <generalization id="15">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="17">    
     <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <realization id="18">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="TARGET" refId="8"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    

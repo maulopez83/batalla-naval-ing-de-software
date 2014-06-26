@@ -1,11 +1,13 @@
-package datos.server.datos;
+package negocio.comunicacion.elementosgraficos;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Destructor extends Barcos{
+import datos.server.datos.Barcos;
 
-	public Destructor(ArrayList<Point> posiciones){
+public class CruceroGUI extends Barcos{
+
+	public CruceroGUI(ArrayList<Point> posiciones){
 		super(posiciones);
 		}
 

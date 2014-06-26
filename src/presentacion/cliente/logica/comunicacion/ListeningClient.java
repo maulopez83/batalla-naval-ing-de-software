@@ -2,8 +2,8 @@ package presentacion.cliente.logica.comunicacion;
 import java.io.*;
 import java.net.*;
 
+import negocio.comunicacion.mensajes.Mensaje;
 import negocio.server.logica.comunicacion.DelayThread;
-import negocio.server.logica.comunicacion.mensajes.Mensaje;
 
 
 /*

@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import negocio.comunicacion.mensajes.*;
 import negocio.server.logica.comunicacion.DelayThread;
-import negocio.server.logica.comunicacion.mensajes.*;
 
 /*
  * MsgHandler -implements Runnable,Subject
@@ -47,7 +47,9 @@ public class MsgHandlerRespSubject implements Runnable,Subject {
 			while(!InMsgQ.isEmpty()){
 			Mensaje m=InMsgQ.remove(); //remove devuelve el mensaje en la cabeza de la cola, y lo elimina de la cola.
 			Mensaje Result=m.decodificar(); //llamada a decodificar
+			System.out.println("Se decodifico el mensaje");
 			sendMsg(Result);
+			DelayThread.delay(100);
 			}
 			DelayThread.delay(100);
 		}
@@ -65,7 +67,6 @@ public class MsgHandlerRespSubject implements Runnable,Subject {
 
 	public void register(Observer o) {
 		SendersList.add(o);
-		
 	}
 
 	public void unregister(Observer o) {
@@ -76,8 +77,12 @@ public class MsgHandlerRespSubject implements Runnable,Subject {
 	}
 
 	public void notifyObservers() {
+		while(!OutMsgQ.isEmpty()){
+			Mensaje m=OutMsgQ.remove();
 		for(Observer obs : SendersList){
-			obs.update(OutMsgQ.remove());
+			obs.update(m);
+		}
+		DelayThread.delay(100);
 		}
 	}
 		private void setOutputMsg(Mensaje msg) {
@@ -86,8 +91,9 @@ public class MsgHandlerRespSubject implements Runnable,Subject {
 		
 		public void sendMsg(Mensaje msg){
 			if(msg!=null){
+				System.out.println("Se envio el mensaje de resultado al talking server");
 				setOutputMsg(msg);
-				notifyObservers();
+				notifyObservers();	
 			}
 		}
 	

@@ -12,7 +12,7 @@ import presentacion.cliente.logica.comunicacion.GUISubject;
 
 import datos.server.datos.DataSingleton;
 
-import negocio.server.logica.comunicacion.mensajes.*;
+import negocio.comunicacion.mensajes.*;
 
 
 import java.awt.event.MouseAdapter;
@@ -20,13 +20,20 @@ import java.awt.event.MouseEvent;
 
 public class Ventana {
 	private static Ventana GameWindow;
+
+	private int GridSize;
+
+	
 	private JFrame frame;
 	private GUISubject guiSubject;
+	
 	/**
 	 * Create the application.
 	 */
+	
 	private Ventana() {
 		guiSubject= new GUISubject();
+		GridSize=0;
 	}
 	public static Ventana getInstance(){
 		if (GameWindow == null){
@@ -44,10 +51,19 @@ public class Ventana {
 	public GUISubject getGuiSubject() {
 		return guiSubject;
 	}
+	
+	
+	public int getGridSize() {
+		return GridSize;
+	}
+	public void setGridSize(int gridSize) {
+		GridSize = gridSize;
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 	}
 	
 }

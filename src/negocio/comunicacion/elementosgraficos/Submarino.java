@@ -1,7 +1,9 @@
-package datos.server.datos;
+package negocio.comunicacion.elementosgraficos;
 
 import java.awt.Point;
 import java.util.ArrayList;
+
+import datos.server.datos.Barcos;
 
 public class Submarino extends Barcos{
 
