@@ -9,8 +9,8 @@ public class MensajeDesconectar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public MensajeDesconectar() {
-		super();
+	public MensajeDesconectar(String clientID) {
+		super(clientID);
 		setType(new Desconectar());
 	}
 }

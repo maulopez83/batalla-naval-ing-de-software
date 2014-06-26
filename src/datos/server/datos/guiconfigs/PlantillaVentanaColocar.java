@@ -18,12 +18,11 @@ import datos.server.datos.Paths;
 
 import java.util.ArrayList;
 
-import negocio.comunicacion.elementosgraficos.DestructorGUI;
 import negocio.comunicacion.elementosgraficos.ElementoGUI;
 import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.MensajeDisparo;
-import negocio.comunicacion.mensajes.MensajeFrame;
+
 import negocio.server.logica.comunicacion.DelayThread;
 import java.awt.Toolkit;
 
@@ -45,40 +44,45 @@ public class PlantillaVentanaColocar extends Plantilla {
 	 * Initialize the contents of the frame.
 	 */
 	public MensajeGUI create() {
-		ElementoGUI Fondo = new ElementoGUI();
-		ElementoGUI BotonJugar = new ElementoGUI();
 		
+		msg.addElemento(getFondo());
 		
-		Fondo.setIcon(new ImageIcon(ImgFondoURL));
-		Fondo.setBounds(0, 0, 400, 300);
-		msg.addElemento(Fondo);
-		
-		BotonJugar.setText("JUGAR");
-		BotonJugar.setBounds((int)(tablBounds.getX()+tablBounds.getWidth()+getTAMAÑO_CASILLA()), (int)(tablBounds.getY()+tablBounds.getHeight()),50,20);			
-		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,getCANTIDAD_BARCOS());
-		BotonJugar.setAdapter(BJListener);
-		
-
-		
-		msg.addElemento(Fondo);
-		msg.addElemento(getDestructor(0,0));
-		msg.addElemento(getDestructor(0,75));
-		msg.addElemento(BotonJugar);
+		for (int i=0; i<getCANTIDAD_DESTRUCTORES(); i++){
+			msg.addElemento(getDestructor(i));
+		}
+		msg.addElemento(getBotonJugar());
 		msg.setFrameBounds(frameBounds);
 		return msg;
 	}
 	
-	private ElementoGUI getDestructor(int x,int y){
-		ElementoGUI Barco = new ElementoGUI();
+	
+	protected ElementoGUI getDestructor(int i){
+		int x= 0;
+		int y= i*getTAMAÑO_CASILLA()*getLARGO_DESTRUCTOR();
+		ElementoGUI Barco = super.getDestructor(x,y);
 		ImageIcon destructorV= new ImageIcon(getImgDestructorV());
 		ImageIcon destructorH= new ImageIcon(getImgDestructorH());	
-		BarcosMouseAdapter BListener= new BarcosMouseAdapter(tablBounds,getTAMAÑO_CASILLA(),getANCHO_DESTRUCTOR(),getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
-		
-		Barco.setBounds(x,y,getANCHO_DESTRUCTOR()*getTAMAÑO_CASILLA(), getLARGO_DESTRUCTOR()*getTAMAÑO_CASILLA());
-		Barco.setIcon(destructorV);
-		Barco.setAdapter(BListener);
-		
+		BarcosMouseAdapter BListener= 
+						new BarcosMouseAdapter(tablBounds,getTAMAÑO_CASILLA(),getANCHO_DESTRUCTOR(),
+											getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
+		Barco.setAdapter(BListener);	
 		return Barco;
+	}
+	
+	private ElementoGUI getBotonJugar(){
+		ElementoGUI BotonJugar = new ElementoGUI();
+		BotonJugar.setText("JUGAR");
+		BotonJugar.setBounds((int)(tablBounds.getX()+tablBounds.getWidth()+getTAMAÑO_CASILLA()), (int)(tablBounds.getY()+tablBounds.getHeight()),50,20);			
+		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,getCANTIDAD_BARCOS());
+		BotonJugar.setAdapter(BJListener);
+		return BotonJugar;
+	}
+	
+	private ElementoGUI getFondo(){
+		ElementoGUI Fondo = new ElementoGUI();
+		Fondo.setIcon(new ImageIcon(ImgFondoURL));
+		Fondo.setBounds(0, 0, 400, 300);
+		return Fondo;
 	}
 	
 }

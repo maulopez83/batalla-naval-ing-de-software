@@ -9,7 +9,7 @@ public class Plantilla {
 	private int TAMAÑO_CASILLA=25;
 	private final int ANCHO_DESTRUCTOR=1;
 	private final int LARGO_DESTRUCTOR=3;
-	private final int CANTIDAD_DESTRUCTORES=2;
+	private final int CANTIDAD_DESTRUCTORES=3;
 	private final int CANTIDAD_CRUCEROS=0;
 	private final int CANTIDAD_SUBMARINOS=0;
 	private final int CANTIDAD_ACORAZADOS=0;
@@ -53,5 +53,12 @@ public class Plantilla {
 		return CANTIDAD_BARCOS;
 	}
 	
+	protected ElementoGUI getDestructor(int x,int y){
+		ElementoGUI Barco = new ElementoGUI();
+		ImageIcon destructorV= new ImageIcon(getImgDestructorV());
+		Barco.setBounds(x,y,getANCHO_DESTRUCTOR()*getTAMAÑO_CASILLA(), getLARGO_DESTRUCTOR()*getTAMAÑO_CASILLA());
+		Barco.setIcon(destructorV);
+		return Barco;
+	}
 	
 }

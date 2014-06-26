@@ -39,5 +39,11 @@ public class Barcos{
 		}		
 		return null;	
 	}
-	
+	public String toString(){
+		String result= "";
+		for (Point p: getPosiciones()){
+			result+= ("("+p.x+", "+p.y+")\n");
+		}
+		return result;
+	}
 }

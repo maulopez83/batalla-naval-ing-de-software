@@ -22,7 +22,7 @@ public class Ventana {
 	private static Ventana GameWindow;
 
 	private int GridSize;
-
+	private String clientID;
 	
 	private JFrame frame;
 	private GUISubject guiSubject;
@@ -34,6 +34,7 @@ public class Ventana {
 	private Ventana() {
 		guiSubject= new GUISubject();
 		GridSize=0;
+		clientID="Cliente1";
 	}
 	public static Ventana getInstance(){
 		if (GameWindow == null){
@@ -64,6 +65,12 @@ public class Ventana {
 	 */
 	private void initialize() {
 		
+	}
+	public void setClientID(String clientID) {
+		this.clientID = clientID;
+	}
+	public String getClientID() {
+		return clientID;
 	}
 	
 }

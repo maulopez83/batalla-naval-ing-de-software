@@ -1,6 +1,8 @@
 package negocio.comunicacion.mensajes;
 
+import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 
@@ -11,17 +13,17 @@ import javax.swing.JLabel;
 public class MensajeColocar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String pedorro;
-	public MensajeColocar(String pedorro) {
-		super();
+	private ArrayList<ArrayList<Point>> tablero;
+	public MensajeColocar(ArrayList<ArrayList<Point>> tablero,String clientID) {
+		super(clientID);
 		setType(new Colocar());
-		this.pedorro=pedorro;
+		this.tablero=tablero;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public String getPedorro() {
-		return pedorro;
+	public ArrayList<ArrayList<Point>>  getTablero() {
+		return tablero;
 	}
 	
 	

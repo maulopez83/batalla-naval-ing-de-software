@@ -1,5 +1,6 @@
 package negocio.comunicacion.mensajes;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /*
  * abstract Mensaje - implements Serializable
@@ -13,20 +14,19 @@ public abstract class Mensaje implements Serializable{
 	private static final long serialVersionUID = 1L;
 	public  Decodificacion typeofMessage;
 	private String msg;
-	private int senderID;
-	private String ID;
-	public	Mensaje(){
-		
+	private String clientID;
+	public	Mensaje(String clientID){
+		this.clientID=clientID;
 	}
 	
 	
-	public String getID() {
-		return ID;
+	public String getClientID() {
+		return clientID;
 	}
 
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setClientID(String clientID) {
+		this.clientID = clientID;
 	}
 
 
@@ -41,9 +41,6 @@ public abstract class Mensaje implements Serializable{
 		return this.msg;
 	}
 
-	public void setSenderID(int senderID) {
-		this.senderID = senderID;
-	}
 
 	public Decodificacion getType() {
 		return typeofMessage;
@@ -58,7 +55,7 @@ public abstract class Mensaje implements Serializable{
 	 * el tipo de mensaje que es. Para ello implementa un patron
 	 * Strategy, llamando a decodificar del campo Decodificacion typeOfMessage
 	 */
-	public Mensaje decodificar(){
+	public ArrayList<Mensaje> decodificar(){
 		return getType().decodificar(this);
 	}
 	

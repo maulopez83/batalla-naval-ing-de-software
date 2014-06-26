@@ -52,6 +52,16 @@ public class DataPartida {
 			return null;
 		}
 	}
+	
+	public String getOponentID(String Player){
+		if(Player.equalsIgnoreCase(Player1)){
+			return Player2;
+		}
+		else if (Player.equalsIgnoreCase(Player2)){
+			return Player1;
+		}
+		return null;
+	}
 
 
 	

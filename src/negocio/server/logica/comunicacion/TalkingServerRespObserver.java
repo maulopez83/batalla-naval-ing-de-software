@@ -20,7 +20,7 @@ import negocio.comunicacion.mensajes.Mensaje;
 	public class TalkingServerRespObserver implements Observer{
 		private Queue<Mensaje> OutputMsg;
 		private ServerSocket serverSocket;
-		
+		private SocketMap  socketMap;
 		public TalkingServerRespObserver(int port,Subject MsgGrabber) throws IOException {
 			serverSocket = new ServerSocket(port);
 			OutputMsg = new LinkedList<Mensaje>();
@@ -28,8 +28,7 @@ import negocio.comunicacion.mensajes.Mensaje;
 		}
 		
 		public void update(Mensaje m) {
-			System.out.println("Se recibio el mensaje de resultado en talking server");
-			if(m==null){System.out.println("es nulo");}
+			if(m==null){System.out.println("menaje a enviar es nulo");}
 			addMsg(m);
 			sendMsg();
 		}
@@ -39,23 +38,34 @@ import negocio.comunicacion.mensajes.Mensaje;
 		}
 		
 		private void sendMsg() {
+			ObjectOutputStream outToServer= null;
+			Socket connection= null;
+			Mensaje msgToSend=null;
 			try{
-			Socket connection;
 			connection = serverSocket.accept();	
 			System.out.println("Entre aca1");
-			ObjectOutputStream outToServer = new ObjectOutputStream(connection.getOutputStream());
-			Mensaje msgToSend=OutputMsg.poll();
+			outToServer = new ObjectOutputStream(connection.getOutputStream());
+		    msgToSend=OutputMsg.poll();
 			if(msgToSend!=null){
 				System.out.println("Entre aca2");
 				outToServer.writeObject(msgToSend);
 				outToServer.flush();
 				System.out.println("Envie");
-			}
-			
-			outToServer.close();
-			connection.close();
+			}		
 			System.out.println("Sali");
-		  }catch(Exception e){ };	
+		  }catch(Exception e){
+			  e.printStackTrace();
+			  if(outToServer!=null){
+				  try {
+					  outToServer.close();
+				  	  } catch (IOException e1) {e1.printStackTrace();}}
+			  if(connection!=null){
+				  try {
+					  connection.close();
+				  	} catch (IOException e1) {e1.printStackTrace();}
+			  }
+			  update(msgToSend);
+		  }
 	}
 	}
 
