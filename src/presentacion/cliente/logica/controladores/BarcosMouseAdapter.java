@@ -1,5 +1,6 @@
 package presentacion.cliente.logica.controladores;
 
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
@@ -23,11 +24,11 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 		private ArrayList<ArrayList<Point>>tabOcup;
 		private ArrayList<Point> posBarco;
 		private boolean orientacion;
-		private ImageIcon Vert;
-		private ImageIcon Horiz;	
+		private byte[] Vert;
+		private byte[] Horiz;	
 		
 		public BarcosMouseAdapter(Rectangle tablero, int tamCasilla,int casillasAncho,
-						int casillasAlto, ArrayList<ArrayList<Point>> tabOcupado, ImageIcon Vert,ImageIcon Horiz){
+						int casillasAlto, ArrayList<ArrayList<Point>> tabOcupado, byte[] Vert,byte[] Horiz){
 			this.tablero=tablero;
 			this.tamCasilla=tamCasilla;
 			this.casillasAncho=casillasAncho;
@@ -78,10 +79,10 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 					JLabel source=(JLabel) e.getSource();
 					orientacion=!orientacion;
 					if(orientacion){
-						source.setIcon(Vert);
+						source.setIcon(new ImageIcon(Vert));
 					}
 					else{
-						source.setIcon(Horiz);
+						source.setIcon(new ImageIcon(Horiz));
 					}
 					
 					int auxSwap= casillasAlto;

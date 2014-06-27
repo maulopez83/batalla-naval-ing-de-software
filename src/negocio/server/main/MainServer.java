@@ -11,8 +11,7 @@ import presentacion.cliente.visual.Ventana;
 
 
 import negocio.comunicacion.mensajes.MensajeGUI;
-import negocio.server.logica.comunicacion.ListeningServer;
-import negocio.server.logica.comunicacion.TalkingServerRespObserver;
+import negocio.server.logica.comunicacion2.Server;
 
 public class MainServer {
 
@@ -23,17 +22,7 @@ public class MainServer {
 	int port = 2344;
 	if(args.length == 1)
 		port = Integer.parseInt(args[0]);		
-	ListeningServer lserver = new ListeningServer(port);
-	new Thread(lserver).start();
-	
-	
-	/*
-	 * El talking server tdv no esta implementado por ahora solo manda "HolaCliente!"
-	 */
-	port = 2343;
-	if(args.length == 1)
-		port = Integer.parseInt(args[0]);		
-	TalkingServerRespObserver tserver = new TalkingServerRespObserver(port,lserver.getHandler());
-		
+	Server server = new Server(port);
+
 	}
 }

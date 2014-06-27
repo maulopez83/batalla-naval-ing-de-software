@@ -6,13 +6,16 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import presentacion.cliente.logica.controladores.BarcosMouseAdapter;
 import presentacion.cliente.logica.controladores.BotonJugarMouseAdapter;
+import presentacion.cliente.visual.Ventana;
 
 import datos.server.datos.Paths;
 
@@ -23,8 +26,15 @@ import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.MensajeDisparo;
 
-import negocio.server.logica.comunicacion.DelayThread;
+import negocio.server.logica.comunicacion2.DelayThread;
+
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
 
 public class PlantillaVentanaColocar extends Plantilla {
 	private final String ImgFondoURL= Paths.getFondoColocarBarcos();
@@ -60,12 +70,20 @@ public class PlantillaVentanaColocar extends Plantilla {
 		int x= 0;
 		int y= i*getTAMAÑO_CASILLA()*getLARGO_DESTRUCTOR();
 		ElementoGUI Barco = super.getDestructor(x,y);
-		ImageIcon destructorV= new ImageIcon(getImgDestructorV());
-		ImageIcon destructorH= new ImageIcon(getImgDestructorH());	
+		try {
+		File f= new File(getImgDestructorV());
+		byte[] destructorV = Files.readAllBytes(f.toPath());
+		File f2= new File(getImgDestructorH());
+		byte[] destructorH = Files.readAllBytes(f2.toPath());
+
 		BarcosMouseAdapter BListener= 
 						new BarcosMouseAdapter(tablBounds,getTAMAÑO_CASILLA(),getANCHO_DESTRUCTOR(),
 											getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
 		Barco.setAdapter(BListener);	
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return Barco;
 	}
 	
@@ -80,7 +98,15 @@ public class PlantillaVentanaColocar extends Plantilla {
 	
 	private ElementoGUI getFondo(){
 		ElementoGUI Fondo = new ElementoGUI();
-		Fondo.setIcon(new ImageIcon(ImgFondoURL));
+		BufferedImage image;
+		try {
+			File f= new File(ImgFondoURL);
+			byte[] imagenFondo = Files.readAllBytes(f.toPath());
+			Fondo.setIcon(imagenFondo);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
 		Fondo.setBounds(0, 0, 400, 300);
 		return Fondo;
 	}

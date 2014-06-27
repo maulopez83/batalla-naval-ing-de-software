@@ -15,8 +15,7 @@ public abstract class Mensaje implements Serializable{
 	public  Decodificacion typeofMessage;
 	private String msg;
 	private String clientID;
-	public	Mensaje(String clientID){
-		this.clientID=clientID;
+	public	Mensaje(){
 	}
 	
 	
@@ -55,8 +54,10 @@ public abstract class Mensaje implements Serializable{
 	 * el tipo de mensaje que es. Para ello implementa un patron
 	 * Strategy, llamando a decodificar del campo Decodificacion typeOfMessage
 	 */
-	public ArrayList<Mensaje> decodificar(){
-		return getType().decodificar(this);
+	public void decodificar(){
+		if (this==null){throw new NullPointerException();}
+	    getType().decodificar(this);
+		
 	}
 	
 	

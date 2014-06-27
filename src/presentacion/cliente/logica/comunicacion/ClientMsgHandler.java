@@ -1,9 +1,10 @@
 package presentacion.cliente.logica.comunicacion;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import negocio.comunicacion.mensajes.*;
-import negocio.server.logica.comunicacion.DelayThread;
+import negocio.server.logica.comunicacion2.DelayThread;
 
 /*
  * ClientMsgHandler -implements Runnable
@@ -47,8 +48,8 @@ public class ClientMsgHandler implements Runnable {
 	 * params: Mensaje m
 	 * Añade el mensaje m a la cola de entrada MsgQ
 	 */
-	public void addMsg(Mensaje m){
-		MsgQ.add(m);
+	public void addMsg(Mensaje msg){
+		MsgQ.add(msg);
 	}
 	
 }

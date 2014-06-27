@@ -11,7 +11,7 @@ public class MensajeDisparo extends Mensaje implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private	Point p;
 	public MensajeDisparo(Point p, String clientID) {
-		super(clientID);
+		super();
 		this.p=p;
 		setType(new Disparo());
 	}

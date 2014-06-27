@@ -1,5 +1,12 @@
 package datos.server.datos.guiconfigs;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import negocio.comunicacion.elementosgraficos.ElementoGUI;
@@ -55,10 +62,17 @@ public class Plantilla {
 	
 	protected ElementoGUI getDestructor(int x,int y){
 		ElementoGUI Barco = new ElementoGUI();
-		ImageIcon destructorV= new ImageIcon(getImgDestructorV());
+		try {
+			File f= new File(getImgDestructorV());
+			byte[] destructorV = Files.readAllBytes(f.toPath());
+			Barco.setIcon(destructorV);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Barco.setBounds(x,y,getANCHO_DESTRUCTOR()*getTAMAÑO_CASILLA(), getLARGO_DESTRUCTOR()*getTAMAÑO_CASILLA());
-		Barco.setIcon(destructorV);
+
 		return Barco;
 	}
+	
 	
 }

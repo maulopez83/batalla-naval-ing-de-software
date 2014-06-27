@@ -1,4 +1,4 @@
-package negocio.server.logica.comunicacion;
+package negocio.server.logica.comunicacion2;
 
 public class DelayThread {
 	public static void delay(int milis) {

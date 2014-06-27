@@ -1,6 +1,7 @@
 package negocio.comunicacion.elementosgraficos;
 
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
@@ -13,7 +14,7 @@ import javax.swing.JLabel;
 public class ElementoGUI implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private ImageIcon imagen;
+	private byte[] imagen;
 	private Rectangle bounds;
 	private String text;
 	private MouseAdapter adapter;
@@ -25,11 +26,13 @@ public class ElementoGUI implements Serializable {
 		this.bounds=null;
 	}
 	
-	public ImageIcon getIcon() {
+	public byte[] getIcon() throws NullPointerException {
+		if (imagen==null){throw new NullPointerException();}
 		return imagen;
 	}
-	public void setIcon(ImageIcon imagen) {
+	public void setIcon(byte[] imagen) {
 		this.imagen = imagen;
+		System.out.println("Largo: " +imagen.length);
 	}
 	public Rectangle getBounds() {
 		return bounds;
