@@ -19,6 +19,7 @@ public class MainServer {
 	/*Creo un nuevo ListeningServer en el puerto 2344
 	 *Inicio su metodo run()
 	 */
+		
 	int port = 2344;
 	if(args.length == 1)
 		port = Integer.parseInt(args[0]);		
