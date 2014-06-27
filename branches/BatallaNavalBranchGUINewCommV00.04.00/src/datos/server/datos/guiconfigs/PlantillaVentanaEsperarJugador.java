@@ -23,7 +23,8 @@ import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.MensajeDisparo;
 
-import negocio.server.logica.comunicacion.DelayThread;
+import negocio.server.logica.comunicacion2.DelayThread;
+
 import java.awt.Toolkit;
 
 public class PlantillaVentanaEsperarJugador extends Plantilla {

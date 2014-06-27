@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import presentacion.cliente.visual.Ventana;
 
 import negocio.comunicacion.mensajes.MensajeColocar;
-import negocio.server.logica.comunicacion.DelayThread;
+import negocio.server.logica.comunicacion2.DelayThread;
 
 public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;

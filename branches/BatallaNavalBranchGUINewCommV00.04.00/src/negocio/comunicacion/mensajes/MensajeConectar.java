@@ -9,7 +9,7 @@ public class MensajeConectar extends Mensaje implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String Version;
 	public MensajeConectar(String Version, String clientID ) {
-		super(clientID);
+		super();
 		setType(new Conectar());
 		setVersion(Version);
 	}

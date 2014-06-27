@@ -24,7 +24,7 @@ public class MensajeGUI extends Mensaje implements Serializable{
 	private ArrayList<ElementoGUI> elementos;
 	private Rectangle frameBounds;
 	public MensajeGUI(){
-		super(null);
+		super();
 		setType(new MGUI());
 		this.elementos=new ArrayList<ElementoGUI>();
 		frameBounds=null;

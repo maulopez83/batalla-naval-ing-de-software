@@ -27,7 +27,7 @@ import datos.server.datos.guiconfigs.PlantillaVentanaEsperarJugador;
  */
 
 public interface Decodificacion extends Serializable {
-	ArrayList<Mensaje> decodificar(Mensaje m);
+	void decodificar(Mensaje m);
 }
 /*
  * Disparo - implements Decodificación
@@ -42,7 +42,7 @@ class Disparo implements Decodificacion {
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA UN DISPARO, FALTA IMPLEMENTAR BIEN 
 	 */
-	public ArrayList<Mensaje> decodificar(Mensaje m){
+	public void decodificar(Mensaje m){
 		MensajeDisparo msg=(MensajeDisparo) m;
 		Point p= msg.getPoint();
 		int Xpos= (int)(p.getX());
@@ -52,7 +52,7 @@ class Disparo implements Decodificacion {
 		System.out.println("Se presiono: ");
 		System.out.println("X: "+Xpos);
 		System.out.println("Y: "+Ypos);
-		return null;
+		
 	}
 }
 /*
@@ -68,9 +68,8 @@ class Desconectar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE DESCONECTAR, FALTA IMPLEMENTAR BIEN 
 	 */
-	public ArrayList<Mensaje> decodificar(Mensaje m){
+	public void decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
-		return null;
 	}
 }
 /*
@@ -86,26 +85,27 @@ class Conectar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE CONECTAR, FALTA IMPLEMENTAR BIEN 
 	 */
-	public ArrayList<Mensaje> decodificar(Mensaje m){
+	public void decodificar(Mensaje m){
 		MensajeConectar msg = (MensajeConectar) m;
 		DataSingleton GameData = DataSingleton.getInstance();
-		ArrayList<Mensaje> respuesta = new ArrayList<Mensaje>();
 		if(msg.getVersion().equals(GameData.getCurrentVersion())){
 			if(GameData.addClient(msg.getClientID())){
 				System.out.println("Se agrego el cliente: " + msg.getClientID()
 									+". Empieza el juego porque ya son dos");
 				
-				//PlantillaVentanaColocar p = new PlantillaVentanaColocar();
-				PlantillaVentanaEsperarJugador p= new PlantillaVentanaEsperarJugador();
+				PlantillaVentanaColocar p = new PlantillaVentanaColocar();
 				Mensaje respMsgClient1=p.create();
 				respMsgClient1.setClientID(msg.getClientID());
-				Mensaje respMsgClient2=p.create();
+
+				
 				System.out.println("Player: "+ msg.getClientID());
 				System.out.println("Oponente: "+GameData.getOponentID(msg.getClientID()));
+				
+				Mensaje respMsgClient2=p.create();
 				respMsgClient2.setClientID(GameData.getOponentID(msg.getClientID()));
-				respuesta.add(respMsgClient1);
-				//respuesta.add(respMsgClient2);
-				return respuesta;
+				
+				GameData.getSocketMap().getSocket(msg.getClientID()).addOutPutMsg(respMsgClient1);
+				GameData.getSocketMap().getSocket(GameData.getOponentID(msg.getClientID())).addOutPutMsg(respMsgClient2);
 				
 			}
 			else{
@@ -114,14 +114,14 @@ class Conectar implements Decodificacion{
 				PlantillaVentanaEsperarJugador plant= new PlantillaVentanaEsperarJugador();
 				Mensaje respMsg= plant.create();
 				respMsg.setClientID(msg.getClientID());
-				respuesta.add(respMsg);			
-				return respuesta;
+				GameData.getSocketMap().getSocket(msg.getClientID()).addOutPutMsg(respMsg);		
+				
 			}
 			
 		}
 		
 		else{/* Si no tiene la misma version*/
-			return null;
+			
 		}
 
 	}
@@ -140,7 +140,7 @@ class Colocar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE COLOCAR, FALTA IMPLEMENTAR BIEN 
 	 */
-	public ArrayList<Mensaje> decodificar(Mensaje m){
+	public void decodificar(Mensaje m){
 		DataSingleton GameData = DataSingleton.getInstance();
 		MensajeColocar msg = (MensajeColocar) m;
 		TableroBarcos tab= GameData.getTableroBarcos(msg.getClientID());
@@ -150,7 +150,7 @@ class Colocar implements Decodificacion{
 		for (Barcos b:GameData.getTableroBarcos(msg.getClientID()).getBarcosEnTablero()) {
 			System.out.println(b.toString());		
 			}
-		return null;
+		
 	}
 }
 
@@ -162,10 +162,7 @@ class MGUI implements Decodificacion{
 		 * params: Mensaje m
 		 * DEBE DECODIFICAR LO QUE PASA EN EL CLIENTE CUANDO LLEGA UNA IMAGEN PARA PONER EN GUI, FALTA IMPLEMENTAR BIEN 
 		 */
-		public ArrayList<Mensaje> decodificar(Mensaje m){
-			if(!m.getClientID().equalsIgnoreCase(Ventana.getInstance().getClientID())){
-				return null;
-			}
+		public void decodificar(Mensaje m){
 			MensajeGUI msg= (MensajeGUI) m;
 			Ventana GameWindow = Ventana.getInstance();
 			if(msg.getFrameBounds()!=null){
@@ -182,15 +179,16 @@ class MGUI implements Decodificacion{
 			for(ElementoGUI eg : msg.getElementos()){
 				GameWindow.getFrame().add(createLabel(eg),0);
 			}
-				
-			return null;
+				GameWindow.getFrame().repaint();
 			}
 		
 		public JLabel createLabel(ElementoGUI eg){
 			JLabel newLabel= new JLabel();
 			newLabel.setText(eg.getText());
 			newLabel.setBounds(eg.getBounds());
-			newLabel.setIcon(eg.getIcon());
+			try{
+				newLabel.setIcon(new ImageIcon(eg.getIcon()));
+			} catch(Exception e){};
 			if (eg.getAdapter()!=null){
 				newLabel.addMouseListener(eg.getAdapter());
 				newLabel.addMouseMotionListener(eg.getAdapter());

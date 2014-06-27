@@ -15,12 +15,14 @@ import java.util.Queue;
  */
 public class DataSingleton {
 	private static DataSingleton ServerData;
-	private MapaPartidas Datos;
+	private final MapaPartidas Datos;
 	private final String CurrentVersion = "V1.0";
-	private Queue<String> WaitingClients;
+	private final Queue<String> WaitingClients;
+	private final SocketMap socketMap;
 	private DataSingleton(){
 		Datos= new MapaPartidas();
 		this.WaitingClients= new LinkedList<String>();
+		socketMap= new SocketMap();
 	}
 	
 	public static DataSingleton getInstance(){
@@ -73,4 +75,9 @@ public class DataSingleton {
 		else{return false;}
 		
 	}
+
+	public SocketMap getSocketMap() {
+		return socketMap;
+	}
+	
 }
