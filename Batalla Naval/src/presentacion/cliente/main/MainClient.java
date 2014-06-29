@@ -2,13 +2,12 @@ package presentacion.cliente.main;
 import java.awt.EventQueue;
 import java.awt.Point;
 
-import negocio.server.logica.comunicacion.mensajes.MensajeColocar;
-import negocio.server.logica.comunicacion.mensajes.MensajeConectar;
-import negocio.server.logica.comunicacion.mensajes.MensajeDesconectar;
-import negocio.server.logica.comunicacion.mensajes.MensajeDisparo;
+import negocio.comunicacion.mensajes.MensajeColocar;
+import negocio.comunicacion.mensajes.MensajeConectar;
+import negocio.comunicacion.mensajes.MensajeDesconectar;
+import negocio.comunicacion.mensajes.MensajeDisparo;
 import presentacion.cliente.logica.comunicacion.DelayThread;
-import presentacion.cliente.logica.comunicacion.ListeningClient;
-import presentacion.cliente.logica.comunicacion.TalkingClientGUIObserver;
+import presentacion.cliente.logica.comunicacion.ClientGUIObserver;
 import presentacion.cliente.logica.*;
 import presentacion.cliente.visual.Ventana;
 
@@ -20,31 +19,42 @@ public class MainClient {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					/*
-					 * Inicio un listening client que escuche a mi computadora JUANJO-PC 
-					 * en el puerto 2343 donde corro el server
-					 * por ahora solo recibe el string "HolaCliente!"
-					 */
 					String remoteHost = "JUANJO-PC";
-					int remotePort = 2343;
-					ListeningClient lclient = new ListeningClient(remoteHost, remotePort);
-					new Thread(lclient).start();
-					
+					int remotePort = 2344;
 					/*
-					 *Inicio un TalkingClientGUIObserver que se comunique con el servidor en JUANJO-PC
+					 *Inicio un ClientGUIObserver que se comunique con el servidor en JUANJO-PC
 					 *a traves del puerto 2344
 					 * 
 					 */
-					remotePort = 2344;
-					TalkingClientGUIObserver tclient = new TalkingClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
-					MensajeDisparo disparo = new MensajeDisparo(new Point(5,4), 1);
-					tclient.update(disparo);
-					
+					ClientGUIObserver client = new ClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
+					MensajeConectar connectMsg = new MensajeConectar("V1.0");
+					client.update(connectMsg);
+					new Thread(client).start();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
+
 			}
 		});
+		
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+			System.out.println("Cerrando cliente");
+			
+			}
+			});
 	}	
-	
+
+	class ExitThread extends Thread{
+		ClientGUIObserver client;
+		public ExitThread(ClientGUIObserver client){
+			this.client=client;
+		}
+		public void run() {
+			System.out.println("Cerrando cliente");
+			client.update(new MensajeDesconectar());
+			client.desconectar();
+		}
+	}
 }
