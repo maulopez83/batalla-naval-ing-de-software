@@ -18,16 +18,17 @@ public class ElementoGUI implements Serializable {
 	private Rectangle bounds;
 	private String text;
 	private MouseAdapter adapter;
-	
-	public ElementoGUI(){
+	private String hashKey;
+	public ElementoGUI(String hashKey){
 		this.text=null;
 		this.adapter=null;
 		this.imagen=null;
 		this.bounds=null;
+		this.setHashKey(hashKey);
 	}
 	
 	public byte[] getIcon() throws NullPointerException {
-		if (imagen==null){throw new NullPointerException();}
+		if (imagen==null){throw new NullPointerException("Exception: La imagen es nula");}
 		return imagen;
 	}
 	public void setIcon(byte[] imagen) {
@@ -71,6 +72,14 @@ public class ElementoGUI implements Serializable {
 
 	public MouseAdapter getAdapter() {
 		return adapter;
+	}
+
+	public void setHashKey(String hashKey) {
+		this.hashKey = hashKey;
+	}
+
+	public String getHashKey() {
+		return hashKey;
 	}
 	
 	

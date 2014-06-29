@@ -19,5 +19,7 @@ public class SocketMap {
 	public SocketThread getSocket(String key){
 		return socketMap.get(key);
 	}
-	
+	public void removeSocket(String key){
+		socketMap.remove(key);
+	}
 }

@@ -1,5 +1,7 @@
 package datos.server.datos;
 
+import java.awt.Rectangle;
+
 public class DataPartida {
 	private TableroBarcos tabBarcosP1;
 	private TableroMarcado tabJuegoP1;
@@ -7,7 +9,9 @@ public class DataPartida {
 	private TableroMarcado tabJuegoP2;
 	private String Player2;
 	private String Player1;
-	
+	private boolean isPlayer1Ready;
+	private boolean isPlayer2Ready;
+	private GUIConstants guiConstants;
 	public DataPartida(String Player1,String Player2){
 		tabBarcosP1= new TableroBarcos();
 		tabJuegoP1 = new TableroMarcado();
@@ -15,6 +19,9 @@ public class DataPartida {
 		tabJuegoP2 = new TableroMarcado();
 		this.Player1=Player1;
 		this.Player2=Player2;
+		this.guiConstants=new GUIConstants();
+		this.isPlayer1Ready=false;
+		this.isPlayer2Ready=false;
 	}
 	
 	public TableroBarcos getTableroBarcos(String Player){
@@ -63,6 +70,27 @@ public class DataPartida {
 		return null;
 	}
 
+	public GUIConstants getGuiConstants() {
+		return guiConstants;
+	}
 
+
+	public boolean isPlayer1Ready() {
+		return isPlayer1Ready;
+	}
+
+	public void setPlayerReady(String Player) {
+		if(Player.equalsIgnoreCase(Player1)){
+			this.isPlayer1Ready=true;
+		}
+		else if(Player.equalsIgnoreCase(Player2)){
+			this.isPlayer2Ready=true;
+		}
+		
+	}
+
+	public boolean isPlayer2Ready() {
+		return isPlayer2Ready;
+	}
 	
 }

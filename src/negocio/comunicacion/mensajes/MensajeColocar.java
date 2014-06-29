@@ -14,7 +14,7 @@ public class MensajeColocar extends Mensaje implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<ArrayList<Point>> tablero;
-	public MensajeColocar(ArrayList<ArrayList<Point>> tablero,String clientID) {
+	public MensajeColocar(ArrayList<ArrayList<Point>> tablero) {
 		super();
 		setType(new Colocar());
 		this.tablero=tablero;

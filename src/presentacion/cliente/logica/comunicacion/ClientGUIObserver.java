@@ -17,6 +17,7 @@ import presentacion.cliente.visual.*;
 public class ClientGUIObserver implements Observer,Runnable {
 	private String host;
 	private int port;
+	private boolean keepGoing;
 	private Queue<Mensaje> OutputMsg;
 	private Socket connection;
 	ObjectOutputStream outToServer;
@@ -30,6 +31,7 @@ public class ClientGUIObserver implements Observer,Runnable {
 	 */
 	public ClientGUIObserver(String host, int port,Subject guiSubject) throws IOException {
 		this.host = host; this.port = port;
+		keepGoing=true;
 		OutputMsg = new LinkedList<Mensaje>();
 		guiSubject.register(this);
 		handler= new ClientMsgHandler();
@@ -62,21 +64,21 @@ public class ClientGUIObserver implements Observer,Runnable {
 	public void ConversarConServer(){
 		Thread Escuchar= new Thread(){		
 			public void run(){
-				while (true){
+				while (keepGoing){
 					try{
 						Mensaje msg;
 						msg = (Mensaje) inFromServer.readObject();
 						System.out.println("Se recibio un mensaje");
 						handler.addMsg(msg);
 						System.out.println("Se decodifico el mensaje");
-					}catch(Exception e){e.printStackTrace();};
+					}catch(Exception e){desconectar();};
 					DelayThread.delay(100);
 			    }
 			}
 		};
 		Thread Escribir=new Thread(){
 			public void run(){
-				while (true){
+				while (keepGoing){
 					try{
 						while(!OutputMsg.isEmpty()){
 							System.out.println("Se envia mensaje");
@@ -84,7 +86,7 @@ public class ClientGUIObserver implements Observer,Runnable {
 							DelayThread.delay(100);
 						}
 						
-					}catch(Exception e){e.printStackTrace();};
+					}catch(Exception e){desconectar();};
 				}
 			}
 		};
@@ -93,11 +95,14 @@ public class ClientGUIObserver implements Observer,Runnable {
 		Escribir.start();
 	}
 	
-	private void desconectar() {
+	public void desconectar() {
+		System.out.println("desconectando cliente");
         try {
+        	outToServer.flush();
         	outToServer.close();
 			inFromServer.close();
 			connection.close();
+			keepGoing=false;
         } catch (IOException e) {
         	e.printStackTrace();
         }

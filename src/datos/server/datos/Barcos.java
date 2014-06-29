@@ -2,6 +2,8 @@ package datos.server.datos;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import datos.server.datos.TableroMarcado.DISPARO;
+
 public class Barcos{
 	
 	private ArrayList<Point> posiciones;
@@ -24,17 +26,17 @@ public class Barcos{
 	}
 	
 	
-	public String disparar (Point posicion){
+	public DISPARO disparar (Point posicion){
 	
 		if(posiciones.contains(posicion)){
 			int index = posiciones.indexOf(posicion);
 			disparado.add(posiciones.get(index));
 			posiciones.remove(index);
 			if(!posiciones.isEmpty()){
-				return "Averiado";
+				return DISPARO.AVERIADO;
 			}
 			else{
-				return "Hundido";
+				return DISPARO.HUNDIDO;
 			}
 		}		
 		return null;	

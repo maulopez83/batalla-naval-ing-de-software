@@ -8,16 +8,21 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import datos.server.datos.DataSingleton;
+
 import negocio.comunicacion.mensajes.Mensaje;
+import negocio.comunicacion.mensajes.MensajeDesconectar;
 
 
 public class SocketThread implements Runnable{
 	
 	private Socket socket;
+	public boolean keepGoing;
 	ObjectInputStream inFromClient;
 	ObjectOutputStream outToClient;
 	Queue<Mensaje> OutQueue;
 	public SocketThread(Socket socket){
+		this.keepGoing=true;
 		this.socket=socket;
 		this.OutQueue= new LinkedList<Mensaje>();
 	    try {
@@ -36,7 +41,7 @@ public class SocketThread implements Runnable{
 	private void ConversarConClientes()  {
 			Thread Escuchar= new Thread(){		
 				public void run(){
-					while (true){
+					while (keepGoing){
 						try{
 							Mensaje msg;
 							msg = (Mensaje) inFromClient.readObject();
@@ -44,7 +49,7 @@ public class SocketThread implements Runnable{
 							msg.setClientID(Integer.toString(socket.hashCode()));
 						    msg.decodificar();	
 							System.out.println("Se decodifico el mensaje");
-						}catch(Exception e){e.printStackTrace();};
+						}catch(Exception e){desconectar();};
 						DelayThread.delay(100);
 				    }
 				}
@@ -52,7 +57,7 @@ public class SocketThread implements Runnable{
 			
 			Thread Escribir=new Thread(){
 				public void run(){
-					while (true){
+					while (keepGoing){
 						try{
 							while(!OutQueue.isEmpty()){
 								System.out.println("Se envia mensaje");
@@ -60,7 +65,7 @@ public class SocketThread implements Runnable{
 								DelayThread.delay(100);
 							}
 							
-						}catch(Exception e){e.printStackTrace();};
+						}catch(Exception e){desconectar();};
 					}
 				}
 			};
@@ -75,10 +80,15 @@ public class SocketThread implements Runnable{
 	}
 	
 	
-	 private void desconectar() {
+	 public void desconectar() {
+		 System.out.println("desconectando server");
 	        try {
-	            socket.close();
+	        	outToClient.flush();
+	            outToClient.close();
 	            inFromClient.close();
+	            socket.close();
+	            keepGoing=false;
+	            DataSingleton.getInstance().getSocketMap().removeSocket(Integer.toString(socket.hashCode()));
 	        } catch (IOException e) {
 	        	e.printStackTrace();
 	        }

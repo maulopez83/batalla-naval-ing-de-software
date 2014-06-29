@@ -28,26 +28,29 @@ import negocio.server.logica.comunicacion2.DelayThread;
 import java.awt.Toolkit;
 
 public class PlantillaVentanaEsperarJugador extends Plantilla {
-	private MensajeGUI msg;
-	private Rectangle frameBounds;
-	public PlantillaVentanaEsperarJugador() {
-		msg= new MensajeGUI();
-		frameBounds= new Rectangle(0, 0, 402, 328);
+
+	public PlantillaVentanaEsperarJugador(String ClientID) {
+		super(ClientID);
+		constants.setFrameBounds(new Rectangle(0, 0, 200, 200));
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	public MensajeGUI create() {
+		MensajeGUI msg= new MensajeGUI();
+		msg.setNewWindow(true);
 		msg.addElemento(getTextoEsperar());
-		msg.setFrameBounds(frameBounds);
+		msg.addElemento(getFondo());
+		msg.setFrameBounds(constants.getFrameBounds());
 		return msg;
 	}
 	
 	public ElementoGUI getTextoEsperar(){
-		ElementoGUI TextoEsperar = new ElementoGUI();	
-		TextoEsperar.setBounds(frameBounds.width/2, frameBounds.height/2, 200, 50);
+		ElementoGUI TextoEsperar = new ElementoGUI(constants.getTextoEsperarHashCode());	
+
 		TextoEsperar.setText("Esperando al otro jugador");
+		TextoEsperar.setBounds(constants.getFrameBounds().width/2-75, constants.getFrameBounds().height/2-10, 150, 20);
 		return TextoEsperar;
 	}
 	
