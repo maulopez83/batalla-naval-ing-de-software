@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import presentacion.cliente.visual.Ventana;
+
 public class BarcosMouseAdapter extends MouseAdapter implements Serializable {		
 	private static final long serialVersionUID = 1L;
 		private Rectangle tablero;
@@ -59,7 +61,6 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 		public void mouseClicked (MouseEvent e){
 			int CLICKDERECHO=3;
 			if (e.getButton()==CLICKDERECHO){
-				
 					tabOcup.remove(posBarco);
 				
 				int casillaX;
@@ -80,8 +81,8 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 					}
 					else{
 						source.setIcon(new ImageIcon(Horiz));
+						
 					}
-					
 					int auxSwap= casillasAlto;
 					casillasAlto= casillasAncho;
 					casillasAncho= auxSwap;
@@ -98,7 +99,6 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 				}
 				
 					tabOcup.add(posBarco);
-				
 			}
 		}
 		
@@ -153,13 +153,20 @@ public class BarcosMouseAdapter extends MouseAdapter implements Serializable {
 			boolean posiblePos=true;		
 			for (int i=0; i<Ancho ; i++){
 				for(int k=0; k<Alto; k++){
+					if ((X+i>(tablero.width/tamCasilla)-1)||(Y+k>(tablero.height/tamCasilla)-1)){
+						posiblePos=false;
+						return posiblePos;
+					}
 					for(ArrayList<Point> l: tabOcup){
 						for(Point p: l){
-							if((int)p.getX() == X+i && (int)p.getY() == Y+k){
+							if(p.x == X+i && p.y == Y+k){
 								posiblePos=false;
+								return posiblePos;
 							}
+
 						}
 					}
+					
 				}
 			}
 			return posiblePos;

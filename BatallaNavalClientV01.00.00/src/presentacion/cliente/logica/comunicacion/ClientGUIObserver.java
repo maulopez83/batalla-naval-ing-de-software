@@ -62,10 +62,8 @@ public class ClientGUIObserver implements Observer,Runnable {
 				while (keepGoing){
 					try{
 						Mensaje msg;
-						msg = (Mensaje) inFromServer.readObject();
-						System.out.println("Se recibio un mensaje");
+						msg = (Mensaje) inFromServer.readObject();				
 						handler.addMsg(msg);
-						System.out.println("Se decodifico el mensaje");
 					}catch(Exception e){desconectar();};
 					DelayThread.delay(100);
 			    }
@@ -76,7 +74,6 @@ public class ClientGUIObserver implements Observer,Runnable {
 				while (keepGoing){
 					try{
 						while(!OutputMsg.isEmpty()){
-							System.out.println("Se envia mensaje");
 							outToServer.writeObject(OutputMsg.remove());
 							DelayThread.delay(100);
 						}
