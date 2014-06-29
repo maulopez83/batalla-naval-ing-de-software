@@ -1,6 +1,5 @@
 package negocio.comunicacion.mensajes;
 
-import java.awt.Point;
 import java.io.Serializable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -10,12 +9,6 @@ import presentacion.cliente.visual.Ventana;
 
 
 import negocio.comunicacion.elementosgraficos.ElementoGUI;
-import datos.server.datos.*;
-import datos.server.datos.TableroMarcado.DISPARO;
-import datos.server.datos.guiconfigs.PlantillaVentanaColocar;
-import datos.server.datos.guiconfigs.PlantillaVentanaDisparo;
-import datos.server.datos.guiconfigs.PlantillaVentanaEsperarJugador;
-import datos.server.datos.guiconfigs.ResultadoDisparoGUI;
 
 /*
  * Patron Strategy:
@@ -36,47 +29,7 @@ public interface Decodificacion extends Serializable {
  */
 class Disparo implements Decodificacion {
 	private static final long serialVersionUID = 1L;
-	/*
-	 * decodificar()
-	 * returns: String? (deberia ser void capaz dsp lo vemos)
-	 * params: Mensaje m
-	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA UN DISPARO, FALTA IMPLEMENTAR BIEN 
-	 */
-	public void decodificar(Mensaje m){
-		MensajeDisparo msg=(MensajeDisparo) m;
-		Point p= msg.getPoint();
-		int Xpos= (int)(p.getX());
-		int Ypos= (int)(p.getY());
-		
-		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
-		
-		DISPARO result= GameData.setDisparo(msg.getClientID(), msg.getPoint());
-		if(result==DISPARO.FINAL){
-			ResultadoDisparoGUI finalGUI = new ResultadoDisparoGUI(msg.getClientID());	
-			GameData.sendMsgToPlayer(msg.getClientID(),finalGUI.create(DISPARO.HUNDIDO, msg.getPoint(), true));		
-			GameData.sendMsgToOponent(msg.getClientID(),finalGUI.create(DISPARO.HUNDIDO, msg.getPoint(), false));		
-			MensajeGUI MsgWinner= finalGUI.create(result, msg.getPoint(), true);
-			MensajeGUI MsgLoser= finalGUI.create(result, msg.getPoint(), false);
-			GameData.sendMsgToPlayer(msg.getClientID(),MsgWinner);		
-			GameData.sendMsgToOponent(msg.getClientID(),MsgLoser);	
-			GameData.sendMsgToPlayer(msg.getClientID(),new MensajeTurno(false, DISPARO.HUNDIDO.toString()));	
-			GameData.sendMsgToOponent(msg.getClientID(),new MensajeTurno(false));
-		}
-		else{
-			ResultadoDisparoGUI rGUI= new ResultadoDisparoGUI(msg.getClientID());
-			MensajeGUI MsgPlayer1= rGUI.create(result, msg.getPoint(), true);
-			MsgPlayer1.setClientID(msg.getClientID());
-			MensajeGUI MsgPlayer2= rGUI.create(result, msg.getPoint(), false);
-		
-			GameData.sendMsgToPlayer(msg.getClientID(),new MensajeTurno(false, result.toString()));	
-			GameData.sendMsgToOponent(msg.getClientID(),new MensajeTurno(true, "Es su turno de disparar"));
-			GameData.sendMsgToPlayer(msg.getClientID(),MsgPlayer1);		
-			GameData.sendMsgToOponent(msg.getClientID(),MsgPlayer2);
-		}
-			System.out.println("Se presiono: ");
-			System.out.println("X: "+Xpos);
-			System.out.println("Y: "+Ypos);
-	}
+	public void decodificar(Mensaje m){}
 }
 /*
  * Desconectar - implements Decodificación
@@ -85,18 +38,7 @@ class Disparo implements Decodificacion {
  */
 class Desconectar implements Decodificacion{
 	private static final long serialVersionUID = 1L;
-	/*
-	 * decodificar()
-	 * returns: String? (deberia ser void capaz dsp lo vemos)
-	 * params: Mensaje m
-	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE DESCONECTAR, FALTA IMPLEMENTAR BIEN 
-	 */
 	public void decodificar(Mensaje m){
-		BaseDatosSingleton GameData= BaseDatosSingleton.getInstance();
-			GameData.getSocketMap().getSocket(m.getClientID()).desconectar();
-			if(GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID()))!=null){
-				GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID())).desconectar();
-			}
 	}
 }
 /*
@@ -112,37 +54,7 @@ class Conectar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE CONECTAR, FALTA IMPLEMENTAR BIEN 
 	 */
-	public void decodificar(Mensaje m){
-		MensajeConectar msg = (MensajeConectar) m;
-		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
-		if(msg.getVersion().equals(GameData.getCurrentVersion())){
-			if(GameData.addClient(msg.getClientID())){
-				System.out.println("Se agrego el cliente: " + msg.getClientID()
-									+". Empieza el juego porque ya son dos");
-				
-				PlantillaVentanaColocar p = new PlantillaVentanaColocar(msg.getClientID());
-				Mensaje respMsgClient=p.create();
-				GameData.sendMsgToPlayer(msg.getClientID(), respMsgClient);
-				GameData.sendMsgToOponent(msg.getClientID(), respMsgClient);
-				
-			}
-			else{
-				System.out.println("Se agrego el cliente: " + msg.getClientID()
-						+". Tiene que esperar al otro cliente");
-				PlantillaVentanaEsperarJugador plant= new PlantillaVentanaEsperarJugador(msg.getClientID());
-				Mensaje respMsg= plant.create();
-				respMsg.setClientID(msg.getClientID());
-				GameData.getSocketMap().getSocket(msg.getClientID()).addOutPutMsg(respMsg);		
-				
-			}
-			
-		}
-		
-		else{/* Si no tiene la misma version*/
-			
-		}
-
-	}
+	public void decodificar(Mensaje m){}
 }
 
 /*
@@ -158,30 +70,7 @@ class Colocar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE COLOCAR, FALTA IMPLEMENTAR BIEN 
 	 */
-	public void decodificar(Mensaje m){
-		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
-		MensajeColocar msg = (MensajeColocar) m;
-		TableroBarcos tab= GameData.getTableroBarcos(msg.getClientID());
-		tab.setBarcosTablero(msg.getTablero());
-		
-		System.out.println("Se agrego el tablero:");
-		for (Barcos b:GameData.getTableroBarcos(msg.getClientID()).getBarcosEnTablero()) {
-			System.out.println(b.toString());		
-			}
-		PlantillaVentanaDisparo p = new PlantillaVentanaDisparo(msg.getClientID());
-		MensajeGUI respMsg= p.create();
-		GameData.sendMsgToPlayer(msg.getClientID(), respMsg);
-		GameData.setPlayerReady(msg.getClientID());
-		if(GameData.arePlayersReady(msg.getClientID())){
-			GameData.sendMsgToPlayer(msg.getClientID(), new MensajeTurno(false,"Es el turno del rival"));
-			GameData.sendMsgToOponent(msg.getClientID(), new MensajeTurno(true,"Es su turno de disparar"));
-		}
-		else{
-			GameData.sendMsgToPlayer(msg.getClientID(), new MensajeTurno(false,"Esperando al oponente"));
-		}
-	
-		
-	}
+	public void decodificar(Mensaje m){}
 	
 }
 
