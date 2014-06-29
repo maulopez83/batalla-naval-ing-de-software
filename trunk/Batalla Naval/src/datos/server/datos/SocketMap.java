@@ -1,6 +1,5 @@
 package datos.server.datos;
 
-import java.net.Socket;
 import java.util.HashMap;
 
 import negocio.server.logica.comunicacion.SocketThread;

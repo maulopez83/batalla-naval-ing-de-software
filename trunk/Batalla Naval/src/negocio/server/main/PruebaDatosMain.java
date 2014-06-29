@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import datos.server.datos.Barcos;
 import datos.server.datos.BaseDatosSingleton;
 import datos.server.datos.TableroBarcos;
-import datos.server.datos.TableroMarcado;
 
 public class PruebaDatosMain {
 	public static void main(String args[]){

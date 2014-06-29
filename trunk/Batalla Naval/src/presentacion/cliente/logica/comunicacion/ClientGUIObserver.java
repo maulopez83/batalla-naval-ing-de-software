@@ -1,13 +1,11 @@
 package presentacion.cliente.logica.comunicacion;
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import negocio.comunicacion.mensajes.*;
 import negocio.server.logica.comunicacion.DelayThread;
-import presentacion.cliente.visual.*;
 
 /*
  * TalkingClientGUIObserver implements Observer
@@ -15,8 +13,6 @@ import presentacion.cliente.visual.*;
  * Su único metodo público es update.
  */
 public class ClientGUIObserver implements Observer,Runnable {
-	private String host;
-	private int port;
 	private boolean keepGoing;
 	private Queue<Mensaje> OutputMsg;
 	private Socket connection;
@@ -30,7 +26,6 @@ public class ClientGUIObserver implements Observer,Runnable {
 	 * Inicializa OutputMsg como una nueva Cola del tipo LinkedList<Mensaje>
 	 */
 	public ClientGUIObserver(String host, int port,Subject guiSubject) throws IOException {
-		this.host = host; this.port = port;
 		keepGoing=true;
 		OutputMsg = new LinkedList<Mensaje>();
 		guiSubject.register(this);

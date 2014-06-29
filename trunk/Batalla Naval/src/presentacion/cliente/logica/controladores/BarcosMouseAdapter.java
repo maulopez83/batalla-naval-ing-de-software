@@ -1,6 +1,5 @@
 package presentacion.cliente.logica.controladores;
 
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
@@ -10,8 +9,6 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import negocio.comunicacion.elementosgraficos.ElementoGUI;
 
 public class BarcosMouseAdapter extends MouseAdapter implements Serializable {		
 	private static final long serialVersionUID = 1L;

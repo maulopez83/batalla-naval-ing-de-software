@@ -1,7 +1,5 @@
 package datos.server.datos;
 
-import java.util.LinkedList;
-
 public class Paths {
 	private static Paths path;
 	private final String ImgDestructorV = "src/datos/server/datos/imagenes/ImgDestructorV.png";

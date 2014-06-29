@@ -25,7 +25,6 @@ public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable
 	}
 	@Override
 	public void mouseClicked (MouseEvent e){
-		JFrame frame= Ventana.getInstance().getFrame();
 		if(tablero.size()==cantBarcos){
 			for (ArrayList<Point> l : tablero){
 				for(Point p: l){

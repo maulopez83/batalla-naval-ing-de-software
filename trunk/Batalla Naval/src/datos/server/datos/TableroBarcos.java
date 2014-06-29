@@ -3,8 +3,6 @@ package datos.server.datos;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import negocio.server.logica.*;
-
 public class TableroBarcos{
 	
 	private ArrayList<Barcos> barcosEnTablero;

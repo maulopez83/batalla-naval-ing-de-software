@@ -1,15 +1,8 @@
 package negocio.comunicacion.elementosgraficos;
 
-import java.awt.Component;
-import java.awt.Image;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.io.Serializable;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class ElementoGUI implements Serializable {
 
