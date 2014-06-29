@@ -37,48 +37,57 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 
 public class PlantillaVentanaColocar extends Plantilla {
-	private final String ImgFondoURL= Paths.getFondoColocarBarcos();
-	private MensajeGUI msg;
+	private final String ImgTableroColocar= Paths.getImgTableroColocar();
 	private ArrayList<ArrayList<Point>> posicionesBarcos;
-	private Rectangle tablBounds;
-	private Rectangle frameBounds;
-	public PlantillaVentanaColocar() {
-		msg= new MensajeGUI();
-		tablBounds= new Rectangle(3*getTAMAÑO_CASILLA(),getTAMAÑO_CASILLA(), 10*getTAMAÑO_CASILLA(), 10*getTAMAÑO_CASILLA());
-		frameBounds= new Rectangle(0, 0, 402, 328);
+	public PlantillaVentanaColocar(String ClientID) {	
+		super(ClientID);
+		constants.setFrameBounds(new Rectangle(0, 0, 600, 400));
 		posicionesBarcos= new ArrayList<ArrayList<Point>>();
-		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	public MensajeGUI create() {
-		
+		MensajeGUI msg= new MensajeGUI();
+		msg.setNewWindow(true);
 		msg.addElemento(getFondo());
+		msg.addElemento(getTableroColocar(100,75));
 		
-		for (int i=0; i<getCANTIDAD_DESTRUCTORES(); i++){
+		for (int i=0; i<constants.getCANTIDAD_DESTRUCTORES(); i++){
 			msg.addElemento(getDestructor(i));
 		}
 		msg.addElemento(getBotonJugar());
-		msg.setFrameBounds(frameBounds);
+		msg.setFrameBounds(constants.getFrameBounds());
 		return msg;
 	}
 	
-	
-	protected ElementoGUI getDestructor(int i){
-		int x= 0;
-		int y= i*getTAMAÑO_CASILLA()*getLARGO_DESTRUCTOR();
-		ElementoGUI Barco = super.getDestructor(x,y);
+	private ElementoGUI getTableroColocar(int x, int y){
+		
+		ElementoGUI Tablero = new ElementoGUI(constants.getTableroColocarHashCode());
 		try {
-		File f= new File(getImgDestructorV());
+			File f= new File(ImgTableroColocar);
+			byte[] imagenTablero = Files.readAllBytes(f.toPath());
+			Tablero.setIcon(imagenTablero);
+			ImageIcon aux= new ImageIcon(imagenTablero);
+			Tablero.setBounds(x, y, aux.getIconWidth(), aux.getIconHeight());
+			constants.setTableroColocarBounds(Tablero.getBounds());
+		} catch (IOException e) {e.printStackTrace();}
+		return Tablero;
+	}
+	private ElementoGUI getDestructor(int i){
+		int x= 0;
+		int y= i*constants.getTAMAÑO_CASILLA()*constants.getLARGO_DESTRUCTOR();
+		ElementoGUI Barco = super.getDestructor(x,y,i);
+		try {
+		File f= new File(constants.getImgDestructorV());
 		byte[] destructorV = Files.readAllBytes(f.toPath());
-		File f2= new File(getImgDestructorH());
+		File f2= new File(constants.getImgDestructorH());
 		byte[] destructorH = Files.readAllBytes(f2.toPath());
 
 		BarcosMouseAdapter BListener= 
-						new BarcosMouseAdapter(tablBounds,getTAMAÑO_CASILLA(),getANCHO_DESTRUCTOR(),
-											getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
+						new BarcosMouseAdapter(constants.getTableroColocarBounds(),constants.getTAMAÑO_CASILLA(),constants.getANCHO_DESTRUCTOR(),
+												constants.getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
 		Barco.setAdapter(BListener);	
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -88,28 +97,15 @@ public class PlantillaVentanaColocar extends Plantilla {
 	}
 	
 	private ElementoGUI getBotonJugar(){
-		ElementoGUI BotonJugar = new ElementoGUI();
+		ElementoGUI BotonJugar = new ElementoGUI(constants.getBotonJugarHashCode());
 		BotonJugar.setText("JUGAR");
-		BotonJugar.setBounds((int)(tablBounds.getX()+tablBounds.getWidth()+getTAMAÑO_CASILLA()), (int)(tablBounds.getY()+tablBounds.getHeight()),50,20);			
-		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,getCANTIDAD_BARCOS());
+		BotonJugar.setBounds((int)(constants.getTableroColocarBounds().getX()+constants.getTableroColocarBounds().getWidth()+constants.getTAMAÑO_CASILLA()), 
+				(int)(constants.getTableroColocarBounds().getY()+constants.getTableroColocarBounds().getHeight()),50,20);			
+		BotonJugarMouseAdapter BJListener=new BotonJugarMouseAdapter(posicionesBarcos,constants.getCANTIDAD_BARCOS());
 		BotonJugar.setAdapter(BJListener);
 		return BotonJugar;
 	}
 	
-	private ElementoGUI getFondo(){
-		ElementoGUI Fondo = new ElementoGUI();
-		BufferedImage image;
-		try {
-			File f= new File(ImgFondoURL);
-			byte[] imagenFondo = Files.readAllBytes(f.toPath());
-			Fondo.setIcon(imagenFondo);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	
-		Fondo.setBounds(0, 0, 400, 300);
-		return Fondo;
-	}
-	
+
 }
 

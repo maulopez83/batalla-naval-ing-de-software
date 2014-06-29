@@ -15,11 +15,11 @@ import negocio.comunicacion.mensajes.Mensaje;
 public class GUISubject implements Subject{
 	ArrayList<Observer> clientList;
 	private Mensaje msg;
-	private boolean Turno;
+	private boolean isTurno;
 	
 	public GUISubject(){
 		clientList= new ArrayList<Observer>();
-		Turno=true;
+		isTurno=true;
 	}
 	
 	public void register(Observer o) {
@@ -41,17 +41,14 @@ public class GUISubject implements Subject{
 	private void setMsg(Mensaje msg) {
 		this.msg = msg;
 	}	
-	
-	public boolean isTurno() {
-		return Turno;
-	}
+
 
 	public void setTurno(boolean turno) {
-		Turno = turno;
+		isTurno = turno;
 	}
 
 	public void sendMsg(Mensaje msg){
-		if(Turno){
+		if(isTurno){
 		setMsg(msg);
 		notifyObservers();
 		}

@@ -22,27 +22,39 @@ public class MainClient {
 					String remoteHost = "JUANJO-PC";
 					int remotePort = 2344;
 					/*
-					 *Inicio un TalkingClientGUIObserver que se comunique con el servidor en JUANJO-PC
+					 *Inicio un ClientGUIObserver que se comunique con el servidor en JUANJO-PC
 					 *a traves del puerto 2344
 					 * 
 					 */
 					ClientGUIObserver client = new ClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
-					MensajeConectar connectMsg = new MensajeConectar("V1.0",Ventana.getInstance().getClientID());
+					MensajeConectar connectMsg = new MensajeConectar("V1.0");
 					client.update(connectMsg);
 					new Thread(client).start();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
+
 			}
 		});
-		/*
-		 * Codigo que se corre antes de finalizar el programa
-		 */
+		
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
-			System.out.println("Shutdown Hook is running !");
+			System.out.println("Cerrando cliente");
+			
 			}
 			});
 	}	
-	
+
+	class ExitThread extends Thread{
+		ClientGUIObserver client;
+		public ExitThread(ClientGUIObserver client){
+			this.client=client;
+		}
+		public void run() {
+			System.out.println("Cerrando cliente");
+			client.update(new MensajeDesconectar());
+			client.desconectar();
+		}
+	}
 }
