@@ -35,20 +35,9 @@ public class MainClient {
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
 			System.out.println("Cerrando cliente");
-			
+			Ventana.getInstance().getGuiSubject().sendMsg(new MensajeDesconectar());
 			}
 			});
 	}	
 
-	class ExitThread extends Thread{
-		ClientGUIObserver client;
-		public ExitThread(ClientGUIObserver client){
-			this.client=client;
-		}
-		public void run() {
-			System.out.println("Cerrando cliente");
-			client.update(new MensajeDesconectar());
-			client.desconectar();
-		}
-	}
 }

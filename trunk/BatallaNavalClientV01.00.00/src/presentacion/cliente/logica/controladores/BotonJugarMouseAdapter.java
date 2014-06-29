@@ -26,11 +26,6 @@ public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable
 	@Override
 	public void mouseClicked (MouseEvent e){
 		if(tablero.size()==cantBarcos){
-			for (ArrayList<Point> l : tablero){
-				for(Point p: l){
-				System.out.println("Posicion : (" + (int)p.getX()+ ", " + (int)p.getY()+ ")" );
-				}						
-			}
 			MensajeColocar msg= new MensajeColocar(tablero);
 			Ventana.getInstance().getGuiSubject().sendMsg(msg);	
 		}
