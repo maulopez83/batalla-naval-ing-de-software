@@ -43,10 +43,8 @@ public class SocketThread implements Runnable{
 						try{
 							Mensaje msg;
 							msg = (Mensaje) inFromClient.readObject();
-							System.out.println("Se recibio un mensaje");
 							msg.setClientID(Integer.toString(socket.hashCode()));
 						    msg.decodificar();	
-							System.out.println("Se decodifico el mensaje");
 						}catch(Exception e){desconectar();};
 						DelayThread.delay(100);
 				    }
@@ -58,7 +56,6 @@ public class SocketThread implements Runnable{
 					while (keepGoing){
 						try{
 							while(!OutQueue.isEmpty()){
-								System.out.println("Se envia mensaje");
 								outToClient.writeObject(OutQueue.remove());
 								DelayThread.delay(100);
 							}
@@ -74,7 +71,6 @@ public class SocketThread implements Runnable{
 	
 	public void addOutPutMsg(Mensaje m){
 		OutQueue.add(m);
-		System.out.println("Se añadio un mensaje a la cola de salida de " + socket.hashCode());
 	}
 	
 	

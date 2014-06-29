@@ -65,9 +65,6 @@ class Disparo implements Decodificacion {
 			GameData.sendMsgToPlayer(msg.getClientID(),MsgPlayer1);		
 			GameData.sendMsgToOponent(msg.getClientID(),MsgPlayer2);
 		}
-			System.out.println("Se presiono: ");
-			System.out.println("X: "+Xpos);
-			System.out.println("Y: "+Ypos);
 	}
 }
 /*
@@ -156,10 +153,6 @@ class Colocar implements Decodificacion{
 		TableroBarcos tab= GameData.getTableroBarcos(msg.getClientID());
 		tab.setBarcosTablero(msg.getTablero());
 		
-		System.out.println("Se agrego el tablero:");
-		for (Barcos b:GameData.getTableroBarcos(msg.getClientID()).getBarcosEnTablero()) {
-			System.out.println(b.toString());		
-			}
 		PlantillaVentanaDisparo p = new PlantillaVentanaDisparo(msg.getClientID());
 		MensajeGUI respMsg= p.create();
 		GameData.sendMsgToPlayer(msg.getClientID(), respMsg);
