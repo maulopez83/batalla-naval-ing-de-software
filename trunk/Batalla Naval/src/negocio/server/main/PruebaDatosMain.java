@@ -4,13 +4,13 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import datos.server.datos.Barcos;
-import datos.server.datos.DataSingleton;
+import datos.server.datos.BaseDatosSingleton;
 import datos.server.datos.TableroBarcos;
 import datos.server.datos.TableroMarcado;
 
 public class PruebaDatosMain {
 	public static void main(String args[]){
-		DataSingleton Data=DataSingleton.getInstance();
+		BaseDatosSingleton Data=BaseDatosSingleton.getInstance();
 		String Player1 ="Juan";
 		String Player2 ="Pibe";
 		
