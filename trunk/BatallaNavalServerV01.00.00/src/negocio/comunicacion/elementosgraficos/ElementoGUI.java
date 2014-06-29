@@ -26,7 +26,6 @@ public class ElementoGUI implements Serializable {
 	}
 	public void setIcon(byte[] imagen) {
 		this.imagen = imagen;
-		System.out.println("Largo: " +imagen.length);
 	}
 	public Rectangle getBounds() {
 		return bounds;

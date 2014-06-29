@@ -106,9 +106,6 @@ class Conectar implements Decodificacion{
 		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
 		if(msg.getVersion().equals(GameData.getCurrentVersion())){
 			if(GameData.addClient(msg.getClientID())){
-				System.out.println("Se agrego el cliente: " + msg.getClientID()
-									+". Empieza el juego porque ya son dos");
-				
 				PlantillaVentanaColocar p = new PlantillaVentanaColocar(msg.getClientID());
 				Mensaje respMsgClient=p.create();
 				GameData.sendMsgToPlayer(msg.getClientID(), respMsgClient);
@@ -116,8 +113,6 @@ class Conectar implements Decodificacion{
 				
 			}
 			else{
-				System.out.println("Se agrego el cliente: " + msg.getClientID()
-						+". Tiene que esperar al otro cliente");
 				PlantillaVentanaEsperarJugador plant= new PlantillaVentanaEsperarJugador(msg.getClientID());
 				Mensaje respMsg= plant.create();
 				respMsg.setClientID(msg.getClientID());
