@@ -6,10 +6,6 @@ import java.awt.event.MouseEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import negocio.comunicacion.mensajes.Mensaje;
-import negocio.comunicacion.mensajes.MensajeDisparo;
-import presentacion.cliente.visual.Ventana;
-
 public class DisparoMouseAdapter extends MouseAdapter implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int tamCasilla;
@@ -20,16 +16,5 @@ public class DisparoMouseAdapter extends MouseAdapter implements Serializable {
 	}
 	
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		Point p= e.getPoint();
-		int xPos= p.x /tamCasilla;
-		int yPos= p.y /tamCasilla;
-		Point result= new Point(xPos,yPos);
-		if(!disparosHechos.contains(result)){
-			Mensaje msg= new MensajeDisparo(new Point(xPos,yPos));
-			Ventana.getInstance().getGuiSubject().sendMsg(msg);
-			disparosHechos.add(result);
-		}
-		
-	}
+	public void mouseClicked(MouseEvent e) {}
 }
