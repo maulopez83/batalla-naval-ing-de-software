@@ -2,10 +2,7 @@ package negocio.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import presentacion.cliente.logica.comunicacion.DelayThread;
@@ -13,7 +10,6 @@ import presentacion.cliente.visual.Ventana;
 
 
 import negocio.comunicacion.elementosgraficos.ElementoGUI;
-import negocio.comunicacion.mensajes.*;
 import datos.server.datos.*;
 import datos.server.datos.TableroMarcado.DISPARO;
 import datos.server.datos.guiconfigs.PlantillaVentanaColocar;

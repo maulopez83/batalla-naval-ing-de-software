@@ -1,7 +1,5 @@
 package datos.server.datos;
 
-import java.awt.Rectangle;
-
 public class DataPartida {
 	private TableroBarcos tabBarcosP1;
 	private TableroMarcado tabJuegoP1;

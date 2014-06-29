@@ -1,23 +1,10 @@
 package presentacion.cliente.visual;
 
 import java.awt.Component;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
-
 import presentacion.cliente.logica.comunicacion.GUISubject;
 
-import datos.server.datos.BaseDatosSingleton;
-
-import negocio.comunicacion.elementosgraficos.ElementoGUI;
-import negocio.comunicacion.mensajes.*;
-
-
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,11 +14,9 @@ public class Ventana {
 	private  Map <String,Component> mapaComponents;
 	private  JFrame frame;
 	private  GUISubject guiSubject;
-	private  boolean turno;	
 	private Ventana() {
 		guiSubject= new GUISubject();
 		GridSize=0;
-		turno=true;
 		mapaComponents= new HashMap<String,Component>();
 	}
 	

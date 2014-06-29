@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import datos.server.datos.BaseDatosSingleton;
 
 import negocio.comunicacion.mensajes.Mensaje;
-import negocio.comunicacion.mensajes.MensajeDesconectar;
 
 
 public class SocketThread implements Runnable{

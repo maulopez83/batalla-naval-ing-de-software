@@ -1,6 +1,5 @@
 package negocio.comunicacion.mensajes;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /*
  * abstract Mensaje - implements Serializable

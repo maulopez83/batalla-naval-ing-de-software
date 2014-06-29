@@ -1,31 +1,8 @@
 package datos.server.datos.guiconfigs;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-import presentacion.cliente.logica.controladores.BarcosMouseAdapter;
-import presentacion.cliente.logica.controladores.BotonJugarMouseAdapter;
-
-import datos.server.datos.Paths;
-
-import java.util.ArrayList;
-
 import negocio.comunicacion.elementosgraficos.ElementoGUI;
-import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeGUI;
-import negocio.comunicacion.mensajes.MensajeDisparo;
-
-import negocio.server.logica.comunicacion.DelayThread;
-
-import java.awt.Toolkit;
 
 public class PlantillaVentanaEsperarJugador extends Plantilla {
 

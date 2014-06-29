@@ -1,14 +1,8 @@
 package presentacion.cliente.main;
 import java.awt.EventQueue;
-import java.awt.Point;
-
-import negocio.comunicacion.mensajes.MensajeColocar;
 import negocio.comunicacion.mensajes.MensajeConectar;
 import negocio.comunicacion.mensajes.MensajeDesconectar;
-import negocio.comunicacion.mensajes.MensajeDisparo;
-import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.logica.comunicacion.ClientGUIObserver;
-import presentacion.cliente.logica.*;
 import presentacion.cliente.visual.Ventana;
 
 
