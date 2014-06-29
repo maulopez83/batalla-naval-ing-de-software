@@ -24,12 +24,21 @@ public class PlantillaVentanaDisparo extends Plantilla {
 	public MensajeGUI create() {
 		MensajeGUI msg= new MensajeGUI();
 		msg.setNewWindow(false);
-	//	msg.addElemento(getFondo());
 		msg.addElemento(getTableroDisparo(400,75));
 		msg.setFrameBounds(constants.getFrameBounds());
 		msg.addElementToRemove(constants.getBotonJugarHashCode());
+		
 		for (int i=0; i<constants.getCANTIDAD_DESTRUCTORES();i++){
 			msg.addAdapterToRemove(constants.getDestructorHashCode()+i);
+		}
+		for (int i=0; i<constants.getCANTIDAD_SUBMARINOS();i++){
+			msg.addAdapterToRemove(constants.getSubmarinoHashCode()+i);
+		}
+		for (int i=0; i<constants.getCANTIDAD_ACORAZADOS();i++){
+			msg.addAdapterToRemove(constants.getAcorazadoHashCode()+i);
+		}
+		for (int i=0; i<constants.getCANTIDAD_CRUCEROS();i++){
+			msg.addAdapterToRemove(constants.getCruceroHashCode()+i);
 		}
 		return msg;
 	}

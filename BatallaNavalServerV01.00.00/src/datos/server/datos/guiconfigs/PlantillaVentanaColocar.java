@@ -34,7 +34,16 @@ public class PlantillaVentanaColocar extends Plantilla {
 		msg.addElemento(getTableroColocar(100,75));
 		
 		for (int i=0; i<constants.getCANTIDAD_DESTRUCTORES(); i++){
-			msg.addElemento(getDestructor(i));
+			msg.addElemento(getBarco(i,constants.getDestructorHashCode()));
+		}
+		for (int i=0; i<constants.getCANTIDAD_SUBMARINOS(); i++){
+			msg.addElemento(getBarco(i,constants.getSubmarinoHashCode()));
+		}
+		for (int i=0; i<constants.getCANTIDAD_ACORAZADOS(); i++){
+			msg.addElemento(getBarco(i,constants.getAcorazadoHashCode()));
+		}
+		for (int i=0; i<constants.getCANTIDAD_CRUCEROS(); i++){
+			msg.addElemento(getBarco(i,constants.getCruceroHashCode()));
 		}
 		msg.addElemento(getBotonJugar());
 		msg.setFrameBounds(constants.getFrameBounds());
@@ -54,20 +63,20 @@ public class PlantillaVentanaColocar extends Plantilla {
 		} catch (IOException e) {e.printStackTrace();}
 		return Tablero;
 	}
-	private ElementoGUI getDestructor(int i){
-		int x= 0;
-		int y= i*constants.getTAMAÑO_CASILLA()*constants.getLARGO_DESTRUCTOR();
-		ElementoGUI Barco = super.getDestructor(x,y,i);
+	private ElementoGUI getBarco(int i,  String barcoHashCode){
+		int x= constants.getTAMAÑO_CASILLA()*(constants.getLargo(barcoHashCode)-1);
+		int y= i*constants.getTAMAÑO_CASILLA()*constants.getLargo(barcoHashCode);
+		ElementoGUI Barco = new ElementoGUI(barcoHashCode+i);
 		try {
-		File f= new File(constants.getImgDestructorV());
-		byte[] destructorV = Files.readAllBytes(f.toPath());
-		File f2= new File(constants.getImgDestructorH());
-		byte[] destructorH = Files.readAllBytes(f2.toPath());
-
-		BarcosMouseAdapter BListener= 
-						new BarcosMouseAdapter(constants.getTableroColocarBounds(),constants.getTAMAÑO_CASILLA(),constants.getANCHO_DESTRUCTOR(),
-												constants.getLARGO_DESTRUCTOR(),posicionesBarcos,destructorV,destructorH);
-		Barco.setAdapter(BListener);	
+		File f= new File(constants.getImgV(barcoHashCode));
+		byte[] imgBarcoV = Files.readAllBytes(f.toPath());
+		File f2= new File(constants.getImgH(barcoHashCode));
+		byte[] imgBarcoH = Files.readAllBytes(f2.toPath());
+		Barco.setIcon(imgBarcoV);
+		addBarcoAdapter(Barco,imgBarcoV,imgBarcoH,barcoHashCode);
+		Barco.setBounds(x,y,
+				constants.getAncho(barcoHashCode)*constants.getTAMAÑO_CASILLA(), 
+				constants.getLargo(barcoHashCode)*constants.getTAMAÑO_CASILLA());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -76,6 +85,7 @@ public class PlantillaVentanaColocar extends Plantilla {
 	}
 	
 	private ElementoGUI getBotonJugar(){
+		
 		ElementoGUI BotonJugar = new ElementoGUI(constants.getBotonJugarHashCode());
 		BotonJugar.setText("JUGAR");
 		BotonJugar.setBounds((int)(constants.getTableroColocarBounds().getX()+constants.getTableroColocarBounds().getWidth()+constants.getTAMAÑO_CASILLA()), 
@@ -85,6 +95,13 @@ public class PlantillaVentanaColocar extends Plantilla {
 		return BotonJugar;
 	}
 	
+	private void addBarcoAdapter(ElementoGUI barco, byte[] ImagenV,byte[] ImagenH,String hashCode){
+		BarcosMouseAdapter BListener= 
+			new BarcosMouseAdapter(constants.getTableroColocarBounds(),constants.getTAMAÑO_CASILLA(),constants.getAncho(hashCode),
+									constants.getLargo(hashCode),posicionesBarcos,ImagenV,ImagenH);
+		barco.setAdapter(BListener);	
+		
+	}
 
 }
 

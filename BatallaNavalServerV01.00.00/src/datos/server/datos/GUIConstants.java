@@ -6,15 +6,30 @@ public class GUIConstants {
     	private int TAMAÑO_CASILLA=25;
     	private final int ANCHO_DESTRUCTOR=1;
     	private final int LARGO_DESTRUCTOR=3;
-    	private final int CANTIDAD_DESTRUCTORES=3;
-    	private final int CANTIDAD_CRUCEROS=0;
-    	private final int CANTIDAD_SUBMARINOS=0;
-    	private final int CANTIDAD_ACORAZADOS=0;
+    	private final int ANCHO_ACORAZADO=1;
+    	private final int LARGO_ACORAZADO=4;
+    	private final int ANCHO_SUBMARINO=1;
+    	private final int LARGO_SUBMARINO=1;
+    	private final int ANCHO_CRUCERO=1;
+    	private final int LARGO_CRUCERO=2;
+    	private final int CANTIDAD_DESTRUCTORES=2;
+    	private final int CANTIDAD_CRUCEROS=3;
+    	private final int CANTIDAD_SUBMARINOS=4;
+    	private final int CANTIDAD_ACORAZADOS=1;
     	private final int CANTIDAD_BARCOS = CANTIDAD_DESTRUCTORES+CANTIDAD_CRUCEROS+CANTIDAD_SUBMARINOS+CANTIDAD_ACORAZADOS;
     	private final String ImgDestructorV= Paths.getImgDestructorV();
     	private final String ImgDestructorH= Paths.getImgDestructorH();
+    	private final String ImgAcorazadoV= Paths.getImgAcorazadoV();
+    	private final String ImgAcorazadoH= Paths.getImgAcorazadoH();
+    	private final String ImgSubmarinoV= Paths.getImgSubmarinoV();
+    	private final String ImgSubmarinoH= Paths.getImgSubmarinoH();
+    	private final String ImgCruceroV= Paths.getImgCruceroV();
+    	private final String ImgCruceroH= Paths.getImgCruceroH();
     	private final String ImgFondoURL= Paths.getImgFondo();
     	private final String destructorHashCode= "destructor";
+    	private final String cruceroHashCode= "crucero";
+    	private final String submarinoHashCode= "submarino";
+    	private final String acorazadoHashCode= "acorazado";
     	private final String fondoHashCode= "fondo";
     	private final String botonJugarHashCode= "botonjugar";
     	private final String tableroColocarHashCode= "tablerocolocar";
@@ -109,6 +124,129 @@ public class GUIConstants {
 
 		public String getTextoEsperarHashCode() {
 			return textoEsperarHashCode;
+		}
+
+		public String getImgAcorazadoV() {
+			return ImgAcorazadoV;
+		}
+
+		public String getImgAcorazadoH() {
+			return ImgAcorazadoH;
+		}
+
+		public String getImgSubmarinoV() {
+			return ImgSubmarinoV;
+		}
+
+		public String getImgSubmarinoH() {
+			return ImgSubmarinoH;
+		}
+
+		public String getImgCruceroV() {
+			return ImgCruceroV;
+		}
+
+		public String getImgCruceroH() {
+			return ImgCruceroH;
+		}
+
+		public String getCruceroHashCode() {
+			return cruceroHashCode;
+		}
+
+		public String getSubmarinoHashCode() {
+			return submarinoHashCode;
+		}
+
+		public String getAcorazadoHashCode() {
+			return acorazadoHashCode;
 		}	
+		
+
+		public int getANCHO_ACORAZADO() {
+			return ANCHO_ACORAZADO;
+		}
+
+		public int getLARGO_ACORAZADO() {
+			return LARGO_ACORAZADO;
+		}
+
+		public int getANCHO_SUBMARINO() {
+			return ANCHO_SUBMARINO;
+		}
+
+		public int getLARGO_SUBMARINO() {
+			return LARGO_SUBMARINO;
+		}
+
+		public int getANCHO_CRUCERO() {
+			return ANCHO_CRUCERO;
+		}
+
+		public int getLARGO_CRUCERO() {
+			return LARGO_CRUCERO;
+		}
+		
+		public String getImgV(String hashCode){
+			if(hashCode.equals(getAcorazadoHashCode())){
+				return getImgAcorazadoV();
+			}
+			else if(hashCode.equals(getCruceroHashCode())){
+				return getImgCruceroV();
+			}
+			else if(hashCode.equals(getSubmarinoHashCode())){
+				return getImgSubmarinoV();
+			}
+			else if(hashCode.equals(getDestructorHashCode())){
+				return getImgDestructorV();
+			}
+			else return null;
+		}
+		public String getImgH(String hashCode){
+			if(hashCode.equals(getAcorazadoHashCode())){
+				return getImgAcorazadoH();
+			}
+			else if(hashCode.equals(getCruceroHashCode())){
+				return getImgCruceroH();
+			}
+			else if(hashCode.equals(getSubmarinoHashCode())){
+				return getImgSubmarinoH();
+			}
+			else if(hashCode.equals(getDestructorHashCode())){
+				return getImgDestructorH();
+			}
+			else return null;
+		}
+		
+		public int getLargo(String hashCode){
+			if(hashCode.equals(getAcorazadoHashCode())){
+				return getLARGO_ACORAZADO();
+			}
+			else if(hashCode.equals(getCruceroHashCode())){
+				return getLARGO_CRUCERO();
+			}
+			else if(hashCode.equals(getSubmarinoHashCode())){
+				return getLARGO_SUBMARINO();
+			}
+			else if(hashCode.equals(getDestructorHashCode())){
+				return getLARGO_DESTRUCTOR();
+			}
+			else return -1;
+		}
+		public int getAncho(String hashCode){
+			if(hashCode.equals(getAcorazadoHashCode())){
+				return getANCHO_ACORAZADO();
+			}
+			else if(hashCode.equals(getCruceroHashCode())){
+				return getANCHO_CRUCERO();
+			}
+			else if(hashCode.equals(getSubmarinoHashCode())){
+				return getANCHO_SUBMARINO();
+			}
+			else if(hashCode.equals(getDestructorHashCode())){
+				return getANCHO_DESTRUCTOR();
+			}
+			else return -1;
+		}
    }
 

@@ -4,6 +4,12 @@ public class Paths {
 	private static Paths path;
 	private final String ImgDestructorV = "src/datos/server/datos/imagenes/ImgDestructorV.png";
 	private final String ImgDestructorH = "src/datos/server/datos/imagenes/ImgDestructorH.png";
+	private final String ImgSubmarinoV = "src/datos/server/datos/imagenes/ImgSubmarinoV.png";
+	private final String ImgSubmarinoH = "src/datos/server/datos/imagenes/ImgSubmarinoH.png";
+	private final String ImgAcorazadoV = "src/datos/server/datos/imagenes/ImgAcorazadoV.png";
+	private final String ImgAcorazadoH = "src/datos/server/datos/imagenes/ImgAcorazadoH.png";
+	private final String ImgCruceroV = "src/datos/server/datos/imagenes/ImgCruceroV.png";
+	private final String ImgCruceroH = "src/datos/server/datos/imagenes/ImgCruceroH.png";
 	private final String ImgTableroColocar = "src/datos/server/datos/imagenes/ImgTableroColocar.png";
 	private final String ImgTableroDisparos = "src/datos/server/datos/imagenes/ImgTableroDisparos.png";
 	private final String ImgFondo = "src/datos/server/datos/imagenes/ImgFondo2.png";
@@ -55,6 +61,24 @@ public class Paths {
 	}
 	public static String getImgLoser() {
 		return getInstance().ImgLoser;
+	}
+	public static String getImgSubmarinoV() {
+		return getInstance().ImgSubmarinoV;
+	}
+	public static String getImgSubmarinoH() {
+		return getInstance().ImgSubmarinoH;
+	}
+	public static String getImgAcorazadoV() {
+		return getInstance().ImgAcorazadoV;
+	}
+	public static String getImgAcorazadoH() {
+		return getInstance().ImgAcorazadoH;
+	}
+	public static String getImgCruceroV() {
+		return getInstance().ImgCruceroV;
+	}
+	public static String getImgCruceroH() {
+		return getInstance().ImgCruceroH;
 	}
 	
 }
