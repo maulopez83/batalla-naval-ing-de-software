@@ -14,10 +14,12 @@ public class Ventana {
 	private  Map <String,Component> mapaComponents;
 	private  JFrame frame;
 	private  GUISubject guiSubject;
+	private boolean turno;
 	private Ventana() {
 		guiSubject= new GUISubject();
 		GridSize=0;
 		mapaComponents= new HashMap<String,Component>();
+		this.turno=true;
 	}
 	
 	public static Ventana getInstance(){
@@ -90,6 +92,14 @@ public class Ventana {
 			mapaComponents.remove(key);
 		}
 		
+	}
+
+	public void setTurno(boolean turno) {
+		this.turno = turno;
+	}
+
+	public boolean isTurno() {
+		return turno;
 	}
 	
 }

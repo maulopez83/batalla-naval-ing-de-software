@@ -122,7 +122,7 @@ class MTurno implements Decodificacion{
 
 	public void decodificar(Mensaje m) {
 		MensajeTurno msg = (MensajeTurno) m;
-		Ventana.getInstance().getGuiSubject().setTurno(msg.isTurno());
+		Ventana.getInstance().setTurno(msg.isTurno());
 		if(msg.getToast()!=null){
 			new Thread(new ToastThread(msg.getToast())).start();
 		}

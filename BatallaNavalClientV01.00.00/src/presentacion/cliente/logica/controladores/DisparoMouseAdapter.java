@@ -25,7 +25,7 @@ public class DisparoMouseAdapter extends MouseAdapter implements Serializable {
 		int xPos= p.x /tamCasilla;
 		int yPos= p.y /tamCasilla;
 		Point result= new Point(xPos,yPos);
-		if(!disparosHechos.contains(result)){
+		if(!disparosHechos.contains(result) && Ventana.getInstance().isTurno()){
 			Mensaje msg= new MensajeDisparo(new Point(xPos,yPos));
 			Ventana.getInstance().getGuiSubject().sendMsg(msg);
 			disparosHechos.add(result);
