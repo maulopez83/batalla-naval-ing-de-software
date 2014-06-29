@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import presentacion.cliente.logica.comunicacion.DelayThread;
 import presentacion.cliente.visual.Ventana;
 
 import negocio.comunicacion.mensajes.MensajeColocar;
-import negocio.server.logica.comunicacion.DelayThread;
 
 public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
