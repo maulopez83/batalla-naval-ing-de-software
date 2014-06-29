@@ -106,7 +106,7 @@ class Desconectar implements Decodificacion{
 /*
  * Conectar - implements Decodificación
  * Clase con el metodo para decodificar mensajes de Tipo Conectar
- * 
+ * Conectaa
  */
 class Conectar implements Decodificacion{
 	private static final long serialVersionUID = 1L;
