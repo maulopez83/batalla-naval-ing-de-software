@@ -2,6 +2,7 @@ package negocio.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;
+
 /*
  * Mensaje Disparo extends Mensaje
  * Subtipo de mensaje, se decodifica con Disparo.decodificar()

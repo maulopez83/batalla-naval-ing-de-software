@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 /*
  * Mensaje Colocar extends Mensaje
  * Subtipo de mensaje, se decodifica con Colocar.decodificar()
