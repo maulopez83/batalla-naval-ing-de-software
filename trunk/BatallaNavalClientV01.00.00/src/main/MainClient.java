@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 import negocio.comunicacion.SocketClientObserver;
 import negocio.comunicacion.mensajes.MensajeConectar;
 import negocio.comunicacion.mensajes.MensajeDesconectar;
-import presentacion.visual.Ventana;
+import presentacion.Ventana;
 
 
 

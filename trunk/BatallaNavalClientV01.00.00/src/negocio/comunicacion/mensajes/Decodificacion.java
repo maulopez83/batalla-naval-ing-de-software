@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import presentacion.visual.Ventana;
+import presentacion.Ventana;
 import negocio.comunicacion.DelayThread;
 import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 

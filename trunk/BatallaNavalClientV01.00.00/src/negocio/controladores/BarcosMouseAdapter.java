@@ -10,11 +10,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import negocio.comunicacion.Observer;
-import negocio.comunicacion.Subject;
-
-import presentacion.visual.Ventana;
-
 public class BarcosMouseAdapter extends MouseAdapter implements Serializable {		
 	private static final long serialVersionUID = 1L;
 		private Rectangle tablero;

@@ -1,12 +1,9 @@
-package presentacion.visual;
+package presentacion;
 
 import java.awt.Component;
 import javax.swing.JFrame;
 
 import negocio.comunicacion.GUISubject;
-import negocio.comunicacion.Observer;
-import negocio.comunicacion.Subject;
-
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
 import java.util.Map;
