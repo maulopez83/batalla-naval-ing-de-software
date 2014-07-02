@@ -38,8 +38,6 @@ class Disparo implements Decodificacion {
 	 */
 	public void decodificar(Mensaje m){
 		MensajeDisparo msg=(MensajeDisparo) m;
-		Point p= msg.getPoint();
-		
 		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
 		
 		DISPARO result= GameData.setDisparo(msg.getClientID(), msg.getPoint());
