@@ -6,10 +6,11 @@ import java.nio.file.Files;
 
 import javax.swing.ImageIcon;
 
+import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 import datos.BaseDatosSingleton;
 
-public class Plantilla {
+public abstract class Plantilla {
 	
 	protected GUIConstants constants;
 	public Plantilla(String ClientID){
@@ -28,9 +29,9 @@ public class Plantilla {
 			e.printStackTrace();
 		}
 
-
 		return Fondo;
 	}
-
+	
+	protected abstract MensajeGUI create();
 	
 }
