@@ -84,19 +84,19 @@ class Desconectar implements Decodificacion{
 	 */
 	public void decodificar(Mensaje m){
 		BaseDatosSingleton GameData= BaseDatosSingleton.getInstance();
-			GameData.getSocketMap().getSocket(m.getClientID()).desconectar();
+			GameData.getSocket(m.getClientID()).desconectar();
 			
-			if(GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID()))!=null){
+			if(GameData.getSocket(GameData.getOponentID(m.getClientID()))!=null){
 				if(!GameData.isGameFinished(m.getClientID())){
 					ResultadoDisparoGUI finalGUI = new ResultadoDisparoGUI(m.getClientID());	
 					MensajeGUI MsgWinner= finalGUI.create(DISPARO.FINAL, null, true);
 					GameData.sendMsgToOponent(m.getClientID(),MsgWinner);
 					GameData.sendMsgToOponent(m.getClientID(), new MensajeTurno(false,"Su oponente se desconecto"));
 				}
-				GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID())).desconectar();
+				GameData.getSocket(GameData.getOponentID(m.getClientID())).desconectar();
 			}
 			GameData.deleteClient(m.getClientID());
-			GameData.getSocketMap().removeSocket(GameData.getOponentID(m.getClientID()));
+			GameData.deleteClient(GameData.getOponentID(m.getClientID()));
 	}
 }
 /*
@@ -127,7 +127,7 @@ class Conectar implements Decodificacion{
 				PlantillaVentanaEsperarJugador plant= new PlantillaVentanaEsperarJugador(msg.getClientID());
 				Mensaje respMsg= plant.create();
 				respMsg.setClientID(msg.getClientID());
-				GameData.getSocketMap().getSocket(msg.getClientID()).addOutPutMsg(respMsg);		
+				GameData.getSocket(msg.getClientID()).addOutPutMsg(respMsg);		
 				
 			}
 			

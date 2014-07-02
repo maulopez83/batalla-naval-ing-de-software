@@ -3,7 +3,6 @@ import java.io.*;
 import java.net.*;
 
 import datos.BaseDatosSingleton;
-import datos.SocketMap;
 
 
 
@@ -34,11 +33,12 @@ public class Server {
 	public void ConectarClientes(){
 		try {		
 			while (true) {
+			BaseDatosSingleton GameData=BaseDatosSingleton.getInstance();
 			Socket connection = serverSocket.accept();
 			 System.out.println("Nueva conexión entrante: "+connection.hashCode());
-			 SocketMap sm=BaseDatosSingleton.getInstance().getSocketMap();
-			 sm.addSocket(Integer.toString(connection.hashCode()), new SocketThread(connection));
-			 new Thread(sm.getSocket(Integer.toString(connection.hashCode()))).start();
+			 GameData.addSocket(Integer.toString(connection.hashCode()), new SocketThread(connection));
+			 
+			 new Thread(GameData.getSocket(connection.hashCode())).start();
           
             DelayThread.delay(100);
             

@@ -1,12 +1,16 @@
 package datos;
 
 import java.awt.Point;
+import java.net.Socket;
 import java.security.InvalidAlgorithmParameterException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.Semaphore;
 
+import negocio.comunicacion.SocketThread;
 import negocio.comunicacion.mensajes.Mensaje;
 
 import datos.configuracionesgui.GUIConstants;
@@ -91,12 +95,14 @@ public class BaseDatosSingleton {
 		
 	}
 
-	public SocketMap getSocketMap() {
-		return socketMap;
+	public SocketThread getSocket(int hashCode) {
+		return socketMap.getSocket(Integer.toString(hashCode));
 	}
-	
+	public SocketThread getSocket(String hashCode) {
+		return socketMap.getSocket(hashCode);
+	}
 	public void sendMsgToPlayer(String ClientID, Mensaje msg){
-		getSocketMap().getSocket(ClientID).addOutPutMsg(msg);
+		socketMap.getSocket(ClientID).addOutPutMsg(msg);
 	}
 	public void sendMsgToOponent(String ClientID, Mensaje msg){
 		sendMsgToPlayer(getOponentID(ClientID),msg);
@@ -120,5 +126,64 @@ public class BaseDatosSingleton {
 		Datos.remove(ClientID);
 		socketMap.removeSocket(ClientID);
 	}
+	public void addSocket(String key,SocketThread s){
+		socketMap.addSocket(key, s);
+	}
 	
+	
+	class MapaPartidas {
+		private Map<String,DataPartida> searchByPlayer1;
+		private Map<String,String> searchByPlayer2;
+		
+		public MapaPartidas(){
+			searchByPlayer1= new HashMap<String,DataPartida>();
+			searchByPlayer2= new HashMap<String,String>();
+		}
+		
+		public DataPartida getDataPartida(String playerID){
+			if(searchByPlayer1.containsKey(playerID)){
+				return(DataPartida)searchByPlayer1.get(playerID);
+			}
+			else if(searchByPlayer2.containsKey(playerID)){
+				if(searchByPlayer1.containsKey(searchByPlayer2.get(playerID)))
+					return (DataPartida)searchByPlayer1.get((String)searchByPlayer2.get(playerID));
+			}
+			return null;
+		}
+		
+		public void setDataPartida(String Player1,String Player2){
+			searchByPlayer1.put(Player1, new DataPartida(Player1,Player2));
+			searchByPlayer2.put(Player2, Player1);
+		}
+		
+		public void remove(String Player){
+			if(searchByPlayer1.containsKey(getDataPartida(Player).getOponentID(Player))){
+				searchByPlayer1.remove(getDataPartida(Player).getOponentID(Player));
+				searchByPlayer2.remove(Player);
+			}
+			else if(searchByPlayer1.containsKey(Player)){
+				searchByPlayer1.remove(Player);
+				searchByPlayer2.remove(getDataPartida(Player).getOponentID(Player));
+			}
+		}
+	}
+	
+	class SocketMap {
+		HashMap<String,SocketThread> socketMap;
+		
+		public SocketMap(){
+			socketMap= new HashMap<String,SocketThread>();
+		}
+		
+		public void addSocket(String key, SocketThread st){
+			socketMap.put(key,st);
+		}
+		
+		public SocketThread getSocket(String key){
+			return socketMap.get(key);
+		}
+		public void removeSocket(String key){
+			socketMap.remove(key);
+		}
+	}
 }
