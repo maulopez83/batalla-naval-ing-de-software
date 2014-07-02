@@ -12,7 +12,7 @@ import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 import datos.imagenes.Paths;
 import datos.partida.TableroMarcado.DISPARO;
 
-public class ResultadoDisparoGUI extends Plantilla {
+public class ResultadoDisparoGUI extends Plantilla{
 	private final String ImgAgua= Paths.getImgAgua();
 	private final String ImgAveriado= Paths.getImgAveriado();
 	private final String ImgWinner= Paths.getImgWinner();
@@ -83,6 +83,11 @@ public class ResultadoDisparoGUI extends Plantilla {
 							constants.getFrameBounds().height/2-aux.getIconHeight()/2,
 							aux.getIconWidth(),aux.getIconHeight());
 		return resultGUI;
+	}
+	
+	@Override
+	protected MensajeGUI create() {
+		return null;
 	}
 
 }
