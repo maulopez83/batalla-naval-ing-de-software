@@ -3,7 +3,8 @@ package negocio.comunicacion.mensajes;
 import java.awt.Rectangle;
 import java.io.Serializable;
 import java.util.ArrayList;
-import negocio.comunicacion.elementosgraficos.ElementoGUI;
+
+import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 
 public class MensajeGUI extends Mensaje implements Serializable{
 	private static final long serialVersionUID = 1L;
