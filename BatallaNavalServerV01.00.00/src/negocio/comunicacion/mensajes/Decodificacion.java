@@ -94,6 +94,9 @@ class Desconectar implements Decodificacion{
 			GameData.deleteClient(m.getClientID());
 			GameData.deleteClient(GameData.getOponentID(m.getClientID()));
 	}
+	public Desconectar getType() {
+		return this;
+	}
 }
 /*
  * Conectar - implements Decodificación
@@ -108,6 +111,9 @@ class Conectar implements Decodificacion{
 	 * params: Mensaje m
 	 * DEBE DECODIFICAR LO QUE PASA CUANDO LLEGA MENSAJE DE CONECTAR, FALTA IMPLEMENTAR BIEN 
 	 */
+	public Decodificacion getThis() {
+		return this;
+	}
 	public void decodificar(Mensaje m){
 		MensajeConectar msg = (MensajeConectar) m;
 		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
