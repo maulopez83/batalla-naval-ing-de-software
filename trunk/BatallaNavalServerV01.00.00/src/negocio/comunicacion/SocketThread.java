@@ -87,7 +87,6 @@ public class SocketThread implements Runnable{
 	            inFromClient.close();
 	            socket.close();
 	            keepGoing=false;
-	            BaseDatosSingleton.getInstance().getSocketMap().removeSocket(Integer.toString(socket.hashCode()));
 	        } catch (IOException e) {
 	        	e.printStackTrace();
 	        }
