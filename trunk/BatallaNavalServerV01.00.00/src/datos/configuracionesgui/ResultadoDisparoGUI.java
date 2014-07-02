@@ -9,8 +9,8 @@ import javax.swing.ImageIcon;
 
 import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
-import datos.TableroMarcado.DISPARO;
 import datos.imagenes.Paths;
+import datos.partida.TableroMarcado.DISPARO;
 
 public class ResultadoDisparoGUI extends Plantilla {
 	private final String ImgAgua= Paths.getImgAgua();

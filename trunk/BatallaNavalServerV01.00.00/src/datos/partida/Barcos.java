@@ -1,8 +1,8 @@
-package datos;
+package datos.partida;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import datos.TableroMarcado.DISPARO;
+import datos.partida.TableroMarcado.DISPARO;
 
 public class Barcos{
 	

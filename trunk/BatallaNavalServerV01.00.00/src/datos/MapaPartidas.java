@@ -3,6 +3,8 @@ package datos;
 import java.util.HashMap;
 import java.util.Map;
 
+import datos.partida.DataPartida;
+
 public class MapaPartidas {
 	private Map<String,DataPartida> searchByPlayer1;
 	private Map<String,String> searchByPlayer2;

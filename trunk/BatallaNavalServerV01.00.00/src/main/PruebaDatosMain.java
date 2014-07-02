@@ -3,9 +3,9 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import datos.Barcos;
 import datos.BaseDatosSingleton;
-import datos.TableroBarcos;
+import datos.partida.Barcos;
+import datos.partida.TableroBarcos;
 
 public class PruebaDatosMain {
 	public static void main(String args[]){

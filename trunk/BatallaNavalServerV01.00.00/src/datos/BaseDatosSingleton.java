@@ -9,7 +9,11 @@ import java.util.concurrent.Semaphore;
 
 import negocio.comunicacion.mensajes.Mensaje;
 
-import datos.TableroMarcado.DISPARO;
+import datos.configuracionesgui.GUIConstants;
+import datos.partida.DataPartida;
+import datos.partida.TableroBarcos;
+import datos.partida.TableroMarcado;
+import datos.partida.TableroMarcado.DISPARO;
 
 /*
  * DataSingleton
