@@ -12,6 +12,7 @@ public class MainServer {
 	int port = 2344;
 	if(args.length == 1)
 		port = Integer.parseInt(args[0]);		
+		@SuppressWarnings("unused")
 		Server server = new Server(port);
 
 	}
