@@ -1,8 +1,11 @@
-package presentacion.cliente.visual;
+package presentacion.visual;
 
 import java.awt.Component;
 import javax.swing.JFrame;
-import presentacion.cliente.logica.comunicacion.GUISubject;
+
+import negocio.comunicacion.GUISubject;
+import negocio.comunicacion.Observer;
+import negocio.comunicacion.Subject;
 
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
@@ -101,5 +104,6 @@ public class Ventana {
 	public boolean isTurno() {
 		return turno;
 	}
+
 	
 }

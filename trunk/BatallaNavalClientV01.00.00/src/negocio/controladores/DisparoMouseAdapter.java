@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.controladores;
+package negocio.controladores;
 
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeDisparo;
-import presentacion.cliente.visual.Ventana;
+import presentacion.visual.Ventana;
 
 public class DisparoMouseAdapter extends MouseAdapter implements Serializable {
 	private static final long serialVersionUID = 1L;

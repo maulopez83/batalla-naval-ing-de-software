@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.comunicacion;
+package negocio.comunicacion;
 
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package negocio.comunicacion.elementosgraficos;
+package negocio.comunicacion.mensajes.elementosgraficos;
 
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;

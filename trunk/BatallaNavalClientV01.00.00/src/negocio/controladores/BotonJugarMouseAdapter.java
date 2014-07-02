@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.controladores;
+package negocio.controladores;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import presentacion.cliente.logica.comunicacion.DelayThread;
-import presentacion.cliente.visual.Ventana;
+import presentacion.visual.Ventana;
 
+import negocio.comunicacion.DelayThread;
+import negocio.comunicacion.Observer;
+import negocio.comunicacion.Subject;
 import negocio.comunicacion.mensajes.MensajeColocar;
 
 public class BotonJugarMouseAdapter extends MouseAdapter implements Serializable{
