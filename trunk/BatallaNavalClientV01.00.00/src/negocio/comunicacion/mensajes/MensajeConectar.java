@@ -1,6 +1,7 @@
 package negocio.comunicacion.mensajes;
 
 import java.io.Serializable;
+
 /*
  * Mensaje Conectar extends Mensaje
  * Subtipo de mensaje, se decodifica con Conectar.decodificar()

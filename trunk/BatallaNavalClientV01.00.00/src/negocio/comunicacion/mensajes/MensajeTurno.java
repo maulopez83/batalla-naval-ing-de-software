@@ -1,5 +1,6 @@
 package negocio.comunicacion.mensajes;
 
+
 public class MensajeTurno extends Mensaje {
 
 	private static final long serialVersionUID = 1L;
