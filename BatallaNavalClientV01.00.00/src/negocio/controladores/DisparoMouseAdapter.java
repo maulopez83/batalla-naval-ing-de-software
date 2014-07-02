@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import negocio.comunicacion.mensajes.Mensaje;
 import negocio.comunicacion.mensajes.MensajeDisparo;
-import presentacion.visual.Ventana;
+import presentacion.Ventana;
 
 public class DisparoMouseAdapter extends MouseAdapter implements Serializable {
 	private static final long serialVersionUID = 1L;
