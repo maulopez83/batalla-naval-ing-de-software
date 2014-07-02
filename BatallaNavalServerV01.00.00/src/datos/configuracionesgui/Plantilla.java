@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 
 import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 import datos.BaseDatosSingleton;
-import datos.GUIConstants;
 
 public class Plantilla {
 	

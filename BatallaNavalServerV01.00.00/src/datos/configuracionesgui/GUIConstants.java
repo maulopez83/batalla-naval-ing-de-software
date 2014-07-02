@@ -1,4 +1,4 @@
-package datos;
+package datos.configuracionesgui;
 
 import java.awt.Rectangle;
 

@@ -1,4 +1,4 @@
-package datos;
+package datos.partida;
 import java.awt.Point;
 
 public interface Tablero{

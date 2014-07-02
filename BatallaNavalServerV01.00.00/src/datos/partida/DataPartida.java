@@ -1,4 +1,6 @@
-package datos;
+package datos.partida;
+
+import datos.configuracionesgui.GUIConstants;
 
 public class DataPartida {
 	private TableroBarcos tabBarcosP1;

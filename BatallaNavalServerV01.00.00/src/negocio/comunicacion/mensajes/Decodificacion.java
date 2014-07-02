@@ -6,11 +6,12 @@ import java.io.Serializable;
 import negocio.comunicacion.DelayThread;
 
 import datos.*;
-import datos.TableroMarcado.DISPARO;
 import datos.configuracionesgui.PlantillaVentanaColocar;
 import datos.configuracionesgui.PlantillaVentanaDisparo;
 import datos.configuracionesgui.PlantillaVentanaEsperarJugador;
 import datos.configuracionesgui.ResultadoDisparoGUI;
+import datos.partida.TableroBarcos;
+import datos.partida.TableroMarcado.DISPARO;
 
 /*
  * Patron Strategy:
