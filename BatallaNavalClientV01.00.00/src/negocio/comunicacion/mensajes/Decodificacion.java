@@ -4,11 +4,9 @@ import java.io.Serializable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import presentacion.cliente.logica.comunicacion.DelayThread;
-import presentacion.cliente.visual.Ventana;
-
-
-import negocio.comunicacion.elementosgraficos.ElementoGUI;
+import presentacion.visual.Ventana;
+import negocio.comunicacion.DelayThread;
+import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 
 /*
  * Patron Strategy:

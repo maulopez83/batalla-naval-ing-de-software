@@ -1,9 +1,10 @@
-package presentacion.cliente.main;
+package main;
 import java.awt.EventQueue;
+
+import negocio.comunicacion.SocketClientObserver;
 import negocio.comunicacion.mensajes.MensajeConectar;
 import negocio.comunicacion.mensajes.MensajeDesconectar;
-import presentacion.cliente.logica.comunicacion.ClientGUIObserver;
-import presentacion.cliente.visual.Ventana;
+import presentacion.visual.Ventana;
 
 
 
@@ -20,7 +21,7 @@ public class MainClient {
 					 *a traves del puerto 2344
 					 * 
 					 */
-					ClientGUIObserver client = new ClientGUIObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
+					SocketClientObserver client = new SocketClientObserver(remoteHost, remotePort,Ventana.getInstance().getGuiSubject());
 					MensajeConectar connectMsg = new MensajeConectar("V1.0");
 					client.update(connectMsg);
 					new Thread(client).start();

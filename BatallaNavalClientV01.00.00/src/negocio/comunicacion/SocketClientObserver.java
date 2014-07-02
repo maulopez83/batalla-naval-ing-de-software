@@ -1,4 +1,4 @@
-package presentacion.cliente.logica.comunicacion;
+package negocio.comunicacion;
 import java.io.*;
 import java.net.*;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import negocio.comunicacion.mensajes.*;
  * Crea un socket con el servidor
  * Su único metodo público es update.
  */
-public class ClientGUIObserver implements Observer,Runnable {
+public class SocketClientObserver implements Observer,Runnable {
 	private boolean keepGoing;
 	private Queue<Mensaje> OutputMsg;
 	private Socket connection;
@@ -24,13 +24,13 @@ public class ClientGUIObserver implements Observer,Runnable {
 	 * Inicializa los valores de host y port para crear el socket
 	 * Inicializa OutputMsg como una nueva Cola del tipo LinkedList<Mensaje>
 	 */
-	public ClientGUIObserver(String host, int port,Subject guiSubject) throws IOException {
+	public SocketClientObserver(String host, int port,Subject subject) throws IOException {
 		keepGoing=true;
 		OutputMsg = new LinkedList<Mensaje>();
-		guiSubject.register(this);
 		handler= new ClientMsgHandler();
 		new Thread(handler).start();
 		connection = new Socket(host, port);	
+		subject.register(this);
 		outToServer = new ObjectOutputStream(connection.getOutputStream());
 		inFromServer = new ObjectInputStream(connection.getInputStream());
 	}
