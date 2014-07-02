@@ -2,12 +2,15 @@ package negocio.comunicacion.mensajes;
 
 import java.awt.Point;
 import java.io.Serializable;
-import datos.server.datos.*;
-import datos.server.datos.TableroMarcado.DISPARO;
-import datos.server.datos.guiconfigs.PlantillaVentanaColocar;
-import datos.server.datos.guiconfigs.PlantillaVentanaDisparo;
-import datos.server.datos.guiconfigs.PlantillaVentanaEsperarJugador;
-import datos.server.datos.guiconfigs.ResultadoDisparoGUI;
+
+import negocio.comunicacion.DelayThread;
+
+import datos.*;
+import datos.TableroMarcado.DISPARO;
+import datos.configuracionesgui.PlantillaVentanaColocar;
+import datos.configuracionesgui.PlantillaVentanaDisparo;
+import datos.configuracionesgui.PlantillaVentanaEsperarJugador;
+import datos.configuracionesgui.ResultadoDisparoGUI;
 
 /*
  * Patron Strategy:
@@ -37,8 +40,6 @@ class Disparo implements Decodificacion {
 	public void decodificar(Mensaje m){
 		MensajeDisparo msg=(MensajeDisparo) m;
 		Point p= msg.getPoint();
-		int Xpos= (int)(p.getX());
-		int Ypos= (int)(p.getY());
 		
 		BaseDatosSingleton GameData = BaseDatosSingleton.getInstance();
 		
@@ -83,9 +84,18 @@ class Desconectar implements Decodificacion{
 	public void decodificar(Mensaje m){
 		BaseDatosSingleton GameData= BaseDatosSingleton.getInstance();
 			GameData.getSocketMap().getSocket(m.getClientID()).desconectar();
+			
 			if(GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID()))!=null){
+				if(!GameData.isGameFinished(m.getClientID())){
+					ResultadoDisparoGUI finalGUI = new ResultadoDisparoGUI(m.getClientID());	
+					MensajeGUI MsgWinner= finalGUI.create(DISPARO.FINAL, null, true);
+					GameData.sendMsgToOponent(m.getClientID(),MsgWinner);
+					GameData.sendMsgToOponent(m.getClientID(), new MensajeTurno(false,"Su oponente se desconecto"));
+				}
 				GameData.getSocketMap().getSocket(GameData.getOponentID(m.getClientID())).desconectar();
 			}
+			GameData.deleteClient(m.getClientID());
+			GameData.getSocketMap().removeSocket(GameData.getOponentID(m.getClientID()));
 	}
 }
 /*
