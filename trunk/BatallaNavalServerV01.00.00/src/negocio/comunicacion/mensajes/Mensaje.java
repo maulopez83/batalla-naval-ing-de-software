@@ -1,6 +1,7 @@
 package negocio.comunicacion.mensajes;
 import java.io.Serializable;
 
+
 /*
  * abstract Mensaje - implements Serializable
  * Clase que permite almacenar los datos de juego que deben ser

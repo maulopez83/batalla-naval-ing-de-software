@@ -3,8 +3,6 @@ package negocio.comunicacion.mensajes;
 import java.awt.Point;
 import java.io.Serializable;
 
-import negocio.comunicacion.DelayThread;
-
 import datos.*;
 import datos.configuracionesgui.PlantillaVentanaColocar;
 import datos.configuracionesgui.PlantillaVentanaDisparo;

@@ -1,6 +1,7 @@
 package negocio.comunicacion.mensajes;
 
 import java.io.Serializable;
+
 /*
  * Mensaje Desconectar extends Mensaje
  * Subtipo de mensaje, se decodifica con Desconectar.decodificar()

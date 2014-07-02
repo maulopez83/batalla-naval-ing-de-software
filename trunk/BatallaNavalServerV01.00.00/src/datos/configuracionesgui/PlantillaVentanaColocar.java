@@ -3,11 +3,8 @@ package datos.configuracionesgui;
 import java.awt.Point;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
-
 import datos.imagenes.Paths;
-
 import java.util.ArrayList;
-
 import negocio.comunicacion.mensajes.MensajeGUI;
 import negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI;
 import negocio.controladores.BarcosMouseAdapter;
