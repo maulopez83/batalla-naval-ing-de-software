@@ -1,223 +1,419 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="ing.de.software.batallanaval.logica.Player1" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/Player1.java" binary="false" 
+  <class id="1" language="java" name="datos.BaseDatosSingleton" project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/datos/BaseDatosSingleton.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="171" width="258" x="622" y="155"/>    
+    <position x="-2" y="70" width="173" height="131"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="datos.BaseDatosSingleton.SocketMap" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/datos/BaseDatosSingleton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="169" y="368" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="datos.BaseDatosSingleton.MapaPartidas" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/datos/BaseDatosSingleton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="-41" y="347" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="negocio.comunicacion.Server" project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/Server.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1270" y="22" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="2" language="java" name="ing.de.software.batallanaval.logica.EnumComandos" 
-    project="Batalla Naval [0.1]" file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/EnumComandos.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="504" y="376"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <class id="3" language="java" name="ing.de.software.batallanaval.logica.Player2" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/Player2.java" binary="false" 
+  <class id="5" language="java" name="negocio.comunicacion.SocketThread" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/SocketThread.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="171" width="258" x="920" y="155"/>    
+    <position x="1276" y="286" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="4" language="java" name="ing.de.software.batallanaval.logica.Players" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/Players.java" binary="false" 
+  <class id="6" language="java" name="negocio.comunicacion.mensajes.Mensaje" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Mensaje.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="258" x="622" y="384"/>    
+    <position x="838" y="136" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="negocio.comunicacion.mensajes.Disparo" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Decodificacion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="637" y="567" width="151" height="57"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="negocio.comunicacion.mensajes.Conectar" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Decodificacion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="1143" y="602" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="negocio.comunicacion.mensajes.Desconectar" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Decodificacion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="890" y="606" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="negocio.comunicacion.mensajes.Colocar" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Decodificacion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="541" y="591" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="negocio.comunicacion.mensajes.Decodificacion" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/Decodificacion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="900" y="376" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="5" language="java" name="ing.de.software.batallanaval.logica.Coordenada" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/Coordenada.java" binary="false" 
+  <class id="12" language="java" name="datos.configuracionesgui.Plantilla" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/datos/configuracionesgui/Plantilla.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1074" y="544"/>    
+    <position x="68" y="478" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="ing.de.software.batallanaval.logica.comunicacion.HilodeEnvio" 
-    project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/comunicacion/HilodeEnvio.java" binary="false" 
+  <class id="13" language="java" name="datos.configuracionesgui.GUIConstants" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/datos/configuracionesgui/GUIConstants.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1652" y="640"/>    
+    <position x="-10" y="594" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <interface id="7" language="java" name="ing.de.software.batallanaval.datos.Tablero" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/datos/Tablero.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1056" y="-8"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="8" language="java" name="ing.de.software.batallanaval.logica.LogicaJuego" project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/LogicaJuego.java" binary="false" 
+  <class id="14" language="java" name="negocio.comunicacion.mensajes.MensajeGUI" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/MensajeGUI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="291" x="1510" y="384"/>    
+    <position x="270" y="590" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="ing.de.software.batallanaval.logica.comunicacion.HilodeEscucha" 
-    project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/comunicacion/HilodeEscucha.java" binary="false" 
+  <class id="15" language="java" name="negocio.comunicacion.mensajes.MensajeTurno" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/MensajeTurno.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="214" x="1510" y="155"/>    
+    <position x="560" y="182" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="ing.de.software.batallanaval.datos.TableroTradicional" 
-    project="Batalla Naval [0.1]" 
-    file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/datos/TableroTradicional.java" binary="false" 
+  <class id="16" language="java" name="negocio.controladores.BarcosMouseAdapter" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/controladores/BarcosMouseAdapter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="252" x="1218" y="155"/>    
+    <position x="32" y="786" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="11" language="java" name="ing.de.software.batallanaval.logica.EnumTablero" 
-    project="Batalla Naval [0.1]" file="/Batalla Naval [0.1]/src/ing/de/software/batallanaval/logica/EnumTablero.java" 
+  <class id="17" language="java" name="negocio.controladores.BotonJugarMouseAdapter" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/controladores/BotonJugarMouseAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="238" y="872" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="negocio.controladores.DisparoMouseAdapter" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/controladores/DisparoMouseAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position x="458" y="762" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="java.awt.event.MouseAdapter" project="Batalla Naval Client V01.00.00" 
+    file="C:/Program Files/Java/jdk1.7.0_45/jre/lib/rt.jar" binary="true" corner="BOTTOM_RIGHT">    
+    <position x="248" y="778" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="negocio.comunicacion.mensajes.elementosgraficos.ElementoGUI" 
+    project="Batalla Naval Server Software V01.00.00" 
+    file="/Batalla Naval Server Software V01.00.00/src/negocio/comunicacion/mensajes/elementosgraficos/ElementoGUI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1346" y="556"/>    
+    <position x="148" y="694" width="-1" height="-1"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
-  </enumeration>  
-  <association id="12">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="13" name="tablero2"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
+  </class>  
+  <association id="21">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="22" name="constants"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="false"/>  
   </association>  
-  <dependency id="15">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
+  <generalization id="24">    
+    <bendpoint x="478" y="504"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="25">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="26" name="adapter"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <dependency id="28">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="15"/>  
   </dependency>  
-  <dependency id="16">    
+  <generalization id="29">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <dependency id="30">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <association id="17">    
-    <bendpoint x="1546" y="328"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="18" name="logica"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
-  <association id="20">    
-    <bendpoint x="1017" y="110"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="21" name="tablero1"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
-  <association id="23">    
-    <bendpoint x="1728" y="318"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="24" name="hiloescucha"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="27" name="hiloenvio"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
-  <dependency id="29">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <dependency id="32">    
+    <bendpoint x="694" y="694"/>    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="14"/>  
   </dependency>  
-  <realization id="30">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="31">    
+  <dependency id="33">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="34">    
     <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="1"/>  
   </dependency>  
-  <association id="32">    
-    <bendpoint x="1145" y="120"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="33" name="tablero2"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
   <realization id="35">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
   </realization>  
   <dependency id="36">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="1"/>  
   </dependency>  
-  <association id="37">    
-    <bendpoint x="750" y="-8"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="38" name="tablero1"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="false"/>  
-  </association>  
-  <dependency id="40">    
+  <dependency id="37">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <realization id="41">    
+  <association id="38">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="39" name="elementsToAdd">        
+        <position x="137" y="639" width="82" height="18"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <dependency id="41">    
+    <bendpoint x="546" y="698"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="42">    
     <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <realization id="43">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="11"/>  
   </realization>  
-  <association id="42">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="43" name="filas"/>      
-      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
+  <generalization id="44">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <nesting id="45">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </nesting>  
+  <association id="46">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="47" name="typeofMessage"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="false"/>  
   </association>  
+  <dependency id="49">    
+    <bendpoint x="140" y="676"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="51">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="52" name="OutQueue"/>      
+      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <realization id="54">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <dependency id="55">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="56">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="57" name="socketMap"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="60" name="Datos"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <nesting id="62">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
+  <dependency id="63">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="65">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="66" name="ServerData"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="69">    
+    <bendpoint x="772" y="684"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="70">    
+    <bendpoint x="80" y="380"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="71">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="72">    
+    <bendpoint x="770" y="336"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="73" name="socketMap"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <realization id="76">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
